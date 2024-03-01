@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Handle public directory
+    RewriteRule ^$ public/ [L]
+    RewriteRule (.*) public/$1 [L]
+</IfModule>

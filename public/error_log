@@ -1,0 +1,8 @@
+[14-Feb-2024 11:49:56 UTC] PHP Warning:  require(/home/rhdairyfarm/public_html/vendor/composer/../../App/Helper/Helper.php): Failed to open stream: No such file or directory in /home/rhdairyfarm/public_html/vendor/composer/autoload_real.php on line 41
+[14-Feb-2024 11:49:56 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/rhdairyfarm/public_html/vendor/composer/../../App/Helper/Helper.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/rhdairyfarm/public_html/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/rhdairyfarm/public_html/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/rhdairyfarm/public_html/vendor/autoload.php(25): ComposerAutoloaderInit5166fa18881515b913270a68ee7b931a::getLoader()
+#2 /home/rhdairyfarm/public_html/public/index.php(34): require('/home/rhdairyfa...')
+#3 {main}
+  thrown in /home/rhdairyfarm/public_html/vendor/composer/autoload_real.php on line 41
