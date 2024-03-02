@@ -125,15 +125,6 @@ Route::middleware(['auth', 'auth.branch'])->group(function(){
     Route::get('/role/delete/{id}', [RoleController::class, 'destroy'])->middleware('role:admin');
     Route::get('/get-permissions/{id}', [RoleController::class, 'getPermissions'])->name('get.permissions')->middleware('role:admin|super-admin');
 
-    // For Pregnancy Route
-    Route::get('/pregnancy/monitoring', [PregnancyController::class, 'create'])->name('pregnancy.monitoring');
-    Route::post('/pregnancy/store', [PregnancyController::class, 'store'])->name('pregnancy.store');
-
-    // For Semen Route
-    Route::get('/semen/list', [SemenController::class, 'index'])->name('semen.list');
-    Route::get('/semen/create', [SemenController::class, 'create'])->name('semen.create');
-    Route::post('/semen/store', [SemenController::class, 'store'])->name('semen.store');
-
     //For Shed Route
     Route::controller(ShedController::class)->group(function(){
         Route::get('/shed/list', 'index')->name('shed.list');

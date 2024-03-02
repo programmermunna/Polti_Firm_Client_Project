@@ -193,16 +193,6 @@
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('routine.monitoring') }}">রুটিন মনিটরিং</a></li>
                                         <li><a href="{{ route('vaccine.monitoring') }}">ভ্যাকসিন মনিটরিং</a></li>
-                                        <li>
-                                            <a href="{{ route('pregnancy.monitoring') }}">
-                                                প্রেগনেন্সি মনিটরিং
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('semen.create') }}">
-                                                সিমেনের ধরণ
-                                            </a>
-                                        </li>
                                     </ul>
                                 </li>
 
