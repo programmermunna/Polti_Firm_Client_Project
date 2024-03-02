@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CowController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BeefController;
 use App\Http\Controllers\CostController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\MilkController;
@@ -117,40 +116,14 @@ Route::middleware(['auth', 'auth.branch'])->group(function(){
     Route::post('/salary/store', [StaffController::class, 'storeSalary'])->name('store.salary');
     Route::post('/staff/salary/add/{id}', [StaffController::class, 'storeStaffSalary']);
 
-    //For Beef Route
-    Route::get('/beef/create', [BeefController::class, 'create'])->name('beef.create');
-    Route::post('/beef/store', [BeefController::class, 'store'])->name('beef.store');
-    Route::post('/beef/sell/count', [BeefController::class, 'beefSellCount'])->name('beef.sell_count');
-    Route::get('/beef/sell', [BeefController::class, 'beefSell'])->name('beef.sell');
-    Route::get('/beef/sell/list', [BeefController::class, 'sellListIndex'])->name('beef.sell_list');
-    Route::get('/beef/sell/collect', [BeefController::class, 'show'])->name('sell.collect');
-    Route::post('/sell/update', [BeefController::class, 'sellUpdate'])->name('sell.edit');
-    Route::post('/beef/sell/store', [BeefController::class, 'beefSellStore'])->name('beef_sell.store');
-    Route::post('/beef/sell/update', [BeefController::class, 'beefSellUpdate'])->name('beef.sell_edit');
-    Route::get('/beef/sell/delete/{id}', [BeefController::class, 'destroy'])->middleware('role:admin,super-admin');
-
     // For Role Route
     Route::get('/role/list', [RoleController::class, 'index'])->name('role.list');
     Route::get('/role/create', [RoleController::class, 'create'])->name('role.create');
     Route::post('/role/store', [RoleController::class, 'store'])->name('role.store');
     Route::get('/role/edit/{id}', [RoleController::class, 'edit'])->name('role.edit')->middleware('role:admin|super-admin');
-    Route::post('/role/update', [RoleController::class, 'update'])->name('role.update')->middleware('role:admin|super-admin');;
+    Route::post('/role/update', [RoleController::class, 'update'])->name('role.update')->middleware('role:admin|super-admin');
     Route::get('/role/delete/{id}', [RoleController::class, 'destroy'])->middleware('role:admin');
-    Route::get('/get-permissions/{id}', [RoleController::class, 'getPermissions'])->name('get.permissions')->middleware('role:admin|super-admin');;
-
-    // For Milk Route
-    Route::get('/milk/list', [MilkController::class, 'index'])->name('milk.list');
-    Route::get('/milk/sell/list', [MilkController::class, 'sellIndex'])->name('milk.sell_list');
-    Route::get('/milk/create', [MilkController::class, 'create'])->name('milk.create');
-    Route::post('/cow/milk/store/{id}', [MilkController::class, 'store']);
-    Route::post('/cow/milk/edit', [MilkController::class, 'milkSellEdit'])->name('milk.sell_edit');
-    Route::get('/milk/sell/view/{date}', [MilkController::class, 'sellView'])->name('milk_sell.view');
-    Route::get('/milk/sell', [MilkController::class, 'milkSellCreate'])->name('milk.sell');
-    Route::get('/milk/collect/sell', [MilkController::class, 'milkSellCollect'])->name('milk_sell.collect');
-    Route::post('/milk/edit', [MilkController::class, 'update'])->name('milk.edit');
-    Route::post('/milk/sell/store', [MilkController::class, 'milkSellStore'])->name('milk_sell.store');
-    Route::post('/sell/milk/payment', [MilkController::class, 'milkSellPayment'])->name('milk.sell_store');
-    Route::get('/get/milk/info/{date}', [MilkController::class, 'milkInfo']);
+    Route::get('/get-permissions/{id}', [RoleController::class, 'getPermissions'])->name('get.permissions')->middleware('role:admin|super-admin');
 
     // For Pregnancy Route
     Route::get('/pregnancy/monitoring', [PregnancyController::class, 'create'])->name('pregnancy.monitoring');

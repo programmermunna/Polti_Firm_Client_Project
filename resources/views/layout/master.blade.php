@@ -130,21 +130,6 @@
                                 </li>
                                 {{-- Buyer Menu List --}}
 
-                                {{-- Beef Menu List --}}
-                                <li>
-                                    <a>
-                                        <i style="margin-right:8px; font-size: 1.2rem;" class="fa-solid fa-hippo"></i>
-                                        মাংস বিবরণী
-                                        <span class="fa fa-chevron-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="{{ route('beef.create') }}">প্রাপ্ত মাংস</a></li>
-                                        <li><a href="{{ route('beef.sell') }}">মাংস বিক্রয়</a></li>
-                                        <li><a href="{{ route('sell.collect') }}">বাকি সংগ্রহ</a></li>
-                                    </ul>
-                                </li>
-                                {{-- Beef Menu List --}}
-
                                 {{-- Invoice Menu List --}}
                                 {{-- <li>
                                     <a>
@@ -158,21 +143,6 @@
                                     </ul>
                                 </li> --}}
                                 {{-- Invoice Menu List --}}
-
-                                {{-- Milk Menu List --}}
-                                <li>
-                                    <a>
-                                        <i style="margin-right:8px; font-size: 1.2rem;" class="fa-solid fa-cow"></i>
-                                        দুধ বিবরণী
-                                        <span class="fa fa-chevron-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="{{ route('milk.create') }}">প্রাপ্ত দুধ</a></li>
-                                        <li><a href="{{ route('milk.sell') }}">দুধ বিক্রয়</a></li>
-                                        <li><a href="{{ route('milk_sell.collect') }}">বাকী সংগ্রহ</a></li>
-                                    </ul>
-                                </li>
-                                {{-- Milk Menu List --}}
 
                                 <li>
                                     <a href="{{ route('cow.feed') }}">
@@ -290,8 +260,6 @@
                                         <span class="fa fa-chevron-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
-                                        <li><a href="{{ route('milk.sale_report') }}">Milk Sale Report</a></li>
-                                        <li><a href="{{ route('milk.sell') }}">Cow Sell Report</a></li>
                                         <li><a href="{{ route('farm.expense_report') }}">Farm Expense Report</a></li>
                                         <li><a href="{{ route('employee.salary_report') }}">Employee Salary Report</a>
                                         </li>

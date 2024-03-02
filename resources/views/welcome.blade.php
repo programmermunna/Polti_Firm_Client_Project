@@ -95,7 +95,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট দুধ</h2>
-                        <p>{{ numberCountingFormat($totalMilk) . ' Ltr' }}</p>
+                        <p>Dynamic</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -116,7 +116,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট আয়</h2>
-                        <p>{{ numberCountingFormat($incomes + $beefSellAmount + $milkIncome) . ' Tk' }}</p>
+                        <p> Dynamic </p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -125,7 +125,7 @@
 
                 <div class="item-menu-info">
                     <p>
-                        {{ number_format($incomes + $beefSellAmount + $milkIncome, 2) . ' Tk' }}
+                        Dynamic
                     </p>
                 </div>
             </div>
@@ -191,7 +191,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট বাকি</h2>
-                        <p>{{ numberCountingFormat($dues + $beefDues + $milkIdue) . ' Tk' }}</p>
+                        <p>Dynamic</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -200,7 +200,7 @@
 
                 <div class="item-menu-info">
                     <p>
-                        {{ number_format($dues + $beefDues + $milkIdue, 2) . ' Tk' }}
+                        Dynamic
                     </p>
                 </div>
             </div>
@@ -212,7 +212,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>আজকের দুধ</h2>
-                        <p>{{ numberCountingFormat($todayMilkCount) . ' Ltr' }}</p>
+                        <p>Dynamic</p>
                     </div>
                     <div class="item-foot-head">
                         <button><i class="fa-solid fa-caret-down"></i></button>
@@ -232,7 +232,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>আজকের গোশত</h2>
-                        <p>{{ numberCountingFormat($totalBeef) . ' Kg' }}</p>
+                        <p>Dynamic</p>
                     </div>
                     <div class="item-foot-head">
                         <button><i class="fa-solid fa-caret-down"></i></button>
@@ -240,7 +240,7 @@
 
                     <div class="item-menu-info">
                         <p>
-                            {{ number_format($totalBeef, 2) }}
+                            Dynamic
                         </p>
                     </div>
                 </div>
@@ -253,7 +253,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>আজকের আয়</h2>
-                        <p>{{ numberCountingFormat($todayIncome) }}</p>
+                        <p>Dynamic</p>
                     </div>
                     <div class="item-foot-head">
                         <button><i class="fa-solid fa-caret-down"></i></button>
@@ -261,7 +261,7 @@
 
                     <div class="item-menu-info">
                         <p>
-                            {{ number_format($todayIncome, 2) }}
+                            Dynamic
                         </p>
                     </div>
                 </div>
