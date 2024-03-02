@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cow_vaccines', function (Blueprint $table) {
+        Schema::create('polti_vaccines', function (Blueprint $table) {
             $table->id();
             $table->foreignId('branch_id')->constrained('branches')
                 ->onUpdate('cascade')->onDelete('cascade')->nullable();
-            $table->foreignId('cow_tag')->constrained('cows')
+            $table->foreignId('polti_tag')->constrained('poltis')
                 ->onUpdate('cascade')->onDelete('cascade')->nullable();
             $table->foreignId('shed_id')->constrained('sheds')
                 ->onUpdate('cascade')->onDelete('cascade')->nullable();
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cow_vaccines');
+        Schema::dropIfExists('polti_vaccines');
     }
 };

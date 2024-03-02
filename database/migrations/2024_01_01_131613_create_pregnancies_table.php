@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('branch_id')->constrained('branches')
                 ->onUpdate('cascade')->onDelete('cascade')->nullable();
-            $table->foreignId('cow_id')->constrained('cows')
+            $table->foreignId('polti_id')->constrained('poltis')
                 ->onUpdate('cascade')->onDelete('cascade')->nullable();
             $table->string('pregnancy_type', 20)->nullable();
             $table->foreignId('semen_id')->constrained('semens')

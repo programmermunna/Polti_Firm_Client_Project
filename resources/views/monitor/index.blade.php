@@ -56,7 +56,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Branch Name</th>
-                                            <th>Cow Tag</th>
+                                            <th>polti Tag</th>
                                             <th>Feed</th>
                                             <th>Action</th>
                                         </tr>
@@ -64,30 +64,30 @@
 
                                     <tbody>
 
-                                        @if (count($cows) > 0)
+                                        @if (count($poltis) > 0)
                                             @php
                                                 $sl = 1;
                                             @endphp
-                                            @foreach ($cows as $key => $cow)
+                                            @foreach ($poltis as $key => $polti)
                                                 <tr class="list-item">
                                                     <td>{{ $sl }}</td>
-                                                    <td>{{ ucfirst($cow->branch->branch_name) }}</td>
-                                                    <td>{{ ucfirst($cow->tag) }}</td>
+                                                    <td>{{ ucfirst($polti->branch->branch_name) }}</td>
+                                                    <td>{{ ucfirst($polti->tag) }}</td>
                                                     <td>
                                                         <button type="button" class="btn btn-sm btn-primary feedBtn"
-                                                            data-id="{{ $cow->id }}">
+                                                            data-id="{{ $polti->id }}">
                                                             <i class="fas fa-regular fa-eye"></i>
                                                         </button>
                                                     </td>
                                                     <td>
                                                         <button class="btn btn-sm btn-primary editBtn" data-toggle="modal"
-                                                            data-target="#myModal" data-id="{{ $cow->id }}"
-                                                            data-name="{{ $cow->name }}"
-                                                            data-status="{{ $cow->status }}">
+                                                            data-target="#myModal" data-id="{{ $polti->id }}"
+                                                            data-name="{{ $polti->name }}"
+                                                            data-status="{{ $polti->status }}">
                                                             <i class="fa-regular fa-pen-to-square"></i>
                                                         </button>
                                                         <button class="btn btn-sm btn-danger deleteButton"
-                                                            data-id="{{ $cow->id }}">
+                                                            data-id="{{ $polti->id }}">
                                                             <i class="fa-solid fa-trash"></i>
                                                         </button>
                                                     </td>

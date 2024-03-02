@@ -5,7 +5,7 @@
 
             <div class="page_header">
                 <div class="page_header_menu">
-                    <a class="btn btn-sm btn-primary" href="{{ route('cow.create') }}">Add Cow</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('polti.create') }}">Add polti</a>
                 </div>
             </div>
 
@@ -18,7 +18,7 @@
             <div class="x_panel">
 
                 <div class="x_title">
-                    <h2 class="list_title">Cow List</h2>
+                    <h2 class="list_title">polti List</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li>
                             <a class="collapse-link">
@@ -71,22 +71,22 @@
 
                                     <tbody>
 
-                                        @if (count($cows) > 0)
-                                            @foreach ($cows as $key => $cow)
+                                        @if (count($poltis) > 0)
+                                            @foreach ($poltis as $key => $polti)
                                                 <tr class="list-item">
-                                                    <td>{{ $cow->branch->branch_name }}</td>
-                                                    <td style="color:#000; font-weight:bold;">{{ $cow->tag }}</td>
-                                                    <td style="color:#000; font-weight:bold;">{{ $cow->category->name }}
+                                                    <td>{{ $polti->branch->branch_name }}</td>
+                                                    <td style="color:#000; font-weight:bold;">{{ $polti->tag }}</td>
+                                                    <td style="color:#000; font-weight:bold;">{{ $polti->category->name }}
                                                     </td>
-                                                    <td>{{ number_format($cow->price, 2) }}</td>
-                                                    <td>{{ number_format($cow->transport, 2) }}</td>
-                                                    <td>{{ number_format($cow->hasil, 2) }}</td>
-                                                    <td>{{ number_format($cow->total, 2) }}</td>
-                                                    <td>{{ ucfirst($cow->caste) }}</td>
-                                                    <td>{{ $cow->weight . ' kg' }}</td>
-                                                    <td>{{ $cow->buy_date }}</td>
+                                                    <td>{{ number_format($polti->price, 2) }}</td>
+                                                    <td>{{ number_format($polti->transport, 2) }}</td>
+                                                    <td>{{ number_format($polti->hasil, 2) }}</td>
+                                                    <td>{{ number_format($polti->total, 2) }}</td>
+                                                    <td>{{ ucfirst($polti->caste) }}</td>
+                                                    <td>{{ $polti->weight . ' kg' }}</td>
+                                                    <td>{{ $polti->buy_date }}</td>
                                                     <td>
-                                                        @if ($cow->flag == '1')
+                                                        @if ($polti->flag == '1')
                                                             <label for="" class="btn btn-sm btn-warning">
                                                                 Sold
                                                             </label>
@@ -98,27 +98,27 @@
                                                     </td>
                                                     <td>
                                                         <button class="btn btn-sm btn-primary editBtn" data-toggle="modal"
-                                                            data-target="#myModal" data-id="{{ $cow->id }}"
-                                                            data-tag="{{ $cow->tag }}"
-                                                            data-category_id="{{ $cow->category_id }}"
-                                                            data-hasil="{{ $cow->hasil }}"
-                                                            data-color="{{ $cow->color }}"
-                                                            data-age="{{ $cow->age }}"
-                                                            data-description="{{ $cow->description }}"
-                                                            data-caste="{{ $cow->caste }}"
-                                                            data-weight="{{ $cow->weight }}"
-                                                            data-transport="{{ $cow->transport }}"
-                                                            data-price="{{ $cow->price }}"
-                                                            data-type="{{ $cow->type }}"
-                                                            data-buy_date="{{ $cow->buy_date }}">
+                                                            data-target="#myModal" data-id="{{ $polti->id }}"
+                                                            data-tag="{{ $polti->tag }}"
+                                                            data-category_id="{{ $polti->category_id }}"
+                                                            data-hasil="{{ $polti->hasil }}"
+                                                            data-color="{{ $polti->color }}"
+                                                            data-age="{{ $polti->age }}"
+                                                            data-description="{{ $polti->description }}"
+                                                            data-caste="{{ $polti->caste }}"
+                                                            data-weight="{{ $polti->weight }}"
+                                                            data-transport="{{ $polti->transport }}"
+                                                            data-price="{{ $polti->price }}"
+                                                            data-type="{{ $polti->type }}"
+                                                            data-buy_date="{{ $polti->buy_date }}">
                                                             <i class="fa-regular fa-pen-to-square"></i>
                                                         </button>
                                                         <button class="btn btn-sm btn-danger deleteButton"
-                                                            data-id="{{ $cow->id }}">
+                                                            data-id="{{ $polti->id }}">
                                                             <i class="fa-solid fa-trash"></i>
                                                         </button>
                                                         <a href="" class="btn btn-sm btn-warning deleteButton"
-                                                            data-id="{{ $cow->id }}">
+                                                            data-id="{{ $polti->id }}">
                                                             <i class="fa-solid fa-file-invoice"></i>
                                                         </a>
                                                     </td>
@@ -152,9 +152,9 @@
                 <!-- Modal body -->
                 <div class="modal-body">
 
-                    <form class="" action="{{ route('cow.edit') }}" method="post" novalidate>
+                    <form class="" action="{{ route('polti.edit') }}" method="post" novalidate>
                         @csrf
-                        <input type="hidden" name="cow_id">
+                        <input type="hidden" name="polti_id">
 
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">দাম<span
@@ -312,7 +312,7 @@
     <script>
         $(document).ready(function() {
             $('.deleteButton').click(function() {
-                var cowId = $(this).data('id');
+                var poltiId = $(this).data('id');
                 var listItem = $(this).closest(
                     '.list-item'); // Adjust the selector based on your HTML structure
 
@@ -330,7 +330,7 @@
                         // If the user confirms, send an AJAX request to delete the pigeon
                         $.ajax({
                             type: 'GET',
-                            url: '/cow/delete/' + cowId,
+                            url: '/polti/delete/' + poltiId,
                             success: function(response) {
                                 // Remove the deleted item from the DOM
                                 listItem.remove();
@@ -369,7 +369,7 @@
     <script>
         $(document).ready(function() {
             $('.editBtn').click(function() {
-                const cowData = {
+                const poltiData = {
                     id: $(this).data('id'),
                     price: $(this).data('price'),
                     categoryId: $(this).data('category_id'),
@@ -385,18 +385,18 @@
                 };
 
                 // Set values to form fields
-                $('input[name="cow_id"]').val(cowData.id);
-                $('input[name="price"]').val(cowData.price);
-                $('select[name="category_id"]').val(cowData.categoryId);
-                $('input[name="tag"]').val(cowData.tag);
-                $('input[name="caste"]').val(cowData.caste);
-                $('input[name="weight"]').val(cowData.weight);
-                $('input[name="transport"]').val(cowData.transport);
-                $('input[name="hasil"]').val(cowData.hasil);
-                $('input[name="color"]').val(cowData.color);
-                $('input[name="buy_date"]').val(cowData.buy_date);
-                $('input[name="age"]').val(cowData.age);
-                $('textarea[name="description"]').val(cowData.description);
+                $('input[name="polti_id"]').val(poltiData.id);
+                $('input[name="price"]').val(poltiData.price);
+                $('select[name="category_id"]').val(poltiData.categoryId);
+                $('input[name="tag"]').val(poltiData.tag);
+                $('input[name="caste"]').val(poltiData.caste);
+                $('input[name="weight"]').val(poltiData.weight);
+                $('input[name="transport"]').val(poltiData.transport);
+                $('input[name="hasil"]').val(poltiData.hasil);
+                $('input[name="color"]').val(poltiData.color);
+                $('input[name="buy_date"]').val(poltiData.buy_date);
+                $('input[name="age"]').val(poltiData.age);
+                $('textarea[name="description"]').val(poltiData.description);
 
                 // Open the modal
                 $('#myModal').modal('show');

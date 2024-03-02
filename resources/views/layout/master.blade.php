@@ -145,9 +145,9 @@
                                 {{-- Invoice Menu List --}}
 
                                 <li>
-                                    <a href="{{ route('cow.feed') }}">
+                                    <a href="{{ route('polti.feed') }}">
                                         <i style="font-size: 1.2rem;" class="fa-solid fa-bowl-food"></i>
-                                        পশু খাদ্য
+                                        পল্টি খাদ্য
                                     </a>
                                 </li>
 
@@ -155,14 +155,14 @@
                                 <li>
                                     <a>
                                         <i style="margin-right:8px; font-size: 1.2rem;"
-                                            class="fa-brands fa-sellcast"></i> পশু
+                                            class="fa-brands fa-sellcast"></i> পল্টি
                                         ক্রয়/বিক্রয়
                                         <span class="fa fa-chevron-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
-                                        <li><a href="{{ route('cow.create') }}">ক্রয়</a></li>
-                                        <li><a href="{{ route('cow.sell') }}">বিক্রয়</a></li>
-                                        <li><a href="{{ route('cow_sell.collect') }}">বাকী সংগ্রহ</a></li>
+                                        <li><a href="{{ route('polti.create') }}">ক্রয়</a></li>
+                                        <li><a href="{{ route('polti.sell') }}">বিক্রয়</a></li>
+                                        <li><a href="{{ route('polti_sell.collect') }}">বাকী সংগ্রহ</a></li>
                                     </ul>
                                 </li>
                                 {{-- Animal Sell Menu List --}}
@@ -187,7 +187,7 @@
                                     <a>
                                         <i style="margin-right:8px; font-size: 1.2rem;"
                                             class="fa-brands fa-watchman-monitoring"></i>
-                                        পশু মনিটরিং
+                                        পল্টি মনিটরিং
                                         <span class="fa fa-chevron-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -205,9 +205,9 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('cow.list') }}">
+                                    <a href="{{ route('polti.list') }}">
                                         <i style="margin-right:8px; font-size: 1.2rem;" class="fa-solid fa-list"></i>
-                                        পশুর তালিকা
+                                        পল্টির তালিকা
                                     </a>
                                 </li>
 

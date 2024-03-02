@@ -2,20 +2,20 @@
 
 namespace App\Models;
 
-use App\Models\Cow;
+use App\Models\polti;
 use App\Models\Shed;
 use App\Models\Branch;
 use App\Models\Vaccine;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class CowVaccine extends Model
+class poltiVaccine extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'branch_id',
-        'cow_tag',
+        'polti_tag',
         'shed_id',
         'push_date',
         'note',
@@ -27,7 +27,7 @@ class CowVaccine extends Model
     protected $casts = [
         'id'         => 'integer',
         'branch_id'  => 'integer',
-        'cow_tag'    => 'integer',
+        'polti_tag'    => 'integer',
         'shed_id'    => 'integer',
         'push_date'  => 'datetime',
         'note'       => 'string',
@@ -45,9 +45,9 @@ class CowVaccine extends Model
         return $this->belongsTo(Branch::class, 'branch_id', 'id');
     }
 
-    public function cow()
+    public function polti()
     {
-        return $this->belongsTo(Cow::class, 'cow_tag', 'id');
+        return $this->belongsTo(polti::class, 'polti_tag', 'id');
     }
 
     public function shed()

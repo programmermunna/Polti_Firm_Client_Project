@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Models\CowFeed;
+use App\Models\poltiFeed;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,24 +15,24 @@ class FoodService
         }
     }
 
-    public function create($shedId, $cowId, $description, $foodIds, $foodQuantities, $unitIds)
+    public function create($shedId, $poltiId, $description, $foodIds, $foodQuantities, $unitIds)
     {
         try {
             DB::beginTransaction();
 
             foreach($foodIds as $key => $foodId){
-                $cowFeedObj = new CowFeed();
+                $poltiFeedObj = new poltiFeed();
 
-                $cowFeedObj->branch_id       = session('branch_id');
-                $cowFeedObj->cow_tag       = $cowId;
-                $cowFeedObj->description   = $description;
-                $cowFeedObj->shed_id       = $shedId;
-                $cowFeedObj->food_id       = $foodId;
-                $cowFeedObj->food_quantity = $foodQuantities[$key];
-                $cowFeedObj->unit_id       = $unitIds[$key];
+                $poltiFeedObj->branch_id       = session('branch_id');
+                $poltiFeedObj->polti_tag       = $poltiId;
+                $poltiFeedObj->description   = $description;
+                $poltiFeedObj->shed_id       = $shedId;
+                $poltiFeedObj->food_id       = $foodId;
+                $poltiFeedObj->food_quantity = $foodQuantities[$key];
+                $poltiFeedObj->unit_id       = $unitIds[$key];
 
                 DB::commit();
-                $cowFeedObj->save();
+                $poltiFeedObj->save();
             }
 
             return true;

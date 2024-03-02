@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\CowController;
+use App\Http\Controllers\poltiController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CostController;
@@ -145,37 +145,37 @@ Route::middleware(['auth', 'auth.branch'])->group(function(){
     Route::get('/cost/create', [CostController::class, 'create'])->name('cost.create');
     Route::post('/cost/store', [CostController::class, 'store'])->name('cost.store');
     Route::post('/cost/edit', [CostController::class, 'update'])->name('cost.edit');
-    Route::get('/bachur/list', [CowController::class, 'bachurIndex'])->name('bachur.list');
+    Route::get('/bachur/list', [poltiController::class, 'bachurIndex'])->name('bachur.list');
 
-    // For Cow Route
-    Route::get('/cow/list', [CowController::class, 'index'])->name('cow.list');
-    Route::get('/cow/create', [CowController::class, 'create'])->name('cow.create');
-    Route::get('/cow/sell', [CowController::class, 'sellCreate'])->name('cow.sell');
-    Route::post('/cow/sell/store', [CowController::class, 'sellStore'])->name('sell.store');
-    Route::post('/cow/store', [CowController::class, 'store'])->name('cow.store');
-    Route::post('/cow/update', [CowController::class, 'update'])->name('cow.edit');
-    Route::get('/sell/cow/list', [CowController::class, 'sellIndex'])->name('cow_sell.list');
-    Route::post('/sell/edit', [CowController::class, 'sellEdit'])->name('cow_sell.edit');
-    Route::post('/payment/store', [CowController::class, 'paymentStore'])->name('payment.store');
-    Route::get('/cow/sell/collect', [CowController::class, 'sellCollect'])->name('cow_sell.collect');
-    Route::get('/cow/sell/invoice/{id}', [CowController::class, 'sellInvoice'])->name('sell.invoice');
-    Route::get('/get/cow/info/{id}', [CowController::class, 'cowInfo']);
-    Route::get('/cow/delete/{id}', [CowController::class, 'destroy'])->middleware('role:admin');
-    Route::get('/sell/cow/delete/{id}', [CowController::class, 'sellDestroy'])->middleware('role:admin');
+    // For polti Route
+    Route::get('/polti/list', [poltiController::class, 'index'])->name('polti.list');
+    Route::get('/polti/create', [poltiController::class, 'create'])->name('polti.create');
+    Route::get('/polti/sell', [poltiController::class, 'sellCreate'])->name('polti.sell');
+    Route::post('/polti/sell/store', [poltiController::class, 'sellStore'])->name('sell.store');
+    Route::post('/polti/store', [poltiController::class, 'store'])->name('polti.store');
+    Route::post('/polti/update', [poltiController::class, 'update'])->name('polti.edit');
+    Route::get('/sell/polti/list', [poltiController::class, 'sellIndex'])->name('polti_sell.list');
+    Route::post('/sell/edit', [poltiController::class, 'sellEdit'])->name('polti_sell.edit');
+    Route::post('/payment/store', [poltiController::class, 'paymentStore'])->name('payment.store');
+    Route::get('/polti/sell/collect', [poltiController::class, 'sellCollect'])->name('polti_sell.collect');
+    Route::get('/polti/sell/invoice/{id}', [poltiController::class, 'sellInvoice'])->name('sell.invoice');
+    Route::get('/get/polti/info/{id}', [poltiController::class, 'poltiInfo']);
+    Route::get('/polti/delete/{id}', [poltiController::class, 'destroy'])->middleware('role:admin');
+    Route::get('/sell/polti/delete/{id}', [poltiController::class, 'sellDestroy'])->middleware('role:admin');
 
     // For Invoice Controller
     Route::get('/invoice/create', [InvoiceController::class, 'create'])->name('invoice.create');
 
     // For Food Route
     Route::get('/food/list', [FoodController::class, 'index'])->name('food.list');
-    Route::get('cow/feed/list', [FoodController::class, 'feedIndex'])->name('cow.feed');
-    Route::get('cow/feed/create', [FoodController::class, 'create'])->name('cow_feed.create');
+    Route::get('polti/feed/list', [FoodController::class, 'feedIndex'])->name('polti.feed');
+    Route::get('polti/feed/create', [FoodController::class, 'create'])->name('polti_feed.create');
     Route::post('/food/store', [FoodController::class, 'store'])->name('food.store');
     Route::post('/feed/store', [FoodController::class, 'feedStore'])->name('feed.store');
     Route::post('/food/edit', [FoodController::class, 'update'])->name('food.edit');
-    Route::get('/get/shed/cows/{id}', [FoodController::class, 'shedCows']);
-    Route::get('/get/cow/feed/{id}', [FoodController::class, 'getCowInfo']);
-    Route::get('/get/cow/vaccine/{id}', [FoodController::class, 'getCowVaccine']);
+    Route::get('/get/shed/poltis/{id}', [FoodController::class, 'shedpoltis']);
+    Route::get('/get/polti/feed/{id}', [FoodController::class, 'getpoltiInfo']);
+    Route::get('/get/polti/vaccine/{id}', [FoodController::class, 'getpoltiVaccine']);
     Route::get('/food/delete/{id}', [FoodController::class, 'destroy'])->middleware('role:admin');
 
     // For Unit Route

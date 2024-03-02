@@ -11,7 +11,7 @@
 
             <div class="page_header">
                 <div style="width: 15%;" class="page_header_menu">
-                    <a class="btn btn-sm btn-primary" href="{{ route('cow_sell.list') }}">Sell List</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('polti_sell.list') }}">Sell List</a>
                     <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal">
                         Add Buyer
                     </button>
@@ -20,7 +20,7 @@
 
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>This cow sell from <small style="font-weight: bold; color:#000;">Branch :
+                    <h2>This polti sell from <small style="font-weight: bold; color:#000;">Branch :
                             {{ session('branch_id') }}</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -42,20 +42,20 @@
 
                     <form class="" action="{{ route('sell.store') }}" method="post" novalidate>
                         @csrf
-                        <span class="section">Cow Sell Info</span>
+                        <span class="section">polti Sell Info</span>
 
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">গরু<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
-                                <select name="cow_id" id="" class="form-control" required="required">
+                                <select name="polti_id" id="" class="form-control" required="required">
                                     <option value="" selected disabled>Select</option>
-                                    @foreach ($cows as $key => $cow)
-                                        <option value="{{ $cow->id }}">{{ $cow->tag }}</option>
+                                    @foreach ($poltis as $key => $polti)
+                                        <option value="{{ $polti->id }}">{{ $polti->tag }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            @error('cow_id')
+                            @error('polti_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -304,15 +304,15 @@
 
     <script>
         $(document).ready(function() {
-            $('select[name="cow_id"]').on('change', function() {
+            $('select[name="polti_id"]').on('change', function() {
                 var id = $(this).val();
 
                 if (id != null) {
                     $.ajax({
-                        url: '/get/cow/info/' + id,
+                        url: '/get/polti/info/' + id,
                         type: 'GET',
                         success: function(response) {
-                            $('select[name="cow"]').val(response
+                            $('select[name="polti"]').val(response
                             .id); // Assuming 'id' is the field you want to set in the dropdown
                             $('select[name="type"]').val(response.type);
                             $('input[name="tag"]').val(response.tag);

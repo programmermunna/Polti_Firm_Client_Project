@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Models\CowVaccine;
+use App\Models\poltiVaccine;
 use Carbon\Carbon;
 use App\Models\Vaccine;
 use Illuminate\Support\Str;
@@ -86,25 +86,25 @@ class VaccineService
         }
     }
 
-    public function vaccineStore($shedId, $cowId, $date, $note, $vaccineIds, $remarks, $givenTime)
+    public function vaccineStore($shedId, $poltiId, $date, $note, $vaccineIds, $remarks, $givenTime)
     {
         try {
             DB::beginTransaction();
 
             foreach($vaccineIds as $key => $vaccine){
-                $cowVaccineObj = new CowVaccine();
+                $poltiVaccineObj = new poltiVaccine();
 
-                $cowVaccineObj->branch_id = session('branch_id');
-                $cowVaccineObj->cow_tag = $cowId;
-                $cowVaccineObj->shed_id = $shedId;
-                $cowVaccineObj->push_date = $date;
-                $cowVaccineObj->note = $note;
-                $cowVaccineObj->vaccine_id = $vaccine;
-                $cowVaccineObj->remarks = $remarks[$key];
-                $cowVaccineObj->given_time = $givenTime[$key];
+                $poltiVaccineObj->branch_id = session('branch_id');
+                $poltiVaccineObj->polti_tag = $poltiId;
+                $poltiVaccineObj->shed_id = $shedId;
+                $poltiVaccineObj->push_date = $date;
+                $poltiVaccineObj->note = $note;
+                $poltiVaccineObj->vaccine_id = $vaccine;
+                $poltiVaccineObj->remarks = $remarks[$key];
+                $poltiVaccineObj->given_time = $givenTime[$key];
 
                 DB::commit();
-                $cowVaccineObj->save();
+                $poltiVaccineObj->save();
             }
             return true;
         } catch (\Exception $e) {

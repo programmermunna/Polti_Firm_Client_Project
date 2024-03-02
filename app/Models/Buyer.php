@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Branch;
-use App\Models\CowSell;
+use App\Models\poltiSell;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -41,8 +41,8 @@ class Buyer extends Model
         return $this->belongsTo(Branch::class, 'branch_id', 'id');
     }
 
-    public function cowSells()
+    public function poltiSells()
     {
-        return $this->hasMany(CowSell::class);
+        return $this->hasMany(poltiSell::class);
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Models\Cow;
+use App\Models\polti;
 use App\Models\Cost;
 use App\Models\Shed;
 use App\Models\Staff;
@@ -36,7 +36,7 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        $cows          = Cow::where('branch_id', session('branch_id'))->where('status', '1')->where('flag', '0')->count();
+        $poltis        = polti::where('branch_id', session('branch_id'))->where('status', '1')->where('flag', '0')->count();
         $currentDate   = Carbon::today();
         $branchName    = Branch::where('id', session('branch_id'))->first();
         $permanetCost  = Cost::where('branch_id', session('branch_id'))->where('expense_type', 2)->sum('cost_amount');
@@ -51,7 +51,7 @@ class AdminController extends Controller
 
         $staffSalaryAmount = StaffSalary::where('branch_id', session('branch_id'))->sum('amount');
 
-        return view('welcome', compact('dues','cows', 'staffSalaryAmount', 'branchName', 'permanetCost', 'staffs', 'farmCosts','incomes', 'totalCost', 'farm1Cost'));
+        return view('welcome', compact('dues','poltis', 'staffSalaryAmount', 'branchName', 'permanetCost', 'staffs', 'farmCosts','incomes', 'totalCost', 'farm1Cost'));
     }
 
     public function branch()

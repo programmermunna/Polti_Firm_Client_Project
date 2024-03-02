@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Cow;
+use App\Models\polti;
 use App\Models\Beef;
 use App\Models\Cost;
 use App\Models\Milk;
@@ -12,8 +12,8 @@ use App\Models\Semen;
 use App\Models\Staff;
 use App\Models\Income;
 use App\Models\Account;
-use App\Models\CowFeed;
-use App\Models\CowSell;
+use App\Models\poltiFeed;
+use App\Models\poltiSell;
 use App\Models\Invoice;
 use App\Models\BeefSell;
 use App\Models\Pregnancy;
@@ -56,19 +56,19 @@ class Branch extends Model
         return $this->hasMany(Staff::class);
     }
 
-    public function cows()
+    public function poltis()
     {
-        return $this->hasMany(Cow::class);
+        return $this->hasMany(polti::class);
     }
 
     public function buyers()
     {
-        return $this->hasMany(Cow::class);
+        return $this->hasMany(polti::class);
     }
 
-    public function cowSells()
+    public function poltiSells()
     {
-        return $this->hasMany(CowSell::class);
+        return $this->hasMany(poltiSell::class);
     }
 
     public function beefs()
@@ -126,8 +126,8 @@ class Branch extends Model
         return $this->hasMany(Shed::class);
     }
 
-    public function cowFeeds()
+    public function poltiFeeds()
     {
-        return $this->hasMany(CowFeed::class);
+        return $this->hasMany(poltiFeed::class);
     }
 }

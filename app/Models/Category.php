@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Cow;
+use App\Models\polti;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,8 +25,8 @@ class Category extends Model
     ];
 
     // Relation Start
-    public function cows()
+    public function poltis()
     {
-        return $this->hasMany(Cow::class);
+        return $this->hasMany(polti::class);
     }
 }

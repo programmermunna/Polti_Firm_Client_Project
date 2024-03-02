@@ -2,19 +2,19 @@
 
 namespace App\Models;
 
-use App\Models\Cow;
+use App\Models\polti;
 use App\Models\Buyer;
 use App\Models\Branch;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CowSell extends Model
+class poltiSell extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'branch_id',
-        'cow_id',
+        'polti_id',
         'buyer_id',
         'price',
         'payment',
@@ -28,7 +28,7 @@ class CowSell extends Model
     protected $casts = [
         'id'          => 'integer',
         'branch_id'   => 'integer',
-        'cow_id'      => 'integer',
+        'polti_id'      => 'integer',
         'buyer_id'    => 'integer',
         'price'       => 'integer',
         'payment'     => 'integer',
@@ -48,9 +48,9 @@ class CowSell extends Model
         return $this->belongsTo(Branch::class, 'branch_id', 'id');
     }
 
-    public function cow()
+    public function polti()
     {
-        return $this->belongsTo(Cow::class, 'cow_id', 'id');
+        return $this->belongsTo(polti::class, 'polti_id', 'id');
     }
 
     public function buyer()

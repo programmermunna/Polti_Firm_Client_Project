@@ -8,7 +8,7 @@
         @endif
         <div class="page_header">
             <div class="page_header_menu">
-                <a class="btn btn-sm btn-primary" href="{{ route('cow.feed') }}">Feed List</a>
+                <a class="btn btn-sm btn-primary" href="{{ route('polti.feed') }}">Feed List</a>
             </div>
         </div>
 
@@ -17,8 +17,8 @@
             <form action="{{ route('feed.store') }}" method="post">
                 @csrf
                 <input type="submit" value="Save Information" class="form-control btn btn-sm btn-primary">
-                <div class="cow_feed">
-                    <div class="cow_basic_info">
+                <div class="polti_feed">
+                    <div class="polti_basic_info">
                         <div class="basic_form">
                             <h5>
                                 <i class="fa-solid fa-circle-info"></i>
@@ -40,11 +40,11 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">Select Cow</label>
-                                    <select name="cow_id" id="cowId" class="form-control">
+                                    <label for="">Select polti</label>
+                                    <select name="polti_id" id="poltiId" class="form-control">
                                         <option value="">Select</option>
                                     </select>
-                                    @error('cow_id')
+                                    @error('polti_id')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>

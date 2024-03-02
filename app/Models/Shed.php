@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Cow;
+use App\Models\polti;
 use App\Models\Branch;
-use App\Models\CowFeed;
+use App\Models\poltiFeed;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -38,13 +38,13 @@ class Shed extends Model
         return $this->belongsTo(Branch::class, 'branch_id', 'id');
     }
 
-    public function cows()
+    public function poltis()
     {
-        return $this->hasMany(Cow::class);
+        return $this->hasMany(polti::class);
     }
 
-    public function cowFeeds()
+    public function poltiFeeds()
     {
-        return $this->hasMany(CowFeed::class);
+        return $this->hasMany(poltiFeed::class);
     }
 }

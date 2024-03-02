@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cow;
+use App\Models\polti;
 use App\Models\Food;
 use App\Models\Shed;
 use App\Models\Unit;
@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreFoodRequest;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UpdateFoodRequest;
-use App\Models\CowFeed;
-use App\Models\CowVaccine;
+use App\Models\poltiFeed;
+use App\Models\poltiVaccine;
 use App\Service\FoodService;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
@@ -47,9 +47,9 @@ class FoodController extends Controller
 
     public function feedIndex()
     {
-        $data['cows'] = Cow::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('flag', 0)->get();
+        $data['poltis'] = polti::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('flag', 0)->get();
 
-        return view('cowFeed.index')->with($data);
+        return view('poltiFeed.index')->with($data);
     }
 
     /**
@@ -57,10 +57,10 @@ class FoodController extends Controller
      */
     public function create()
     {
-        $sheds = Shed::with('cows')->where('branch_id', session('branch_id'))->get();
+        $sheds = Shed::with('poltis')->where('branch_id', session('branch_id'))->get();
         $foods = Food::all();
         $units = Unit::all();
-        return view('cowFeed.create', compact('sheds', 'foods', 'units'));
+        return view('poltiFeed.create', compact('sheds', 'foods', 'units'));
     }
 
     /**
@@ -92,15 +92,15 @@ class FoodController extends Controller
     {
         $foodServiceObj = new FoodService;
         $shedId         = $request->input('shed_id');
-        $cowId          = $request->input('cow_id');
+        $poltiId          = $request->input('polti_id');
         $description    = $request->input('description');
         $foodIds        = $request->input('food_id');
         $foodQuantities = $request->input('food_quantity');
         $unitIds        = $request->input('unit_id');
 
-        $res = $foodServiceObj->create($shedId, $cowId, $description, $foodIds, $foodQuantities, $unitIds);
+        $res = $foodServiceObj->create($shedId, $poltiId, $description, $foodIds, $foodQuantities, $unitIds);
         if($res == true){
-            return redirect()->back()->with('message', 'Food assign to the cow');
+            return redirect()->back()->with('message', 'Food assign to the polti');
         }
     }
 
@@ -126,16 +126,16 @@ class FoodController extends Controller
         }
     }
 
-    public function shedCows($id)
+    public function shedpoltis($id)
     {
         $shedId = $id;
-        $cows = Cow::where('shed_id', $shedId)->where('branch_id', session('branch_id'))->get();
-        return response()->json($cows);
+        $poltis = polti::where('shed_id', $shedId)->where('branch_id', session('branch_id'))->get();
+        return response()->json($poltis);
     }
 
-    public function getCowInfo($id)
+    public function getpoltiInfo($id)
     {
-        $feeds = CowFeed::with('food:id,name', 'unit:id,name')->where('branch_id', session('branch_id'))->where('cow_tag', $id)->get();
+        $feeds = poltiFeed::with('food:id,name', 'unit:id,name')->where('branch_id', session('branch_id'))->where('polti_tag', $id)->get();
 
         return response()->json(['feeds' => $feeds]);
     }
@@ -229,9 +229,9 @@ class FoodController extends Controller
         }
     }
 
-    public function getCowVaccine($id)
+    public function getpoltiVaccine($id)
     {
-        $vaccines = CowVaccine::with('branch:id,branch_name', 'vaccine:id,name')->where('branch_id', session('branch_id'))->where('cow_tag', $id)->get();
+        $vaccines = poltiVaccine::with('branch:id,branch_name', 'vaccine:id,name')->where('branch_id', session('branch_id'))->where('polti_tag', $id)->get();
 
         return response()->json(['vaccines' => $vaccines]);
     }

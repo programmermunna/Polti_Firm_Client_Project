@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\CowFeed;
+use App\Models\poltiFeed;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -25,8 +25,8 @@ class Unit extends Model
     ];
 
     //Relation Start
-    public function cowFeeds()
+    public function poltiFeeds()
     {
-        return $this->hasMany(CowFeed::class);
+        return $this->hasMany(poltiFeed::class);
     }
 }

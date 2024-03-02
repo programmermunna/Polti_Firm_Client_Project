@@ -5,7 +5,7 @@
 
             <div class="page_header">
                 <div class="page_header_menu">
-                    <a class="btn btn-sm btn-primary" href="{{ route('cow.sell') }}">Add Sell</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('polti.sell') }}">Add Sell</a>
                 </div>
             </div>
 
@@ -77,12 +77,12 @@
                                                         {{ number_format($sell->payment, 2) }}</td>
                                                     <td style="color: red; font-weight:bold;">
                                                         {{ number_format($sell->due, 2) }}</td>
-                                                    <td>{{ ucfirst($sell->cow->category->name) }}</td>
+                                                    <td>{{ ucfirst($sell->polti->category->name) }}</td>
                                                     <td>{{ dateTimeFormat($sell->sell_date) }}</td>
                                                     <td>
                                                         <button class="btn btn-sm btn-primary editBtn" data-toggle="modal"
                                                             data-target="#myModal" data-id="{{ $sell->id }}"
-                                                            data-cow_id="{{ $sell->cow->id }}"
+                                                            data-polti_id="{{ $sell->polti->id }}"
                                                             data-price="{{ $sell->price }}"
                                                             data-due="{{ $sell->due }}"
                                                             data-status="{{ $sell->status }}"
@@ -131,9 +131,9 @@
                 <!-- Modal body -->
                 <div class="modal-body">
 
-                    <form class="" action="{{ route('cow_sell.edit') }}" method="post" novalidate>
+                    <form class="" action="{{ route('polti_sell.edit') }}" method="post" novalidate>
                         @csrf
-                        <span class="section">Cow Sell Info</span>
+                        <span class="section">polti Sell Info</span>
 
                         <input type="hidden" name="sell_id">
 
@@ -141,14 +141,14 @@
                             <label class="col-form-label col-md-3 col-sm-3  label-align">গরু<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
-                                <select name="cow_id" id="" class="form-control" required="required">
+                                <select name="polti_id" id="" class="form-control" required="required">
                                     <option value="" selected disabled>Select</option>
-                                    @foreach ($cows as $key => $cow)
-                                        <option value="{{ $cow->id }}">{{ $cow->tag }}</option>
+                                    @foreach ($poltis as $key => $polti)
+                                        <option value="{{ $polti->id }}">{{ $polti->tag }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            @error('cow_id')
+                            @error('polti_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -276,7 +276,7 @@
                         // If the user confirms, send an AJAX request to delete the pigeon
                         $.ajax({
                             type: 'GET',
-                            url: '/sell/cow/delete/' + sellId,
+                            url: '/sell/polti/delete/' + sellId,
                             success: function(response) {
                                 // Remove the deleted item from the DOM
                                 listItem.remove();
@@ -315,10 +315,10 @@
     <script>
         $(document).ready(function() {
             $('.editBtn').click(function() {
-                // alert($(this).data('cow'));
+                // alert($(this).data('polti'));
                 const sellData = {
                     id: $(this).data('id'),
-                    cow: $(this).data('cow_id'),
+                    polti: $(this).data('polti_id'),
                     buyer: $(this).data('buyer'),
                     payment: $(this).data('payment'),
                     price: $(this).data('price'),
@@ -329,7 +329,7 @@
 
                 // Set values to form fields
                 $('input[name="sell_id"]').val(sellData.id);
-                $('select[name="cow_id"]').val(sellData.cow);
+                $('select[name="polti_id"]').val(sellData.polti);
                 $('input[name="due"]').val(sellData.due);
                 $('input[name="price"]').val(sellData.price);
                 $('input[name="payment"]').val(sellData.payment);

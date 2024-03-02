@@ -25,7 +25,7 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/dd-removebg-preview.png') }}" alt="cow image">
+                        <img src="{{ asset('custom/logos/dd-removebg-preview.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>কর্মচারী</h2>
@@ -46,11 +46,11 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/2395796.png') }}" alt="cow image">
+                        <img src="{{ asset('custom/logos/2395796.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
-                        <h2>মোট পশু</h2>
-                        <p>{{ numberCountingFormat($cows > 0 ? $cows : '0') }}</p>
+                        <h2>মোট পল্টি</h2>
+                        <p>{{ numberCountingFormat($poltis > 0 ? $poltis : '0') }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -59,7 +59,7 @@
 
                 <div class="item-menu-info">
                     <p>
-                        {{ ($cows > 0) ? $cows : '0' }}
+                        {{ ($poltis > 0) ? $poltis : '0' }}
                     </p>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
                         <img src="{{ asset('custom/logos/istockphoto-165186661-612x612-removebg-preview.png') }}"
-                            alt="cow image">
+                            alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট বাছুর</h2>
@@ -91,7 +91,7 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/ezgif-2-e34d9fb6d1-removebg-preview.png') }}" alt="cow image">
+                        <img src="{{ asset('custom/logos/ezgif-2-e34d9fb6d1-removebg-preview.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট দুধ</h2>
@@ -112,7 +112,7 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/expense.png') }}" alt="cow image">
+                        <img src="{{ asset('custom/logos/expense.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট আয়</h2>
@@ -133,7 +133,7 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/expense.png') }}" alt="cow image">
+                        <img src="{{ asset('custom/logos/expense.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>ফার্ম খরচ</h2>
@@ -154,7 +154,7 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/expense.png') }}" alt="cow image">
+                        <img src="{{ asset('custom/logos/expense.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>স্থায়ী খরচ</h2>
@@ -175,7 +175,7 @@
             {{-- <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="https://cdn-icons-png.flaticon.com/128/10761/10761983.png" alt="cow image">
+                        <img src="https://cdn-icons-png.flaticon.com/128/10761/10761983.png" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট খরচ</h2>
@@ -187,7 +187,7 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="https://cdn-icons-png.flaticon.com/128/10761/10761983.png" alt="cow image">
+                        <img src="https://cdn-icons-png.flaticon.com/128/10761/10761983.png" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট বাকি</h2>
@@ -208,7 +208,7 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/ezgif-2-e34d9fb6d1-removebg-preview.png') }}" alt="cow image">
+                        <img src="{{ asset('custom/logos/ezgif-2-e34d9fb6d1-removebg-preview.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>আজকের দুধ</h2>
@@ -228,7 +228,7 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/2749522.png') }}" alt="cow image">
+                        <img src="{{ asset('custom/logos/2749522.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>আজকের গোশত</h2>
@@ -249,7 +249,7 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/9967826.png') }}" alt="cow image">
+                        <img src="{{ asset('custom/logos/9967826.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>আজকের আয়</h2>
@@ -270,7 +270,7 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/9967826.png') }}" alt="cow image">
+                        <img src="{{ asset('custom/logos/9967826.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>কর্মচারীর বেতন</h2>

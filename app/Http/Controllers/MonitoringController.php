@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cow;
+use App\Models\polti;
 use App\Models\Food;
 use App\Models\Shed;
 use App\Models\Unit;
@@ -23,7 +23,7 @@ class MonitoringController extends Controller
 
     public function index()
     {
-        $data['cows'] = Cow::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('flag', 0)->get();
+        $data['poltis'] = polti::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('flag', 0)->get();
 
         return view('monitor.index')->with($data);
     }
@@ -54,7 +54,7 @@ class MonitoringController extends Controller
 
     public function vaccineIndex()
     {
-        $data['cows'] = Cow::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('flag', 0)->get();
+        $data['poltis'] = polti::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('flag', 0)->get();
 
         return view('vaccine.index')->with($data);
     }
@@ -90,7 +90,7 @@ class MonitoringController extends Controller
 
     public function create()
     {
-        $sheds = Shed::with('cows')->where('branch_id', session('branch_id'))->get();
+        $sheds = Shed::with('poltis')->where('branch_id', session('branch_id'))->get();
         $foods = Food::all();
         $units = Unit::all();
 
@@ -99,7 +99,7 @@ class MonitoringController extends Controller
 
     public function vaccineCreate()
     {
-        $sheds = Shed::with('cows')->where('branch_id', session('branch_id'))->get();
+        $sheds = Shed::with('poltis')->where('branch_id', session('branch_id'))->get();
         $foods = Food::all();
         $units = Unit::all();
         $vaccines = Vaccine::all();
@@ -115,14 +115,14 @@ class MonitoringController extends Controller
             $vaccineServiceObj = new VaccineService;
 
             $shedId     = $request->input('shed_id');
-            $cowId      = $request->input('cow_id');
+            $poltiId      = $request->input('polti_id');
             $date       = $request->input('date');
             $note       = $request->input('note');
             $vaccineIds = $request->input('vaccine_id');
             $remarks    = $request->input('remarks');
             $givenTime  = $request->input('given_time');
 
-            $res = $vaccineServiceObj->vaccineStore($shedId, $cowId, $date, $note, $vaccineIds, $remarks, $givenTime);
+            $res = $vaccineServiceObj->vaccineStore($shedId, $poltiId, $date, $note, $vaccineIds, $remarks, $givenTime);
 
             if($res == true){
                 return redirect()->back()->with('message', 'Vaccine created');

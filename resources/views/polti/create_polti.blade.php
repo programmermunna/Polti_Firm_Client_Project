@@ -11,13 +11,13 @@
 
             <div class="page_header">
                 <div class="page_header_menu">
-                    <a class="btn btn-sm btn-primary" href="{{ route('cow.list') }}">পশু তালিকা</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('polti.list') }}">পল্টি তালিকা</a>
                 </div>
             </div>
 
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>This cow save in <small style="font-weight: bold; color:#000;">Branch :
+                    <h2>This polti save in <small style="font-weight: bold; color:#000;">Branch :
                             {{ session('branch_id') }}</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -37,9 +37,9 @@
                 </div>
                 <div class="x_content">
 
-                    <form class="" action="{{ route('cow.store') }}" method="post" novalidate>
+                    <form class="" action="{{ route('polti.store') }}" method="post" novalidate>
                         @csrf
-                        <span class="section">পশুর তথ্য</span>
+                        <span class="section">পল্টির তথ্য</span>
 
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">দাম<span
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align"> পশুর ধরণ<span
+                            <label class="col-form-label col-md-3 col-sm-3  label-align"> পল্টির ধরণ<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
                                 <select name="category_id" id="" class="form-control">

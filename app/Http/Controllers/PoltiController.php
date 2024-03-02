@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Models\Cow;
+use App\Models\polti;
 use App\Models\Shed;
 use App\Models\Buyer;
 use App\Models\Income;
 use App\Models\Account;
-use App\Models\CowSell;
+use App\Models\poltiSell;
 use App\Models\Expense;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -16,13 +16,13 @@ use App\Service\BalanceService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\StoreCowRequest;
-use App\Http\Requests\UpdateCowRequest;
+use App\Http\Requests\StorepoltiRequest;
+use App\Http\Requests\UpdatepoltiRequest;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 
-class CowController extends Controller
+class poltiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,27 +30,27 @@ class CowController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $cows        = Cow::with('branch:id,branch_name', 'category:id,name')->where('branch_id', session('branch_id'))->latest()->get();
+        $poltis        = polti::with('branch:id,branch_name', 'category:id,name')->where('branch_id', session('branch_id'))->latest()->get();
 
-        return view('cow.cow_list', compact('cows', 'categories'));
+        return view('polti.polti_list', compact('poltis', 'categories'));
     }
 
     public function sellIndex()
     {
-        $sellList = CowSell::with('branch:id,branch_name', 'buyer:id,name','cow:id,tag,category_id', 'cow.category:id,name')->where('branch_id', session('branch_id'))->latest()->get();
-        $cows     = Cow::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->get();
+        $sellList = poltiSell::with('branch:id,branch_name', 'buyer:id,name','polti:id,tag,category_id', 'polti.category:id,name')->where('branch_id', session('branch_id'))->latest()->get();
+        $poltis     = polti::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->get();
         $buyers   = Buyer::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('status', '1')->latest()->get();
 
         // return $sellList;
 
-        return view('cow.sell_list', compact('sellList', 'cows', 'buyers'));
+        return view('polti.sell_list', compact('sellList', 'poltis', 'buyers'));
     }
 
     public function bachurIndex()
     {
-        $data['calfs'] = Cow::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('category_id', 6)->get();
+        $data['calfs'] = polti::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('category_id', 6)->get();
 
-        return view('cow.bachurIndex')->with($data);
+        return view('polti.bachurIndex')->with($data);
     }
 
     /**
@@ -62,15 +62,15 @@ class CowController extends Controller
         $expenseType = Expense::all();
         $sheds = Shed::where('branch_id', session('branch_id'))->get();
 
-        return view('cow.create_cow', compact('categories', 'expenseType', 'sheds'));
+        return view('polti.create_polti', compact('categories', 'expenseType', 'sheds'));
     }
 
     public function sellCreate()
     {
-        $cows   = Cow::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('flag', '0')->get();
+        $poltis   = polti::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('flag', '0')->get();
         $buyers = Buyer::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('status', '1')->latest()->get();
 
-        return view('cow.sell_cow', compact('cows', 'buyers'));
+        return view('polti.sell_polti', compact('poltis', 'buyers'));
     }
 
     public function sellStore(Request $request)
@@ -79,7 +79,7 @@ class CowController extends Controller
             DB::beginTransaction();
 
             $validator = Validator::make($request->all(), [
-                'cow_id'    => ['required'],
+                'polti_id'    => ['required'],
                 'buyer_id'  => ['required'],
                 'price'     => ['required'],
                 'payment'   => ['required'],
@@ -92,34 +92,35 @@ class CowController extends Controller
                     ->withInput();
             }
 
-            $cowSellObj = new CowSell;
-            $cowId      = $request->input('cow_id');
+            $poltiSellObj = new poltiSell;
+            $poltiId      = $request->input('polti_id');
             $price      = $request->input('price');
             $payment    = $request->input('payment');
             $buyerId    = $request->input('buyer_id');
             $due        = $request->input('due');
 
-            $cowSellObj->branch_id   = session('branch_id');
-            $cowSellObj->cow_id      = $cowId;
-            $cowSellObj->buyer_id    = $buyerId;
-            $cowSellObj->price       = $price;
-            $cowSellObj->payment     = $payment;
-            $cowSellObj->due         = $due;
-            $cowSellObj->sell_date   = $request->input('sell_date');
-            $cowSellObj->description = $request->input('description');
-            $cowSellObj->status      = $request->input('status');
-            $cowSellObj->created_at  = Carbon::now();
+            $poltiSellObj->branch_id   = session('branch_id');
+            $poltiSellObj->polti_id      = $poltiId;
+            $poltiSellObj->buyer_id    = $buyerId;
+            $poltiSellObj->price       = $price;
+            $poltiSellObj->payment     = $payment;
+            $poltiSellObj->due         = $due;
+            $poltiSellObj->sell_date   = $request->input('sell_date');
+            $poltiSellObj->description = $request->input('description');
+            $poltiSellObj->status      = $request->input('status');
+            $poltiSellObj->created_at  = Carbon::now();
 
-            $res = $cowSellObj->save();
+
+            $res = $poltiSellObj->save();
 
             DB::commit();
             if($res){
-                $lastInsertedId    = $cowSellObj->id;
+                $lastInsertedId    = $poltiSellObj->id;
                 $this->incomeBalanceUpdate($lastInsertedId, $payment, $due);
                 if($due >= 0){
                     $balanceServiceObj = new BalanceService;
 
-                    $this->cowFlagUpdate($cowId);
+                    $this->poltiFlagUpdate($poltiId);
                     $balanceServiceObj->balanceUpdate($buyerId, $due);
                 }
                 return redirect()->back()->with('message', 'Sell Created');
@@ -130,11 +131,11 @@ class CowController extends Controller
         }
     }
 
-    public function cowFlagUpdate($id)
+    public function poltiFlagUpdate($id)
     {
-        $cow = Cow::find($id);
-        if($cow){
-            $cow->update(['flag' => '1']);
+        $polti = polti::find($id);
+        if($polti){
+            $polti->update(['flag' => '1']);
         }
     }
 
@@ -157,12 +158,12 @@ class CowController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCowRequest $request)
+    public function store(StorepoltiRequest $request)
     {
         try {
             DB::beginTransaction();
 
-            $cowObj = new Cow;
+            $poltiObj = new polti;
 
             $price     = $request->input('price');
             $transport = $request->input('transport');
@@ -170,37 +171,37 @@ class CowController extends Controller
 
             $total = $price + $transport + $hasil;
 
-            $cowObj->branch_id    = session('branch_id');
-            $cowObj->price        = $price;
-            $cowObj->category_id  = $request->input('category_id');
-            $cowObj->expense_type = $request->input('expense_type');
-            $cowObj->shed_id      = $request->input('shed_id');
-            $cowObj->tag          = $request->input('tag');
-            $cowObj->caste        = $request->input('caste');
-            $cowObj->weight       = $request->input('weight');
-            $cowObj->transport    = $transport;
-            $cowObj->hasil        = $hasil;
-            $cowObj->total        = $total;
-            $cowObj->color        = $request->input('color');
-            $cowObj->buy_date     = $request->input('buy_date');
-            $cowObj->age          = $request->input('age');
-            $cowObj->description  = $request->input('description');
-            $cowObj->status       = '1';
-            $cowObj->flag         = '0';
-            $cowObj->created_at   = Carbon::now();
+            $poltiObj->branch_id    = session('branch_id');
+            $poltiObj->price        = $price;
+            $poltiObj->category_id  = $request->input('category_id');
+            $poltiObj->expense_type = $request->input('expense_type');
+            $poltiObj->shed_id      = $request->input('shed_id');
+            $poltiObj->tag          = $request->input('tag');
+            $poltiObj->caste        = $request->input('caste');
+            $poltiObj->weight       = $request->input('weight');
+            $poltiObj->transport    = $transport;
+            $poltiObj->hasil        = $hasil;
+            $poltiObj->total        = $total;
+            $poltiObj->color        = $request->input('color');
+            $poltiObj->buy_date     = $request->input('buy_date');
+            $poltiObj->age          = $request->input('age');
+            $poltiObj->description  = $request->input('description');
+            $poltiObj->status       = '1';
+            $poltiObj->flag         = '0';
+            $poltiObj->created_at   = Carbon::now();
 
-            $res = $cowObj->save();
+            $res = $poltiObj->save();
 
             DB::commit();
             if($res){
                 $balanceServiceObj = new BalanceService;
 
-                $lastInsertedId = $cowObj->id;
+                $lastInsertedId = $poltiObj->id;
                 $expenseType    = $request->input('expense_type');
 
                 $result = $balanceServiceObj->accountDecrement($lastInsertedId,$expenseType, $total);
                 if($result == true){
-                    return redirect()->back()->with('message', 'Cow Created successfully');
+                    return redirect()->back()->with('message', 'polti Created successfully');
                 }
             }
 
@@ -212,9 +213,9 @@ class CowController extends Controller
 
     public function sellCollect()
     {
-        $dueCollect = CowSell::with('branch:id,branch_name', 'buyer:id,name', 'cow:id,tag')->where('branch_id', session('branch_id'))->where('due', '>', 0)->get();
+        $dueCollect = poltiSell::with('branch:id,branch_name', 'buyer:id,name', 'polti:id,tag')->where('branch_id', session('branch_id'))->where('due', '>', 0)->get();
 
-        return view('cow.sell_collect', compact('dueCollect'));
+        return view('polti.sell_collect', compact('dueCollect'));
     }
 
     public function paymentStore(Request $request)
@@ -235,7 +236,7 @@ class CowController extends Controller
             $sellId = $request->input('sell_id');
             $payment = $request->input('payment');
 
-            $sellInfo = CowSell::where('branch_id', session('branch_id'))->find($sellId);
+            $sellInfo = poltiSell::where('branch_id', session('branch_id'))->find($sellId);
 
             if($sellInfo){
                 $due = $sellInfo->due;
@@ -275,22 +276,22 @@ class CowController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cow $cow)
+    public function show(polti $polti)
     {
         //
     }
 
-    public function cowInfo($id)
+    public function poltiInfo($id)
     {
-        $cow = Cow::where('branch_id', session('branch_id'))->where('id', $id)->first();
+        $polti = polti::where('branch_id', session('branch_id'))->where('id', $id)->first();
 
-        return response()->json($cow);
+        return response()->json($polti);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Cow $cow)
+    public function edit(polti $polti)
     {
         //
     }
@@ -301,7 +302,7 @@ class CowController extends Controller
             DB::beginTransaction();
 
             $validator = Validator::make($request->all(), [
-                'cow_id'    => ['required'],
+                'polti_id'    => ['required'],
                 'buyer_id'  => ['required'],
                 'price'     => ['required'],
                 'payment'   => ['required'],
@@ -317,7 +318,7 @@ class CowController extends Controller
             }
 
             $updateData = [
-                'cow_id'    => $request->input('cow_id'),
+                'polti_id'    => $request->input('polti_id'),
                 'buyer_id'  => $request->input('buyer_id'),
                 'price'     => $request->input('price'),
                 'payment'   => $request->input('payment'),
@@ -329,10 +330,10 @@ class CowController extends Controller
             $sellId  = $request->input('sell_id');
             $payment = $request->input('payment');
             $due     = $request->input('due');
-            $cowSell = CowSell::find($sellId);
+            $poltiSell = poltiSell::find($sellId);
 
-            if($cowSell){
-                $res = $cowSell->update($updateData);
+            if($poltiSell){
+                $res = $poltiSell->update($updateData);
 
                 DB::commit();
 
@@ -363,16 +364,16 @@ class CowController extends Controller
 
     public function sellInvoice($id)
     {
-        $cowSellInfo = CowSell::with('branch:id,branch_name', 'buyer','cow:id,tag,category_id', 'cow.category:id,name')->where('branch_id', session('branch_id'))->where('id', $id)->first();
+        $poltiSellInfo = poltiSell::with('branch:id,branch_name', 'buyer','polti:id,tag,category_id', 'polti.category:id,name')->where('branch_id', session('branch_id'))->where('id', $id)->first();
 
-        // return $cowSellInfo;
+        // return $poltiSellInfo;
 
-        if($cowSellInfo){
-            $buyerId = $cowSellInfo->buyer->id;
+        if($poltiSellInfo){
+            $buyerId = $poltiSellInfo->buyer->id;
 
-            $cows = CowSell::with('branch:id,branch_name', 'buyer:id,name,phone_number','cow:id,tag,category_id', 'cow.category:id,name')->where('branch_id', session('branch_id'))->where('buyer_id', $buyerId)->where('due', '>', 0)->get();
+            $poltis = poltiSell::with('branch:id,branch_name', 'buyer:id,name,phone_number','polti:id,tag,category_id', 'polti.category:id,name')->where('branch_id', session('branch_id'))->where('buyer_id', $buyerId)->where('due', '>', 0)->get();
 
-            return view('invoice.invoice', compact('cowSellInfo', 'cows'));
+            return view('invoice.invoice', compact('poltiSellInfo', 'poltis'));
         }
 
     }
@@ -380,12 +381,12 @@ class CowController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCowRequest $request)
+    public function update(UpdatepoltiRequest $request)
     {
         try {
             DB::beginTransaction();
 
-            $cowId     = $request->input('cow_id');
+            $poltiId     = $request->input('polti_id');
             $price     = $request->input('price');
             $transport = $request->input('transport');
             $hasil     = $request->input('hasil');
@@ -406,16 +407,16 @@ class CowController extends Controller
                 'description' => $request->input('description'),
             ];
 
-            $cow = Cow::find($cowId);
-            if (!$cow) {
-                return redirect()->back()->with('message', 'Cow not found');
+            $polti = polti::find($poltiId);
+            if (!$polti) {
+                return redirect()->back()->with('message', 'polti not found');
             }
 
-            $res = $cow->update($validatedData);
+            $res = $polti->update($validatedData);
 
             DB::commit();
             if ($res) {
-                $this->accountUpdate($cowId,$total);
+                $this->accountUpdate($poltiId,$total);
                 return redirect()->back()->with('message', 'Update successfully');
             }
 
@@ -425,11 +426,11 @@ class CowController extends Controller
         }
     }
 
-    public function accountUpdate($cowId, $total)
+    public function accountUpdate($poltiId, $total)
     {
         $accountObj = new Account;
 
-        $account = $accountObj->where('buy_id', $cowId)->where('branch_id', session('branch_id'))->first();
+        $account = $accountObj->where('buy_id', $poltiId)->where('branch_id', session('branch_id'))->first();
 
         if($account){
             $res = $account->update(['amount' => $total]);
@@ -442,22 +443,22 @@ class CowController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cow $cow, $id)
+    public function destroy(polti $polti, $id)
     {
         try {
             DB::beginTransaction();
 
-            $cow = Cow::find($id);
+            $polti = polti::find($id);
 
-            if(!$cow){
-                return response()->json(['message' => 'Cow not Found.']);
+            if(!$polti){
+                return response()->json(['message' => 'polti not Found.']);
             }
 
-            $res = $cow->delete();
+            $res = $polti->delete();
 
             DB::commit();
             if($res){
-                return response()->json(['message' => 'Cow deleted successfully.']);
+                return response()->json(['message' => 'polti deleted successfully.']);
             }
         } catch (\Exception $e) {
             DB::rollback();
@@ -470,13 +471,13 @@ class CowController extends Controller
         try {
             DB::beginTransaction();
 
-            $cow = CowSell::find($id);
+            $polti = poltiSell::find($id);
 
-            if(!$cow){
+            if(!$polti){
                 return response()->json(['message' => 'Data not Found.']);
             }
 
-            $res = $cow->delete();
+            $res = $polti->delete();
 
             DB::commit();
             if($res){

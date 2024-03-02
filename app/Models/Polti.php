@@ -4,14 +4,13 @@ namespace App\Models;
 
 use App\Models\Shed;
 use App\Models\Branch;
-use App\Models\CowFeed;
-use App\Models\CowSell;
+use App\Models\poltiFeed;
+use App\Models\poltiSell;
 use App\Models\Category;
-use App\Models\Pregnancy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Cow extends Model
+class polti extends Model
 {
     use HasFactory;
 
@@ -65,9 +64,9 @@ class Cow extends Model
         return $this->belongsTo(Branch::class, 'branch_id', 'id');
     }
 
-    public function cowSells()
+    public function poltiSells()
     {
-        return $this->hasMany(CowSell::class);
+        return $this->hasMany(poltiSell::class);
     }
 
     public function milks()
@@ -85,9 +84,9 @@ class Cow extends Model
         return $this->hasMany(Pregnancy::class);
     }
 
-    public function cowFeeds()
+    public function poltiFeeds()
     {
-        return $this->hasMany(CowFeed::class);
+        return $this->hasMany(poltiFeed::class);
     }
 
     public function shed()

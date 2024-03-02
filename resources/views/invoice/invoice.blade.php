@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="  invoice-header">
                                 <h1>
-                                    <small class="pull-right">Date: {{ dateTimeFormat($cowSellInfo->created_at) }}</small>
+                                    <small class="pull-right">Date: {{ dateTimeFormat($poltiSellInfo->created_at) }}</small>
                                 </h1>
                             </div>
                             <!-- /.col -->
@@ -49,21 +49,21 @@
                             <div class="col-sm-4 invoice-col">
                                 To
                                 <address>
-                                    <strong>{{ $cowSellInfo->buyer->name }}</strong>
-                                    <br>{{ $cowSellInfo->buyer->address }}
+                                    <strong>{{ $poltiSellInfo->buyer->name }}</strong>
+                                    <br>{{ $poltiSellInfo->buyer->address }}
                                     <br>Bangladesh, CA 94107
-                                    <br>Phone: {{ $cowSellInfo->buyer->phone_number }}
+                                    <br>Phone: {{ $poltiSellInfo->buyer->phone_number }}
                                     <br>Email: jon@ironadmin.com
                                 </address>
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-4 invoice-col">
-                                <b>Invoice #{{ $cowSellInfo->id }}</b>
+                                <b>Invoice #{{ $poltiSellInfo->id }}</b>
                                 <br>
                                 <br>
-                                <b>Order ID:</b> {{ $cowSellInfo->id }}
+                                <b>Order ID:</b> {{ $poltiSellInfo->id }}
                                 <br>
-                                <b>Payment Due:</b> {{ dateTimeFormat($cowSellInfo->created_at) }}
+                                <b>Payment Due:</b> {{ dateTimeFormat($poltiSellInfo->created_at) }}
                                 <br>
                                 <b>Account:</b> 968-34567
                             </div>
@@ -78,7 +78,7 @@
                                     <thead>
                                         <tr>
                                             <th>Qty</th>
-                                            <th>Cow</th>
+                                            <th>polti</th>
                                             <th>Serial #</th>
                                             <th style="width: 59%">Description</th>
                                             <th>Subtotal</th>
@@ -86,31 +86,31 @@
                                     </thead>
                                     <tbody>
 
-                                        @if (count($cows) > 0)
-                                            @foreach ($cows as $key => $cow)
+                                        @if (count($poltis) > 0)
+                                            @foreach ($poltis as $key => $polti)
                                                 <tr>
                                                     <td>1</td>
                                                     <td style="color:#000; font-weight:bold;">
-                                                        {{ '#' . $cow->cow->tag }}
+                                                        {{ '#' . $polti->polti->tag }}
                                                     </td>
-                                                    <td>{{ $cow->id }}</td>
+                                                    <td>{{ $polti->id }}</td>
                                                     <td>
-                                                        {{ $cow->description }}
+                                                        {{ $polti->description }}
                                                     </td>
-                                                    <td>{{ number_format($cow->price, 2) }}</td>
+                                                    <td>{{ number_format($polti->price, 2) }}</td>
                                                 </tr>
                                             @endforeach
                                         @else
                                             <tr>
                                                 <td>1</td>
                                                 <td style="color:#000; font-weight:bold;">
-                                                    {{ '#' . $cowSellInfo->cow->tag }}
+                                                    {{ '#' . $poltiSellInfo->polti->tag }}
                                                 </td>
-                                                <td>{{ $cowSellInfo->id }}</td>
+                                                <td>{{ $poltiSellInfo->id }}</td>
                                                 <td>
-                                                    {{ $cowSellInfo->description }}
+                                                    {{ $poltiSellInfo->description }}
                                                 </td>
-                                                <td>{{ number_format($cowSellInfo->price, 2) }}</td>
+                                                <td>{{ number_format($poltiSellInfo->price, 2) }}</td>
                                             </tr>
                                         @endif
                                     </tbody>
@@ -142,19 +142,19 @@
                                         <tbody>
                                             <tr>
                                                 <th style="width:50%">Subtotal:</th>
-                                                <td>{{ number_format($cowSellInfo->price, 2) }}</td>
+                                                <td>{{ number_format($poltiSellInfo->price, 2) }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Payment</th>
-                                                <td>{{ number_format($cowSellInfo->payment, 2) }}</td>
+                                                <td>{{ number_format($poltiSellInfo->payment, 2) }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Due:</th>
-                                                <td>{{ number_format($cowSellInfo->due, 2) }}</td>
+                                                <td>{{ number_format($poltiSellInfo->due, 2) }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Total:</th>
-                                                <td>{{ number_format($cowSellInfo->price, 2) }}</td>
+                                                <td>{{ number_format($poltiSellInfo->price, 2) }}</td>
                                             </tr>
                                         </tbody>
                                     </table>

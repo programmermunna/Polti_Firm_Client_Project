@@ -42,14 +42,14 @@
                     <div class="field item form-group">
                         <label class="col-form-label col-md-3 col-sm-3  label-align">Animal Tag<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
-                            <select name="cow_id" class="form-control" id="">
+                            <select name="polti_id" class="form-control" id="">
                                 <option value="" disabled selected>Select</option>
-                                @foreach ($cows as $key => $cow)
-                                    <option value="{{ $cow->id }}">{{ $cow->tag }}</option>
+                                @foreach ($poltis as $key => $polti)
+                                    <option value="{{ $polti->id }}">{{ $polti->tag }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        @error('cow_id')
+                        @error('polti_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -155,10 +155,10 @@
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                     </div>
                     <div class="col-md-6 col-sm-6  form-group has-feedback">
-                        <select name="cow_id" class="form-control has-feedback-left" id="inputSuccess2">
+                        <select name="polti_id" class="form-control has-feedback-left" id="inputSuccess2">
                             <option value="" disabled selected>Select</option>
-                            @foreach ($cows as $key => $cow)
-                                <option value="{{ $cow->id }}">{{ $cow->tag }}</option>
+                            @foreach ($poltis as $key => $polti)
+                                <option value="{{ $polti->id }}">{{ $polti->tag }}</option>
                             @endforeach
                         </select>
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>

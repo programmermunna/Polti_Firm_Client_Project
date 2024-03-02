@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateMilkRequest extends FormRequest
+class StorepoltiRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,15 @@ class UpdateMilkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cow_id'   => ['required'],
-            'quantity' => ['required']
+            'price'       => ['nullable', 'integer'],
+            'category_id' => ['nullable'],
+            'tag'         => ['nullable'],
+            'caste'       => ['nullable'],
+            'weight'      => ['nullable'],
+            'transport'   => ['nullable'],
+            'hasil'       => ['nullable'],
+            'color'       => ['nullable'],
+            'buy_date'    => ['nullable'],
         ];
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Cow;
+use App\Models\polti;
 use App\Models\Food;
 use App\Models\Shed;
 use App\Models\Unit;
@@ -10,13 +10,13 @@ use App\Models\Branch;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class CowFeed extends Model
+class poltiFeed extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'branch_id',
-        'cow_tag',
+        'polti_tag',
         'description',
         'shed_id',
         'food_id',
@@ -27,7 +27,7 @@ class CowFeed extends Model
     protected $casts = [
         'id'            => 'integer',
         'branch_id'     => 'integer',
-        'cow_tag'       => 'integer',
+        'polti_tag'       => 'integer',
         'description'   => 'string',
         'shed_id'       => 'integer',
         'food_id'       => 'integer',
@@ -44,9 +44,9 @@ class CowFeed extends Model
         return $this->belongsTo(Branch::class, 'branch_id', 'id');
     }
 
-    public function cow()
+    public function polti()
     {
-        return $this->belongsTo(Cow::class, 'cow_tag', 'id');
+        return $this->belongsTo(polti::class, 'polti_tag', 'id');
     }
 
     public function shed()

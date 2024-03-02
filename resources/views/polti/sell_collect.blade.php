@@ -5,7 +5,7 @@
 
             <div class="page_header">
                 <div class="page_header_menu">
-                    <a class="btn btn-sm btn-primary" href="{{ route('cow.sell') }}">Add Sell</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('polti.sell') }}">Add Sell</a>
                 </div>
             </div>
 
