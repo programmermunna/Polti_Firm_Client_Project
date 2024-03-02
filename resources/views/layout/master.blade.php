@@ -7,9 +7,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{{ asset('custom/logos/751280420015239.png') }}" type="image/ico" />
+    <link rel="icon" href="{{ asset('custom/logos/7395804.png') }}" type="image/ico" />
 
-    <title>Impex Agro Farm | Admin Dashboard</title>
+    <title>Isbah Polti Firm | Admin Dashboard</title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('asset/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -50,9 +50,9 @@
                     <div class="navbar nav_title" style="border: 0;">
                         <a href="{{ route('dashboard') }}" class="site_title"> <img
                                 style="width: 30px; height:30px; border-radius:50%;"
-                                src="{{ asset('custom/logos/d020d982-3924-421c-9ea8-95a920b2ed0d.jpg') }}"
+                                src="{{ asset('custom/logos/7395804.png') }}"
                                 alt="">
-                            <span>RH Dairy Farm</span></a>
+                            <span>ইসবাহ পল্টি ফার্ম</span></a>
                     </div>
 
                     <div class="clearfix"></div>
