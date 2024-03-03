@@ -1,48 +1,20 @@
 @extends('layout.master')
 @section('content')
     <div class="row">
-        <div class="col-md-12 col-sm-12 ">
-
-            <div class="page_header">
-                <div class="page_header_menu">
-                    <a class="btn btn-sm btn-primary" href="{{ route('polti.create') }}">Add polti</a>
-                </div>
-            </div>
-
+        <div class="col-md-12 col-sm-12">
             @if (session('message'))
                 <div class="alert alert-success" id="sessionMessage">
                     {{ session('message') }}
                 </div>
             @endif
 
-            <div class="x_panel">
+            <div class="x_panel my-5">
 
-                <div class="x_title">
-                    <h2 class="list_title">polti List</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li>
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                        </li>
+                <div class="x_title  d-flex justify-content-between">
+                    <h2 class="list_title">পল্টি তালিকা সমূহ</h2>
+                    <a class="btn btn-sm btn-primary" href="{{ route('polti.create') }}">নতুন যুক্ত করুন</a>
 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                aria-expanded="false">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Settings 1</a>
-                                <a class="dropdown-item" href="#">Settings 2</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a class="close-link">
-                                <i class="fa fa-close"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
+                    {{-- <div class="clearfix"></div> --}}
                 </div>
 
                 <div class="x_content">
@@ -57,6 +29,7 @@
                                             <th>Tag</th>
                                             <th>Category</th>
                                             <th>Price</th>
+                                            <th>Piece</th>
                                             <th>Transport</th>
                                             <th>Hasil</th>
                                             <th>Total</th>
@@ -79,6 +52,7 @@
                                                     <td style="color:#000; font-weight:bold;">{{ $polti->category->name }}
                                                     </td>
                                                     <td>{{ number_format($polti->price, 2) }}</td>
+                                                    <td>{{ $polti->piece }}</td>
                                                     <td>{{ number_format($polti->transport, 2) }}</td>
                                                     <td>{{ number_format($polti->hasil, 2) }}</td>
                                                     <td>{{ number_format($polti->total, 2) }}</td>
@@ -108,6 +82,7 @@
                                                             data-caste="{{ $polti->caste }}"
                                                             data-weight="{{ $polti->weight }}"
                                                             data-transport="{{ $polti->transport }}"
+                                                            data-piece="{{ $polti->piece }}"
                                                             data-price="{{ $polti->price }}"
                                                             data-type="{{ $polti->type }}"
                                                             data-buy_date="{{ $polti->buy_date }}">
@@ -163,6 +138,17 @@
                                 <input class="form-control" name="price" required="required" />
                             </div>
                             @error('price')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">সংখ্যা<span
+                                    class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" name="piece" required="required" />
+                            </div>
+                            @error('piece')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -313,8 +299,7 @@
         $(document).ready(function() {
             $('.deleteButton').click(function() {
                 var poltiId = $(this).data('id');
-                var listItem = $(this).closest(
-                    '.list-item'); // Adjust the selector based on your HTML structure
+                var listItem = $(this).closest('.list-item'); // Adjust the selector based on your HTML structure
 
                 // Use SweetAlert to confirm the deletion
                 Swal.fire({
@@ -330,7 +315,7 @@
                         // If the user confirms, send an AJAX request to delete the pigeon
                         $.ajax({
                             type: 'GET',
-                            url: '/polti/delete/' + poltiId,
+                            url: 'delete/'+poltiId,
                             success: function(response) {
                                 // Remove the deleted item from the DOM
                                 listItem.remove();
@@ -372,6 +357,7 @@
                 const poltiData = {
                     id: $(this).data('id'),
                     price: $(this).data('price'),
+                    piece: $(this).data('piece'),
                     categoryId: $(this).data('category_id'),
                     tag: $(this).data('tag'),
                     caste: $(this).data('caste'),
@@ -387,6 +373,7 @@
                 // Set values to form fields
                 $('input[name="polti_id"]').val(poltiData.id);
                 $('input[name="price"]').val(poltiData.price);
+                $('input[name="piece"]').val(poltiData.piece);
                 $('select[name="category_id"]').val(poltiData.categoryId);
                 $('input[name="tag"]').val(poltiData.tag);
                 $('input[name="caste"]').val(poltiData.caste);

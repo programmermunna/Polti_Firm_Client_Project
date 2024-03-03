@@ -94,6 +94,7 @@ class poltiController extends Controller
 
             $poltiSellObj = new poltiSell;
             $poltiId      = $request->input('polti_id');
+            $piece      = $request->input('piece');
             $price      = $request->input('price');
             $payment    = $request->input('payment');
             $buyerId    = $request->input('buyer_id');
@@ -102,6 +103,7 @@ class poltiController extends Controller
             $poltiSellObj->branch_id   = session('branch_id');
             $poltiSellObj->polti_id      = $poltiId;
             $poltiSellObj->buyer_id    = $buyerId;
+            $poltiSellObj->piece       = $piece;
             $poltiSellObj->price       = $price;
             $poltiSellObj->payment     = $payment;
             $poltiSellObj->due         = $due;
@@ -166,6 +168,7 @@ class poltiController extends Controller
             $poltiObj = new polti;
 
             $price     = $request->input('price');
+            $piece     = $request->input('piece');
             $transport = $request->input('transport');
             $hasil     = $request->input('hasil');
 
@@ -173,6 +176,7 @@ class poltiController extends Controller
 
             $poltiObj->branch_id    = session('branch_id');
             $poltiObj->price        = $price;
+            $poltiObj->piece        = $piece;
             $poltiObj->category_id  = $request->input('category_id');
             $poltiObj->expense_type = $request->input('expense_type');
             $poltiObj->shed_id      = $request->input('shed_id');
@@ -304,6 +308,7 @@ class poltiController extends Controller
             $validator = Validator::make($request->all(), [
                 'polti_id'    => ['required'],
                 'buyer_id'  => ['required'],
+                'piece'     => ['required'],
                 'price'     => ['required'],
                 'payment'   => ['required'],
                 'due'       => ['required'],
@@ -320,6 +325,7 @@ class poltiController extends Controller
             $updateData = [
                 'polti_id'    => $request->input('polti_id'),
                 'buyer_id'  => $request->input('buyer_id'),
+                'piece'     => $request->input('piece'),
                 'price'     => $request->input('price'),
                 'payment'   => $request->input('payment'),
                 'due'       => $request->input('due'),
@@ -388,12 +394,14 @@ class poltiController extends Controller
 
             $poltiId     = $request->input('polti_id');
             $price     = $request->input('price');
+            $piece     = $request->input('piece');
             $transport = $request->input('transport');
             $hasil     = $request->input('hasil');
             $total     = $price + $transport + $hasil;
 
             $validatedData = [
                 'price'       => $price,
+                'piece'       => $piece,
                 'category_id' => $request->input('category_id'),
                 'tag'         => $request->input('tag'),
                 'caste'       => $request->input('caste'),

@@ -17,6 +17,7 @@ class polti extends Model
     protected $fillable = [
         'branch_id',
         'price',
+        'piece',
         'category_id',
         'expense_type',
         'shed_id',

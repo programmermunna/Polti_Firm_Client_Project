@@ -3,13 +3,6 @@
     <div class="row">
         <div class="col-md-12 col-sm-12 ">
 
-            <div class="page_header">
-                <div class="page_header_menu">
-                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#createModal">
-                        Create New
-                    </button>
-                </div>
-            </div>
 
             @if (session('message'))
                 <div class="alert alert-success" id="sessionMessage">
@@ -17,13 +10,11 @@
                 </div>
             @endif
 
-            <div class="x_panel">
+            <div class="x_panel my-5">
 
-                <div class="x_title justify-content-between">
+                <div class="x_title d-flex justify-content-between">
                     <h2 style="font-weight: bold; color:#000;">Shed List</h2>
-                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#createModal">
-                        Create New
-                    </button>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#createModal">Create New</button>
 
                     {{-- <div class="clearfix"></div> --}}
                 </div>
@@ -233,8 +224,7 @@
         $(document).ready(function() {
             $('.deleteButton').click(function() {
                 var shedId = $(this).data('id');
-                var listItem = $(this).closest(
-                    '.list-item'); // Adjust the selector based on your HTML structure
+                var listItem = $(this).closest('.list-item'); // Adjust the selector based on your HTML structure
 
                 // Use SweetAlert to confirm the deletion
                 Swal.fire({
@@ -250,7 +240,7 @@
                         // If the user confirms, send an AJAX request to delete the pigeon
                         $.ajax({
                             type: 'GET',
-                            url: '/shed/delete/' + shedId,
+                            url: 'delete/'+shedId,
                             success: function(response) {
                                 // Remove the deleted item from the DOM
                                 listItem.remove();

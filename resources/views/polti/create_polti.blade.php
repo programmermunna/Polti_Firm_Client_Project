@@ -53,6 +53,17 @@
                         </div>
 
                         <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">সংখ্যা<span
+                                    class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" name="piece" type="number" />
+                            </div>
+                            @error('piece')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align"> পল্টির ধরণ<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">

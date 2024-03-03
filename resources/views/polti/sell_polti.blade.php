@@ -45,7 +45,7 @@
                         <span class="section">polti Sell Info</span>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">গরু<span
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">পল্টি<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
                                 <select name="polti_id" id="" class="form-control" required="required">
@@ -72,6 +72,17 @@
                                 </select>
                             </div>
                             @error('buyer_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">সংখ্যা<span
+                                    class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" name="piece" type="number" required="required" />
+                            </div>
+                            @error('piece')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>

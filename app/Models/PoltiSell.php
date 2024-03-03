@@ -16,6 +16,7 @@ class poltiSell extends Model
         'branch_id',
         'polti_id',
         'buyer_id',
+        'piece',
         'price',
         'payment',
         'due',

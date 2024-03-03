@@ -54,6 +54,7 @@
                                         <tr>
                                             <th>Branch</th>
                                             <th>Buyer</th>
+                                            <th>piece</th>
                                             <th>Price</th>
                                             <th>Payment</th>
                                             <th>Due</th>
@@ -72,6 +73,8 @@
                                                     <td style="color: blue; font-weight:bold;">
                                                         {{ ucfirst($sell->buyer->name) }}</td>
                                                     <td style="color: #000; font-weight:bold;">
+                                                        {{ $sell->piece }}</td>
+                                                    <td style="color: #000; font-weight:bold;">
                                                         {{ number_format($sell->price, 2) }}</td>
                                                     <td style="color: #000; font-weight:bold;">
                                                         {{ number_format($sell->payment, 2) }}</td>
@@ -83,6 +86,7 @@
                                                         <button class="btn btn-sm btn-primary editBtn" data-toggle="modal"
                                                             data-target="#myModal" data-id="{{ $sell->id }}"
                                                             data-polti_id="{{ $sell->polti->id }}"
+                                                            data-piece="{{ $sell->piece }}"
                                                             data-price="{{ $sell->price }}"
                                                             data-due="{{ $sell->due }}"
                                                             data-status="{{ $sell->status }}"
@@ -165,6 +169,17 @@
                                 </select>
                             </div>
                             @error('buyer_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">সংখ্যা<span
+                                    class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" name="piece" required="required" />
+                            </div>
+                            @error('piece')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -321,6 +336,7 @@
                     polti: $(this).data('polti_id'),
                     buyer: $(this).data('buyer'),
                     payment: $(this).data('payment'),
+                    piece: $(this).data('piece'),
                     price: $(this).data('price'),
                     due: $(this).data('due'),
                     tag: $(this).data('tag'),
@@ -331,6 +347,7 @@
                 $('input[name="sell_id"]').val(sellData.id);
                 $('select[name="polti_id"]').val(sellData.polti);
                 $('input[name="due"]').val(sellData.due);
+                $('input[name="piece"]').val(sellData.piece);
                 $('input[name="price"]').val(sellData.price);
                 $('input[name="payment"]').val(sellData.payment);
                 $('input[name="tag"]').val(sellData.tag);

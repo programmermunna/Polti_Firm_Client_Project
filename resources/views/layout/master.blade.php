@@ -90,9 +90,9 @@
                                 {{-- Shed List --}}
                                 <li><a><i class="fa-solid fa-warehouse"></i> শেড বিবরণী <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="{{ route('shed.list') }}">শেড বিবরণী</a></li>
-                                        <li><a href="{{ route('shed.list') }}">শেড বিবরণী</a></li>
-                                        <li><a href="{{ route('shed.list') }}">শেড বিবরণী</a></li>
+                                        <li><a href="{{ route('shed.list') }}">শেড তালিকা</a></li>
+                                        <li><a href="{{ route('shed.list') }}">বাচ্চার শেড</a></li>
+                                        <li><a href="{{ route('shed.list') }}">পল্টির শেড</a></li>
                                     </ul>
                                 </li>
                                 {{-- Shed List --}}
