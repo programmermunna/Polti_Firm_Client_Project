@@ -87,6 +87,69 @@
                                     </ul>
                                 </li>
 
+                                {{-- Shed List --}}
+                                <li><a><i class="fa-solid fa-warehouse"></i> শেড বিবরণী <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{ route('shed.list') }}">শেড বিবরণী</a></li>
+                                        <li><a href="{{ route('shed.list') }}">শেড বিবরণী</a></li>
+                                        <li><a href="{{ route('shed.list') }}">শেড বিবরণী</a></li>
+                                    </ul>
+                                </li>
+                                {{-- Shed List --}}
+
+
+                                {{-- Polti List --}}
+                                <li>
+                                    <a>
+                                        <i style="margin-right:8px; font-size: 1.2rem;"
+                                            class="fa-brands fa-sellcast"></i> পল্টি
+                                        ক্রয়/বিক্রয়
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{ route('polti.create') }}">ক্রয়</a></li>
+                                        <li><a href="{{ route('polti.sell') }}">বিক্রয়</a></li>
+                                        <li><a href="{{ route('polti_sell.collect') }}">বাকী সংগ্রহ</a></li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('polti.feed') }}">
+                                        <i style="font-size: 1.2rem;" class="fa-solid fa-bowl-food"></i>
+                                        পল্টি খাদ্য
+                                    </a>
+                                </li>
+                                {{-- Polti List --}}
+
+                                {{-- Monitoring --}}
+                                <li>
+                                    <a>
+                                        <i style="margin-right:8px; font-size: 1.2rem;"
+                                            class="fa-brands fa-watchman-monitoring"></i>
+                                        মনিটরিং
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{ route('routine.monitoring') }}">রুটিন মনিটরিং</a></li>
+                                        <li><a href="{{ route('vaccine.monitoring') }}">ভ্যাকসিন মনিটরিং</a></li>
+                                    </ul>
+                                </li>
+                                {{-- Monitoring --}}
+
+
+                                {{-- Firm Expance --}}
+                                <li>
+                                    <a><i style="margin-right:8px; font-size: 1.2rem;"
+                                            class="fa-solid fa-circle-dollar-to-slot"></i>ফার্মের খরচ
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{ route('cost.list') }}">খরচের তালিকা</a></li>
+                                        <li><a href="{{ route('expense.type') }}"> খরচের ধরণ </a></li>
+                                    </ul>
+                                </li>
+                                {{-- Firm Expance --}}
+
                                 {{-- Category Menu List --}}
                                 <li>
                                     <a>
@@ -143,58 +206,12 @@
                                     </ul>
                                 </li> --}}
                                 {{-- Invoice Menu List --}}
-
-                                <li>
-                                    <a href="{{ route('polti.feed') }}">
-                                        <i style="font-size: 1.2rem;" class="fa-solid fa-bowl-food"></i>
-                                        পল্টি খাদ্য
-                                    </a>
-                                </li>
-
-                                {{-- Animal Sell Menu List --}}
-                                <li>
-                                    <a>
-                                        <i style="margin-right:8px; font-size: 1.2rem;"
-                                            class="fa-brands fa-sellcast"></i> পল্টি
-                                        ক্রয়/বিক্রয়
-                                        <span class="fa fa-chevron-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="{{ route('polti.create') }}">ক্রয়</a></li>
-                                        <li><a href="{{ route('polti.sell') }}">বিক্রয়</a></li>
-                                        <li><a href="{{ route('polti_sell.collect') }}">বাকী সংগ্রহ</a></li>
-                                    </ul>
-                                </li>
-                                {{-- Animal Sell Menu List --}}
-
-                                <li>
-                                    <a><i style="margin-right:8px; font-size: 1.2rem;"
-                                            class="fa-solid fa-circle-dollar-to-slot"></i>ফার্মের খরচ
-                                        <span class="fa fa-chevron-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="{{ route('cost.list') }}">খরচের তালিকা</a></li>
-                                        <li><a href="{{ route('expense.type') }}"> খরচের ধরণ </a></li>
-                                    </ul>
-                                </li>
                             </ul>
                         </div>
 
                         <div class="menu_section">
-                            <h3>Live On</h3>
+                            <h3>তালিকা সমূহ</h3>
                             <ul class="nav side-menu">
-                                <li>
-                                    <a>
-                                        <i style="margin-right:8px; font-size: 1.2rem;"
-                                            class="fa-brands fa-watchman-monitoring"></i>
-                                        পল্টি মনিটরিং
-                                        <span class="fa fa-chevron-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="{{ route('routine.monitoring') }}">রুটিন মনিটরিং</a></li>
-                                        <li><a href="{{ route('vaccine.monitoring') }}">ভ্যাকসিন মনিটরিং</a></li>
-                                    </ul>
-                                </li>
 
                                 <li>
                                     <a href="{{ route('supplier.list') }}">
@@ -215,14 +232,6 @@
                                     <a href="{{ route('baccha.list') }}">
                                         <i style="margin-right:8px; font-size: 1.2rem;" class="fa-solid fa-list"></i>
                                         বাচ্চার তালিকা
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="{{ route('shed.list') }}">
-                                        <i style="margin-right:8px; font-size: 1.2rem;"
-                                            class="fa-solid fa-circle-info"></i>
-                                        শেড বিবরণী
                                     </a>
                                 </li>
 
@@ -400,7 +409,7 @@
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
-                    IMPEX AGRO- Admin Panel by <a href="https://colorlib.com">TS WEB BUILD</a>
+                    Isbah Polti Firm- Admin Panel by <a href="#">Isbah IT</a>
                 </div>
                 <div class="clearfix"></div>
             </footer>

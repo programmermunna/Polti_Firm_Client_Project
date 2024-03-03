@@ -25,51 +25,7 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/dd-removebg-preview.png') }}" alt="polti image">
-                    </div>
-                    <div class="dashboard_item">
-                        <h2>কর্মচারী</h2>
-                        <p>{{ numberCountingFormat($staffs) }}</p>
-                    </div>
-                </div>
-                <div class="item-foot-head">
-                    <button><i class="fa-solid fa-caret-down"></i></button>
-                </div>
-
-                <div class="item-menu-info">
-                    <p>
-                        {{ numberCountingFormat($staffs) }}
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-4  tile_stats_count">
-                <div class="d-flex custom-col">
-                    <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/2395796.png') }}" alt="polti image">
-                    </div>
-                    <div class="dashboard_item">
-                        <h2>মোট পল্টি</h2>
-                        <p>{{ numberCountingFormat($poltis > 0 ? $poltis : '0') }}</p>
-                    </div>
-                </div>
-                <div class="item-foot-head">
-                    <button><i class="fa-solid fa-caret-down"></i></button>
-                </div>
-
-                <div class="item-menu-info">
-                    <p>
-                        {{ ($poltis > 0) ? $poltis : '0' }}
-                    </p>
-                </div>
-            </div>
-
-
-
-            <div class="col-md-3 col-sm-4  tile_stats_count">
-                <div class="d-flex custom-col">
-                    <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/istockphoto-165186661-612x612-removebg-preview.png') }}"
+                        <img src="{{ asset('custom/logos/baccha.png') }}"
                             alt="polti image">
                     </div>
                     <div class="dashboard_item">
@@ -91,11 +47,11 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/ezgif-2-e34d9fb6d1-removebg-preview.png') }}" alt="polti image">
+                        <img src="{{ asset('custom/logos/polti.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
-                        <h2>মোট দুধ</h2>
-                        <p>Dynamic</p>
+                        <h2>মোট পল্টি</h2>
+                        <p>{{ numberCountingFormat($poltis > 0 ? $poltis : '0') }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -104,7 +60,7 @@
 
                 <div class="item-menu-info">
                     <p>
-                        {{ 0 . ' Ltr' }}
+                        {{ ($poltis > 0) ? $poltis : '0' }}
                     </p>
                 </div>
             </div>
@@ -112,11 +68,11 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/expense.png') }}" alt="polti image">
+                        <img src="{{ asset('custom/logos/deth polti.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
-                        <h2>মোট আয়</h2>
-                        <p> Dynamic </p>
+                        <h2>মৃত পল্টি</h2>
+                        <p>dynamic</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -125,7 +81,7 @@
 
                 <div class="item-menu-info">
                     <p>
-                        Dynamic
+                        dynamic
                     </p>
                 </div>
             </div>
@@ -133,7 +89,49 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/expense.png') }}" alt="polti image">
+                        <img src="{{ asset('custom/logos/today expance.png') }}" alt="polti image">
+                    </div>
+                    <div class="dashboard_item">
+                        <h2>আজকের খরচ</h2>
+                        <p>dynamic</p>
+                    </div>
+                </div>
+                <div class="item-foot-head">
+                    <button><i class="fa-solid fa-caret-down"></i></button>
+                </div>
+
+                <div class="item-menu-info">
+                    <p>
+                        dynamic
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4  tile_stats_count">
+                <div class="d-flex custom-col">
+                    <div class="dashboard_menu">
+                        <img src="{{ asset('custom/logos/total expance.png') }}" alt="polti image">
+                    </div>
+                    <div class="dashboard_item">
+                        <h2>স্থায়ী খরচ</h2>
+                        <p>{{ numberCountingFormat($permanetCost) . ' Tk' }}</p>
+                    </div>
+                </div>
+                <div class="item-foot-head">
+                    <button><i class="fa-solid fa-caret-down"></i></button>
+                </div>
+
+                <div class="item-menu-info">
+                    <p>
+                        {{ number_format($permanetCost, 2) . ' Tk' }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4  tile_stats_count">
+                <div class="d-flex custom-col">
+                    <div class="dashboard_menu">
+                        <img src="{{ asset('custom/logos/firm expance.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>ফার্ম খরচ</h2>
@@ -154,102 +152,7 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/expense.png') }}" alt="polti image">
-                    </div>
-                    <div class="dashboard_item">
-                        <h2>স্থায়ী খরচ</h2>
-                        <p>{{ numberCountingFormat($permanetCost) . ' Tk' }}</p>
-                    </div>
-                </div>
-                <div class="item-foot-head">
-                    <button><i class="fa-solid fa-caret-down"></i></button>
-                </div>
-
-                <div class="item-menu-info">
-                    <p>
-                        {{ number_format($permanetCost, 2) . ' Tk' }}
-                    </p>
-                </div>
-            </div>
-
-            {{-- <div class="col-md-3 col-sm-4  tile_stats_count">
-                <div class="d-flex custom-col">
-                    <div class="dashboard_menu">
-                        <img src="https://cdn-icons-png.flaticon.com/128/10761/10761983.png" alt="polti image">
-                    </div>
-                    <div class="dashboard_item">
-                        <h2>মোট খরচ</h2>
-                        <p>{{ numberCountingFormat($totalCost) . ' Tk' }}</p>
-                    </div>
-                </div>
-            </div> --}}
-
-            <div class="col-md-3 col-sm-4  tile_stats_count">
-                <div class="d-flex custom-col">
-                    <div class="dashboard_menu">
-                        <img src="https://cdn-icons-png.flaticon.com/128/10761/10761983.png" alt="polti image">
-                    </div>
-                    <div class="dashboard_item">
-                        <h2>মোট বাকি</h2>
-                        <p>Dynamic</p>
-                    </div>
-                </div>
-                <div class="item-foot-head">
-                    <button><i class="fa-solid fa-caret-down"></i></button>
-                </div>
-
-                <div class="item-menu-info">
-                    <p>
-                        Dynamic
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-4  tile_stats_count">
-                <div class="d-flex custom-col">
-                    <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/ezgif-2-e34d9fb6d1-removebg-preview.png') }}" alt="polti image">
-                    </div>
-                    <div class="dashboard_item">
-                        <h2>আজকের দুধ</h2>
-                        <p>Dynamic</p>
-                    </div>
-                    <div class="item-foot-head">
-                        <button><i class="fa-solid fa-caret-down"></i></button>
-                    </div>
-
-                    <div class="item-menu-info">
-                        <p>
-                            0
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4  tile_stats_count">
-                <div class="d-flex custom-col">
-                    <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/2749522.png') }}" alt="polti image">
-                    </div>
-                    <div class="dashboard_item">
-                        <h2>আজকের গোশত</h2>
-                        <p>Dynamic</p>
-                    </div>
-                    <div class="item-foot-head">
-                        <button><i class="fa-solid fa-caret-down"></i></button>
-                    </div>
-
-                    <div class="item-menu-info">
-                        <p>
-                            Dynamic
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-4  tile_stats_count">
-                <div class="d-flex custom-col">
-                    <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/9967826.png') }}" alt="polti image">
+                        <img src="{{ asset('custom/logos/today earn.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>আজকের আয়</h2>
@@ -270,7 +173,70 @@
             <div class="col-md-3 col-sm-4  tile_stats_count">
                 <div class="d-flex custom-col">
                     <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/9967826.png') }}" alt="polti image">
+                        <img src="{{ asset('custom/logos/total earn.png') }}" alt="polti image">
+                    </div>
+                    <div class="dashboard_item">
+                        <h2>মোট আয়</h2>
+                        <p> Dynamic </p>
+                    </div>
+                </div>
+                <div class="item-foot-head">
+                    <button><i class="fa-solid fa-caret-down"></i></button>
+                </div>
+
+                <div class="item-menu-info">
+                    <p>
+                        Dynamic
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4  tile_stats_count">
+                <div class="d-flex custom-col">
+                    <div class="dashboard_menu">
+                        <img src="{{ asset('custom/logos/total due.png') }}" alt="polti image">
+                    </div>
+                    <div class="dashboard_item">
+                        <h2>মোট বাকি</h2>
+                        <p>Dynamic</p>
+                    </div>
+                </div>
+                <div class="item-foot-head">
+                    <button><i class="fa-solid fa-caret-down"></i></button>
+                </div>
+
+                <div class="item-menu-info">
+                    <p>
+                        Dynamic
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4  tile_stats_count">
+                <div class="d-flex custom-col">
+                    <div class="dashboard_menu">
+                        <img src="{{ asset('custom/logos/dd-removebg-preview.png') }}" alt="polti image">
+                    </div>
+                    <div class="dashboard_item">
+                        <h2>কর্মচারী</h2>
+                        <p>{{ numberCountingFormat($staffs) }}</p>
+                    </div>
+                </div>
+                <div class="item-foot-head">
+                    <button><i class="fa-solid fa-caret-down"></i></button>
+                </div>
+
+                <div class="item-menu-info">
+                    <p>
+                        {{ numberCountingFormat($staffs) }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4  tile_stats_count">
+                <div class="d-flex custom-col">
+                    <div class="dashboard_menu">
+                        <img src="{{ asset('custom/logos/staff expance.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
                         <h2>কর্মচারীর বেতন</h2>
