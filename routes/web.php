@@ -145,7 +145,7 @@ Route::middleware(['auth', 'auth.branch'])->group(function(){
     Route::get('/cost/create', [CostController::class, 'create'])->name('cost.create');
     Route::post('/cost/store', [CostController::class, 'store'])->name('cost.store');
     Route::post('/cost/edit', [CostController::class, 'update'])->name('cost.edit');
-    Route::get('/bachur/list', [poltiController::class, 'bachurIndex'])->name('bachur.list');
+    Route::get('/baccha/list', [poltiController::class, 'bacchaIndex'])->name('baccha.list');
 
     // For polti Route
     Route::get('/polti/list', [poltiController::class, 'index'])->name('polti.list');

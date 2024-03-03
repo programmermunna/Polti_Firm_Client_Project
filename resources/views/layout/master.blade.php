@@ -212,9 +212,9 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('bachur.list') }}">
+                                    <a href="{{ route('baccha.list') }}">
                                         <i style="margin-right:8px; font-size: 1.2rem;" class="fa-solid fa-list"></i>
-                                        বাছুরের তালিকা
+                                        বাচ্চার তালিকা
                                     </a>
                                 </li>
 

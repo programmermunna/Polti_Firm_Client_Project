@@ -46,11 +46,11 @@ class poltiController extends Controller
         return view('polti.sell_list', compact('sellList', 'poltis', 'buyers'));
     }
 
-    public function bachurIndex()
+    public function bacchaIndex()
     {
         $data['calfs'] = polti::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('category_id', 6)->get();
 
-        return view('polti.bachurIndex')->with($data);
+        return view('polti.bacchaIndex')->with($data);
     }
 
     /**

@@ -73,7 +73,7 @@
                             alt="polti image">
                     </div>
                     <div class="dashboard_item">
-                        <h2>মোট বাছুর</h2>
+                        <h2>মোট বাচ্চা</h2>
                         <p>{{ numberCountingFormat(0) }}</p>
                     </div>
                 </div>
