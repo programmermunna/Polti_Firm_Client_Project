@@ -54,6 +54,7 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Branch</th>
+                                            <th>piece</th>
                                             <th>Price</th>
                                             <th>Payment</th>
                                             <th>Due</th>
@@ -69,6 +70,7 @@
                                                 <tr class="list-item">
                                                     <td>{{ ucfirst($sellDue->buyer->name) }}</td>
                                                     <td>{{ ucfirst($sellDue->branch->branch_name) }}</td>
+                                                    <td>{{ $sellDue->piece }}</td>
                                                     <td>{{ number_format($sellDue->price, 2) }}</td>
                                                     <td>{{ number_format($sellDue->payment, 2) }}</td>
                                                     <td style="font-weight: bold;color:red;">
