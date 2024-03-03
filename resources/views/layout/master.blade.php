@@ -210,13 +210,13 @@
                         </div>
 
                         <div class="menu_section">
-                            <h3>তালিকা সমূহ</h3>
+                            <h3>Live ON</h3>
                             <ul class="nav side-menu">
 
                                 <li>
                                     <a href="{{ route('supplier.list') }}">
                                         <i style="margin-right:8px; font-size: 1.2rem;"
-                                            class="fa-solid fa-bowl-food"></i>
+                                            class="fa-solid fa-people-group"></i>
                                         Supplier
                                     </a>
                                 </li>
@@ -238,7 +238,7 @@
                                 {{-- Catalog Menu List --}}
                                 <li>
                                     <a>
-                                        <i style="margin-right:8px; font-size: 1.2rem;" class="fa-solid fa-list"></i>
+                                        <i style="margin-right:8px; font-size: 1.2rem;" class="fa-solid fa-table"></i>
                                         ক্যাটালগ
                                         <span class="fa fa-chevron-down"></span>
                                     </a>
