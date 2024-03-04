@@ -45,7 +45,7 @@
                         <span class="section">polti Sell Info</span>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">পল্টি<span
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">পোল্টি<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
                                 <select name="polti_id" id="" class="form-control" required="required">

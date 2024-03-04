@@ -52,7 +52,7 @@
                                 style="width: 30px; height:30px; border-radius:50%;"
                                 src="{{ asset('custom/logos/7395804.png') }}"
                                 alt="">
-                            <span>ইসবাহ পল্টি ফার্ম</span></a>
+                            <span>ইসবাহ পোল্টি ফার্ম</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -92,7 +92,7 @@
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('shed.list') }}">শেড তালিকা</a></li>
                                         <li><a href="{{ route('shed.list') }}">বাচ্চার শেড</a></li>
-                                        <li><a href="{{ route('shed.list') }}">পল্টির শেড</a></li>
+                                        <li><a href="{{ route('shed.list') }}">পোল্টির শেড</a></li>
                                     </ul>
                                 </li>
                                 {{-- Shed List --}}
@@ -102,13 +102,12 @@
                                 <li>
                                     <a>
                                         <i style="margin-right:8px; font-size: 1.2rem;"
-                                            class="fa-brands fa-sellcast"></i> পল্টি
-                                        ক্রয়/বিক্রয়
+                                            class="fa-brands fa-sellcast"></i> পোল্টি ক্রয়/বিক্রয়
                                         <span class="fa fa-chevron-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
-                                        <li><a href="{{ route('polti.create') }}">ক্রয়</a></li>
-                                        <li><a href="{{ route('polti.sell') }}">বিক্রয়</a></li>
+                                        <li><a href="{{ route('polti.create') }}">বাচ্চা ক্রয়</a></li>
+                                        <li><a href="{{ route('polti.sell') }}">পোল্টি বিক্রয়</a></li>
                                         <li><a href="{{ route('polti_sell.collect') }}">বাকী সংগ্রহ</a></li>
                                     </ul>
                                 </li>
@@ -116,7 +115,7 @@
                                 <li>
                                     <a href="{{ route('polti.feed') }}">
                                         <i style="font-size: 1.2rem;" class="fa-solid fa-bowl-food"></i>
-                                        পল্টি খাদ্য
+                                        পোল্টি খাদ্য
                                     </a>
                                 </li>
                                 {{-- Polti List --}}
@@ -224,7 +223,7 @@
                                 <li>
                                     <a href="{{ route('polti.list') }}">
                                         <i style="margin-right:8px; font-size: 1.2rem;" class="fa-solid fa-list"></i>
-                                        পল্টির তালিকা
+                                        পোল্টির তালিকা
                                     </a>
                                 </li>
 

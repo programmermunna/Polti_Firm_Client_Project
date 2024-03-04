@@ -11,7 +11,7 @@
 
             <div class="page_header">
                 <div class="page_header_menu">
-                    <a class="btn btn-sm btn-primary" href="{{ route('polti.list') }}">পল্টি তালিকা</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('polti.list') }}">পোল্টি তালিকা</a>
                 </div>
             </div>
 
@@ -39,7 +39,7 @@
 
                     <form class="" action="{{ route('polti.store') }}" method="post" novalidate>
                         @csrf
-                        <span class="section">পল্টির তথ্য</span>
+                        <span class="section">বাচ্চার তথ্য</span>
 
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">দাম<span
@@ -64,7 +64,7 @@
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align"> পল্টির ধরণ<span
+                            <label class="col-form-label col-md-3 col-sm-3  label-align"> বাচ্চার ধরণ<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
                                 <select name="category_id" id="" class="form-control">

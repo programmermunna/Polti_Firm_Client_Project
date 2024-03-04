@@ -50,7 +50,7 @@
                         <img src="{{ asset('custom/logos/polti.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
-                        <h2>মোট পল্টি</h2>
+                        <h2>মোট পোল্টি</h2>
                         <p>{{ numberCountingFormat($poltis > 0 ? $poltis : '0') }}</p>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                         <img src="{{ asset('custom/logos/deth polti.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
-                        <h2>মৃত পল্টি</h2>
+                        <h2>মৃত পোল্টি</h2>
                         <p>dynamic</p>
                     </div>
                 </div>

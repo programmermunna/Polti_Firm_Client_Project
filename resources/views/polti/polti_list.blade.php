@@ -11,7 +11,7 @@
             <div class="x_panel my-5">
 
                 <div class="x_title  d-flex justify-content-between">
-                    <h2 class="list_title">পল্টি তালিকা সমূহ</h2>
+                    <h2 class="list_title">পোল্টি তালিকা সমূহ</h2>
                     <a class="btn btn-sm btn-primary" href="{{ route('polti.create') }}">নতুন যুক্ত করুন</a>
 
                     {{-- <div class="clearfix"></div> --}}
