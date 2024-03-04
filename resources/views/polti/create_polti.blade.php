@@ -45,7 +45,7 @@
                             <label class="col-form-label col-md-3 col-sm-3  label-align">দাম<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
-                                <input class="form-control" name="price" type="text" />
+                                <input class="form-control" name="price" type="number" />
                             </div>
                             @error('price')
                                 <span class="text-danger">{{ $message }}</span>
@@ -80,22 +80,6 @@
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">খরচের ধরণ<span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <select name="expense_type" id="" class="form-control">
-                                    <option value="" selected disabled>select</option>
-                                    @foreach ($expenseType as $key => $expense)
-                                        <option value="{{ $expense->id }}">{{ $expense->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            @error('expense_type')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">শেড<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
@@ -107,30 +91,6 @@
                                 </select>
                             </div>
                             @error('shed_id')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">ট্যাগ নাম্বার<span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" class='optional' name="tag"
-                                    data-validate-length-range="5,15" type="text" />
-                            </div>
-                            @error('tag')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">জাত<span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" name="caste" class='email'
-                                    type="text" />
-                            </div>
-                            @error('caste')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -155,30 +115,6 @@
                                     data-validate-minmax="10">
                             </div>
                             @error('transport')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">হাসিল <span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" type="number" class='number' name="hasil"
-                                    data-validate-minmax="10">
-                            </div>
-                            @error('hasil')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">গায়ের রঙ <span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" type="text" class='number' name="color"
-                                    data-validate-minmax="10" >
-                            </div>
-                            @error('color')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>

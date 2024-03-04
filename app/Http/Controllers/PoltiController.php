@@ -178,15 +178,10 @@ class poltiController extends Controller
             $poltiObj->price        = $price;
             $poltiObj->piece        = $piece;
             $poltiObj->category_id  = $request->input('category_id');
-            $poltiObj->expense_type = $request->input('expense_type');
             $poltiObj->shed_id      = $request->input('shed_id');
-            $poltiObj->tag          = $request->input('tag');
-            $poltiObj->caste        = $request->input('caste');
             $poltiObj->weight       = $request->input('weight');
             $poltiObj->transport    = $transport;
-            $poltiObj->hasil        = $hasil;
             $poltiObj->total        = $total;
-            $poltiObj->color        = $request->input('color');
             $poltiObj->buy_date     = $request->input('buy_date');
             $poltiObj->age          = $request->input('age');
             $poltiObj->description  = $request->input('description');
@@ -197,16 +192,9 @@ class poltiController extends Controller
             $res = $poltiObj->save();
 
             DB::commit();
-            if($res){
-                $balanceServiceObj = new BalanceService;
 
-                $lastInsertedId = $poltiObj->id;
-                $expenseType    = $request->input('expense_type');
-
-                $result = $balanceServiceObj->accountDecrement($lastInsertedId,$expenseType, $total);
-                if($result == true){
-                    return redirect()->back()->with('message', 'polti Created successfully');
-                }
+            if($res == true){
+                return redirect()->back()->with('message', 'polti Created successfully');
             }
 
         } catch (\Exception $e) {

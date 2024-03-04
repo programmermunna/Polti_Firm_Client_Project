@@ -24,12 +24,8 @@ class UpdatepoltiRequest extends FormRequest
         return [
             'price'       => ['required'],
             'category_id' => ['required'],
-            'tag'         => ['required'],
-            'caste'       => ['required'],
             'weight'      => ['required'],
             'transport'   => ['required'],
-            'hasil'       => ['required'],
-            'color'       => ['required'],
             'buy_date'    => ['required'],
             'age'         => ['required'],
             'description' => ['required'],

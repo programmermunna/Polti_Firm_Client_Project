@@ -26,14 +26,11 @@
                                     <thead>
                                         <tr>
                                             <th>Branch</th>
-                                            <th>Tag</th>
                                             <th>Category</th>
                                             <th>Price</th>
                                             <th>Piece</th>
                                             <th>Transport</th>
-                                            <th>Hasil</th>
                                             <th>Total</th>
-                                            <th>Caste</th>
                                             <th>Weight</th>
                                             <th>Buy date</th>
                                             <th>Status</th>
@@ -48,15 +45,12 @@
                                             @foreach ($poltis as $key => $polti)
                                                 <tr class="list-item">
                                                     <td>{{ $polti->branch->branch_name }}</td>
-                                                    <td style="color:#000; font-weight:bold;">{{ $polti->tag }}</td>
                                                     <td style="color:#000; font-weight:bold;">{{ $polti->category->name }}
                                                     </td>
                                                     <td>{{ number_format($polti->price, 2) }}</td>
                                                     <td>{{ $polti->piece }}</td>
                                                     <td>{{ number_format($polti->transport, 2) }}</td>
-                                                    <td>{{ number_format($polti->hasil, 2) }}</td>
                                                     <td>{{ number_format($polti->total, 2) }}</td>
-                                                    <td>{{ ucfirst($polti->caste) }}</td>
                                                     <td>{{ $polti->weight . ' kg' }}</td>
                                                     <td>{{ $polti->buy_date }}</td>
                                                     <td>
@@ -73,18 +67,13 @@
                                                     <td>
                                                         <button class="btn btn-sm btn-primary editBtn" data-toggle="modal"
                                                             data-target="#myModal" data-id="{{ $polti->id }}"
-                                                            data-tag="{{ $polti->tag }}"
                                                             data-category_id="{{ $polti->category_id }}"
-                                                            data-hasil="{{ $polti->hasil }}"
-                                                            data-color="{{ $polti->color }}"
                                                             data-age="{{ $polti->age }}"
                                                             data-description="{{ $polti->description }}"
-                                                            data-caste="{{ $polti->caste }}"
                                                             data-weight="{{ $polti->weight }}"
                                                             data-transport="{{ $polti->transport }}"
                                                             data-piece="{{ $polti->piece }}"
                                                             data-price="{{ $polti->price }}"
-                                                            data-type="{{ $polti->type }}"
                                                             data-buy_date="{{ $polti->buy_date }}">
                                                             <i class="fa-regular fa-pen-to-square"></i>
                                                         </button>
@@ -170,31 +159,7 @@
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">গরুর ট্যাগ<span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" class='optional' name="tag"
-                                    data-validate-length-range="5,15" type="text" />
-                            </div>
-                            @error('tag')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">গরুর জাত<span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" name="caste" class='email' required="required"
-                                    type="text" />
-                            </div>
-                            @error('caste')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">গরুর ওজন<span
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">পোল্টির ওজন<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
                                 <input class="form-control" type="number" class='email' name="weight"
@@ -218,30 +183,6 @@
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">হাসিল <span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" type="number" class='number' name="hasil"
-                                    data-validate-minmax="10" required='required'>
-                            </div>
-                            @error('hasil')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">গরুর রঙ <span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" type="text" class='number' name="color"
-                                    data-validate-minmax="10" required='required'>
-                            </div>
-                            @error('color')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">ক্রয় তারিখ<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
@@ -254,7 +195,7 @@
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">গরুর বয়স<span
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">পোল্টির বয়স<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
                                 <input class="form-control" name="age" class='email' required="required"
@@ -278,7 +219,7 @@
                         <div class="ln_solid">
                             <div class="form-group">
                                 <div class="col-md-6 offset-md-3">
-                                    <button type='submit' class="btn btn-primary">Update</button>
+                                    <button class="btn btn-primary">Update</button>
                                     <button type='reset' class="btn btn-success">Reset</button>
                                 </div>
                             </div>
@@ -359,12 +300,8 @@
                     price: $(this).data('price'),
                     piece: $(this).data('piece'),
                     categoryId: $(this).data('category_id'),
-                    tag: $(this).data('tag'),
-                    caste: $(this).data('caste'),
                     weight: $(this).data('weight'),
                     transport: $(this).data('transport'),
-                    hasil: $(this).data('hasil'),
-                    color: $(this).data('color'),
                     buy_date: $(this).data('buy_date'),
                     age: $(this).data('age'),
                     description: $(this).data('description')
@@ -375,12 +312,8 @@
                 $('input[name="price"]').val(poltiData.price);
                 $('input[name="piece"]').val(poltiData.piece);
                 $('select[name="category_id"]').val(poltiData.categoryId);
-                $('input[name="tag"]').val(poltiData.tag);
-                $('input[name="caste"]').val(poltiData.caste);
                 $('input[name="weight"]').val(poltiData.weight);
                 $('input[name="transport"]').val(poltiData.transport);
-                $('input[name="hasil"]').val(poltiData.hasil);
-                $('input[name="color"]').val(poltiData.color);
                 $('input[name="buy_date"]').val(poltiData.buy_date);
                 $('input[name="age"]').val(poltiData.age);
                 $('textarea[name="description"]').val(poltiData.description);
