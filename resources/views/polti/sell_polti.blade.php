@@ -45,22 +45,6 @@
                         <span class="section">polti Sell Info</span>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">পোল্টি<span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <select name="polti_id" id="" class="form-control" required="required">
-                                    <option value="" selected disabled>Select</option>
-                                    @foreach ($poltis as $key => $polti)
-                                        <option value="{{ $polti->id }}">{{ $polti->tag }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            @error('polti_id')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">ক্রেতা<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
@@ -72,6 +56,35 @@
                                 </select>
                             </div>
                             @error('buyer_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">পোল্টির ধরন<span
+                                    class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <select name="category_id" id="" class="form-control">
+                                    <option value="" selected disabled>select</option>
+                                    @foreach ($categories as $key => $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('caste')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">কেজি<span
+                                    class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" name="kg" type="number" required="required" />
+                            </div>
+                            @error('kg')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -121,47 +134,10 @@
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">ট্যাগ<span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" class='optional' name="tag"
-                                    data-validate-length-range="5,15" type="text" />
-                            </div>
-                            @error('tag')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">জাত<span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" name="caste" class='email' required="required"
-                                    type="text" />
-                            </div>
-                            @error('caste')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">গায়ের রঙ <span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" type="text" class='number' name="color"
-                                    data-validate-minmax="10" required='required'>
-                            </div>
-                            @error('color')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">বিক্রয় তারিখ<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
-                                <input class="form-control" class='date' type="date" name="sell_date"
-                                    required='required'>
+                                <input class="form-control" class='date' type="date" name="sell_date" required='required'>
                             </div>
                             @error('sell_date')
                                 <span class="text-danger">{{ $message }}</span>

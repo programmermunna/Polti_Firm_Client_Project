@@ -8,7 +8,7 @@ use App\Models\Branch;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class poltiSell extends Model
+class PoltiSell extends Model
 {
     use HasFactory;
 
@@ -16,6 +16,7 @@ class poltiSell extends Model
         'branch_id',
         'polti_id',
         'buyer_id',
+        'category_id',
         'piece',
         'price',
         'payment',

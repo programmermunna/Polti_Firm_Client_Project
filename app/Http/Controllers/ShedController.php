@@ -32,8 +32,8 @@ class ShedController extends Controller
      */
     public function store(StoreShedRequest $request)
     {
-        try {
-            DB::beginTransaction();
+        // try {
+        //     DB::beginTransaction();
 
             $shedObj = new Shed;
 
@@ -44,14 +44,14 @@ class ShedController extends Controller
 
             $res = $shedObj->save();
 
-            DB::commit();
+            // DB::commit();
             if($res){
                 return redirect()->back()->with('message', 'Shed created');
             }
-        } catch (\Exception $e) {
-            DB::rollback();
-            info($e);
-        }
+        // } catch (\Exception $e) {
+        //     DB::rollback();
+        //     info($e);
+        // }
     }
 
     /**
