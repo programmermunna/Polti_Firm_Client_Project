@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('branch_id')->constrained('branches')
                 ->onUpdate('cascade')->onDelete('cascade')->nullable();
-            $table->foreignId('polti_id')->constrained('poltis')
-                ->onUpdate('cascade')->onDelete('cascade')->nullable();
             $table->foreignId('buyer_id')->constrained('buyers')
                 ->onUpdate('cascade')->onDelete('cascade')->nullable();
             $table->integer('category_id')->nullable();

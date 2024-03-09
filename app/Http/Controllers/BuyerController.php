@@ -94,7 +94,7 @@ class BuyerController extends Controller
      * Update the specified resource in storage.
      */
     public function update(UpdateBuyerRequest $request, Buyer $buyer)
-    {
+    {        
         try {
             DB::beginTransaction();
 
@@ -108,7 +108,6 @@ class BuyerController extends Controller
             }
 
             $res = $buyer->update($validatedData);
-
             DB::commit();
             if ($res) {
                 return redirect()->back()->with('message', 'Update successfully');

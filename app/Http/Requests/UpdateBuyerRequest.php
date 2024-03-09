@@ -25,6 +25,7 @@ class UpdateBuyerRequest extends FormRequest
             'name'         => ['required'],
             'phone_number' => ['required'],
             'address'      => ['required'],
+            'balance'      => ['required'],
         ];
     }
 }

@@ -30,7 +30,7 @@ class poltiController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $poltis        = polti::with('branch:id,branch_name', 'category:id,name')->where('branch_id', session('branch_id'))->latest()->get();
+        $poltis     = polti::with('branch:id,branch_name', 'category:id,name')->where('branch_id', session('branch_id'))->latest()->get();
 
         return view('polti.polti_list', compact('poltis', 'categories'));
     }
@@ -75,8 +75,8 @@ class poltiController extends Controller
 
     public function sellStore(Request $request)
     {
-        try {
-            DB::beginTransaction();
+        // try {
+        //     DB::beginTransaction();
 
             $validator = Validator::make($request->all(), [
                 'buyer_id'  => ['required'],
@@ -95,7 +95,6 @@ class poltiController extends Controller
                     ->withInput();
             }
 
-            $poltiId      = 1;
             $poltiSellObj = new poltiSell;
             $piece      = $request->input('piece');
             $price      = $request->input('price');
@@ -107,7 +106,6 @@ class poltiController extends Controller
             $status        = $request->input('status');
 
             $poltiSellObj->branch_id   = session('branch_id');
-            $poltiSellObj->polti_id      = $poltiId;
             $poltiSellObj->buyer_id    = $buyerId;
             $poltiSellObj->category_id = $category_id;
             $poltiSellObj->kg          = $kg;
@@ -123,7 +121,7 @@ class poltiController extends Controller
 
             $res = $poltiSellObj->save();
 
-            DB::commit();
+            // DB::commit();
             if($res){
                 $lastInsertedId    = $poltiSellObj->id;
                 $this->incomeBalanceUpdate($lastInsertedId, $payment, $due);
@@ -135,10 +133,10 @@ class poltiController extends Controller
                 }
                 return redirect()->back()->with('message', 'Sell Created');
             }
-        } catch (\Exception $e) {
-            DB::rollback();
-            info($e);
-        }
+        // } catch (\Exception $e) {
+        //     DB::rollback();
+        //     info($e);
+        // }
     }
 
     public function poltiFlagUpdate($id)
