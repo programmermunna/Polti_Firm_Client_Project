@@ -37,13 +37,12 @@ class poltiController extends Controller
 
     public function sellIndex()
     {
-        $sellList = poltiSell::with('branch:id,branch_name', 'buyer:id,name','polti:id,tag,category_id', 'polti.category:id,name')->where('branch_id', session('branch_id'))->latest()->get();
+        $sellList = poltiSell::with('branch:id,branch_name', 'buyer:id,name','polti:id,tag,category_id', 'category:id,name')->where('branch_id', session('branch_id'))->latest()->get();
         $poltis     = polti::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->get();
         $buyers   = Buyer::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('status', '1')->latest()->get();
+        $categories = Category::where('status', '1')->get();
 
-        // return $sellList;
-
-        return view('polti.sell_list', compact('sellList', 'poltis', 'buyers'));
+        return view('polti.sell_list', compact('sellList', 'poltis', 'buyers','categories'));
     }
 
     public function bacchaIndex()
@@ -86,6 +85,7 @@ class poltiController extends Controller
                 'piece'    => ['required'],
                 'price'     => ['required'],
                 'payment'   => ['required'],
+                'status'   => ['required'],
                 'sell_date' => ['required'],
             ]);
 
@@ -104,6 +104,7 @@ class poltiController extends Controller
             $category_id= $request->input('category_id');
             $kg         = $request->input('kg');
             $due        = $request->input('due');
+            $status        = $request->input('status');
 
             $poltiSellObj->branch_id   = session('branch_id');
             $poltiSellObj->polti_id      = $poltiId;
@@ -116,11 +117,10 @@ class poltiController extends Controller
             $poltiSellObj->due         = $due;
             $poltiSellObj->sell_date   = $request->input('sell_date');
             $poltiSellObj->description = $request->input('description');
-            $poltiSellObj->status      = 1;
+            $poltiSellObj->status      = $status;
             $poltiSellObj->flag      = 1;
             $poltiSellObj->created_at  = Carbon::now();
 
-// return $poltiSellObj;
             $res = $poltiSellObj->save();
 
             DB::commit();
@@ -298,12 +298,14 @@ class poltiController extends Controller
 
     public function sellEdit(Request $request)
     {
+        // return $request->category_id;
         try {
             DB::beginTransaction();
 
             $validator = Validator::make($request->all(), [
-                'polti_id'    => ['required'],
                 'buyer_id'  => ['required'],
+                'category_id'=> ['required'],
+                'kg'        => ['required'],
                 'piece'     => ['required'],
                 'price'     => ['required'],
                 'payment'   => ['required'],
@@ -319,8 +321,9 @@ class poltiController extends Controller
             }
 
             $updateData = [
-                'polti_id'    => $request->input('polti_id'),
-                'buyer_id'  => $request->input('buyer_id'),
+                'buyer_id'    => $request->input('buyer_id'),
+                'category_id' => $request->input('category_id'),
+                'kg'         => $request->input('kg'),
                 'piece'     => $request->input('piece'),
                 'price'     => $request->input('price'),
                 'payment'   => $request->input('payment'),

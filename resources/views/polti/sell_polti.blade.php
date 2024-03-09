@@ -144,6 +144,17 @@
                             @enderror
                         </div>
 
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">বিবরণ<span
+                                    class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <textarea class="form-control" name='description'></textarea>
+                            </div>
+                            @error('description')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align">অবস্থা<span
                                     class="required">*</span></label>
@@ -165,16 +176,6 @@
                             @enderror
                         </div>
 
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">বিবরণ<span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <textarea class="form-control" name='description'></textarea>
-                            </div>
-                            @error('description')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
                         <div class="ln_solid">
                             <div class="form-group">
                                 <div class="col-md-6 offset-md-3">

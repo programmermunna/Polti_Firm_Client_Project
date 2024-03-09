@@ -59,4 +59,9 @@ class PoltiSell extends Model
     {
         return $this->belongsTo(Buyer::class, 'buyer_id', 'id');
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 }

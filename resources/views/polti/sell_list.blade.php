@@ -54,11 +54,13 @@
                                         <tr>
                                             <th>Branch</th>
                                             <th>Buyer</th>
+                                            <th>Category</th>
+                                            <th>KG</th>
                                             <th>piece</th>
                                             <th>Price</th>
                                             <th>Payment</th>
                                             <th>Due</th>
-                                            <th>Category</th>
+                                            <th>Status</th>
                                             <th>Date</th>
                                             <th>Action</th>
                                         </tr>
@@ -72,6 +74,9 @@
                                                     <td>{{ ucfirst($sell->branch->branch_name) }}</td>
                                                     <td style="color: blue; font-weight:bold;">
                                                         {{ ucfirst($sell->buyer->name) }}</td>
+                                                    <td>{{ ucfirst($sell->category->name) }}</td>
+                                                    <td style="color: #000; font-weight:bold;">
+                                                        {{ ucfirst($sell->kg) }}</td>
                                                     <td style="color: #000; font-weight:bold;">
                                                         {{ $sell->piece }}</td>
                                                     <td style="color: #000; font-weight:bold;">
@@ -80,7 +85,13 @@
                                                         {{ number_format($sell->payment, 2) }}</td>
                                                     <td style="color: red; font-weight:bold;">
                                                         {{ number_format($sell->due, 2) }}</td>
-                                                    <td>{{ ucfirst($sell->polti->category->name) }}</td>
+                                                    <td>@if ($sell->status == 0)
+                                                            <span style="color: green; font-weight:bold;">Delivered</span>
+                                                            @else
+                                                            <span style="color: blue; font-weight:bold;">Booking</span>
+                                                        @endif
+                                                    </td>
+
                                                     <td>{{ dateTimeFormat($sell->sell_date) }}</td>
                                                     <td>
                                                         <button class="btn btn-sm btn-primary editBtn" data-toggle="modal"
@@ -92,6 +103,8 @@
                                                             data-status="{{ $sell->status }}"
                                                             data-payment="{{ $sell->payment }}"
                                                             data-buyer="{{ $sell->buyer->id }}"
+                                                            data-category_id="{{ $sell->category->id }}"
+                                                            data-kg="{{ $sell->kg }}"
                                                             data-name="{{ $sell->name }}"
                                                             data-status="{{ $sell->status }}">
                                                             <i class="fa-regular fa-pen-to-square"></i>
@@ -142,22 +155,6 @@
                         <input type="hidden" name="sell_id">
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">পোল্টি<span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <select name="polti_id" id="" class="form-control" required="required">
-                                    <option value="" selected disabled>Select</option>
-                                    @foreach ($poltis as $key => $polti)
-                                        <option value="{{ $polti->id }}">{{ $polti->tag }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            @error('polti_id')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">ক্রেতা<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
@@ -169,6 +166,33 @@
                                 </select>
                             </div>
                             @error('buyer_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">পোল্টির ধরন<span
+                                    class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <select name="category_id" id="" class="form-control" required="required">
+                                    <option value="" selected disabled>Select</option>
+                                    @foreach ($categories as $key => $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('category_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">কেজি<span
+                                    class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" name="kg" type="number" required="required" />
+                            </div>
+                            @error('kg')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -333,8 +357,9 @@
                 // alert($(this).data('polti'));
                 const sellData = {
                     id: $(this).data('id'),
-                    polti: $(this).data('polti_id'),
                     buyer: $(this).data('buyer'),
+                    category_id: $(this).data('category_id'),
+                    kg: $(this).data('kg'),
                     payment: $(this).data('payment'),
                     piece: $(this).data('piece'),
                     price: $(this).data('price'),
@@ -342,16 +367,16 @@
                     tag: $(this).data('tag'),
                     status: $(this).data('status'),
                 };
-
                 // Set values to form fields
                 $('input[name="sell_id"]').val(sellData.id);
-                $('select[name="polti_id"]').val(sellData.polti);
                 $('input[name="due"]').val(sellData.due);
                 $('input[name="piece"]').val(sellData.piece);
                 $('input[name="price"]').val(sellData.price);
                 $('input[name="payment"]').val(sellData.payment);
                 $('input[name="tag"]').val(sellData.tag);
                 $('select[name="buyer_id"]').val(sellData.buyer);
+                $('select[name="category_id"]').val(sellData.category_id);
+                $('input[name="kg"]').val(sellData.kg);
                 $('input[name="status"]').val(sellData.status);
 
                 // Open the modal
