@@ -19,6 +19,8 @@ return new class extends Migration
                 ->onUpdate('cascade')->onDelete('cascade')->nullable();
             $table->foreignId('buyer_id')->constrained('buyers')
                 ->onUpdate('cascade')->onDelete('cascade')->nullable();
+            $table->integer('category_id')->nullable();
+            $table->integer('kg')->nullable();
             $table->integer('piece')->nullable();
             $table->integer('price')->nullable();
             $table->integer('payment')->nullable();

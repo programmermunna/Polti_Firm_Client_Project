@@ -76,63 +76,54 @@ class poltiController extends Controller
 
     public function sellStore(Request $request)
     {
-        // try {
-        //     DB::beginTransaction();
+        try {
+            DB::beginTransaction();
 
-            // $validator = Validator::make($request->all(), [
-            //     'polti_id'    => ['required'],
-            //     'buyer_id'  => ['required'],
-            //     'buyer_id'  => ['required'],
-            //     'price'     => ['required'],
-            //     'payment'   => ['required'],
-            //     'sell_date' => ['required'],
-            // ]);
-
-            // if ($validator->fails()) {
-            //     return redirect()->back()
-            //         ->withErrors($validator)
-            //         ->withInput();
-            // }
-
-            // return 1;
-
-            $store = PoltiSell::create([
-            "branch_id"  => session('branch_id'),
-            "polti_id"  => 11,
-            "buyer_id"  => 11,
-            "category_id"  => 11,
-            "piece" => $request->input('piece'),
+            $validator = Validator::make($request->all(), [
+                'buyer_id'  => ['required'],
+                'category_id'    => ['required'],
+                'kg'    => ['required'],
+                'piece'    => ['required'],
+                'price'     => ['required'],
+                'payment'   => ['required'],
+                'sell_date' => ['required'],
             ]);
 
-            return $store;
+            if ($validator->fails()) {
+                return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
+            }
 
-
-
+            $poltiId      = 1;
             $poltiSellObj = new poltiSell;
-            $poltiId      = 11;
-            // $poltiId      = $request->input('polti_id');
             $piece      = $request->input('piece');
             $price      = $request->input('price');
             $payment    = $request->input('payment');
             $buyerId    = $request->input('buyer_id');
+            $category_id= $request->input('category_id');
+            $kg         = $request->input('kg');
             $due        = $request->input('due');
 
             $poltiSellObj->branch_id   = session('branch_id');
             $poltiSellObj->polti_id      = $poltiId;
             $poltiSellObj->buyer_id    = $buyerId;
+            $poltiSellObj->category_id = $category_id;
+            $poltiSellObj->kg          = $kg;
             $poltiSellObj->piece       = $piece;
             $poltiSellObj->price       = $price;
             $poltiSellObj->payment     = $payment;
             $poltiSellObj->due         = $due;
             $poltiSellObj->sell_date   = $request->input('sell_date');
             $poltiSellObj->description = $request->input('description');
-            $poltiSellObj->status      = $request->input('status');
+            $poltiSellObj->status      = 1;
+            $poltiSellObj->flag      = 1;
             $poltiSellObj->created_at  = Carbon::now();
 
-
+// return $poltiSellObj;
             $res = $poltiSellObj->save();
-            return 1;
-            // DB::commit();
+
+            DB::commit();
             if($res){
                 $lastInsertedId    = $poltiSellObj->id;
                 $this->incomeBalanceUpdate($lastInsertedId, $payment, $due);
@@ -144,10 +135,10 @@ class poltiController extends Controller
                 }
                 return redirect()->back()->with('message', 'Sell Created');
             }
-        // } catch (\Exception $e) {
-        //     DB::rollback();
-        //     info($e);
-        // }
+        } catch (\Exception $e) {
+            DB::rollback();
+            info($e);
+        }
     }
 
     public function poltiFlagUpdate($id)
