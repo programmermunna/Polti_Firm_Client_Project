@@ -125,12 +125,9 @@ class poltiController extends Controller
             if($res){
                 $lastInsertedId    = $poltiSellObj->id;
                 $this->incomeBalanceUpdate($lastInsertedId, $payment, $due);
-                if($due >= 0){
-                    $balanceServiceObj = new BalanceService;
+                $balanceServiceObj = new BalanceService;
+                $balanceServiceObj->balanceUpdate($buyerId, $payment);
 
-                    $this->poltiFlagUpdate($poltiId);
-                    $balanceServiceObj->balanceUpdate($buyerId, $due);
-                }
                 return redirect()->back()->with('message', 'Sell Created');
             }
         // } catch (\Exception $e) {

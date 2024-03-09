@@ -96,7 +96,6 @@
                                                     <td>
                                                         <button class="btn btn-sm btn-primary editBtn" data-toggle="modal"
                                                             data-target="#myModal" data-id="{{ $sell->id }}"
-                                                            data-polti_id="{{ $sell->polti->id }}"
                                                             data-piece="{{ $sell->piece }}"
                                                             data-price="{{ $sell->price }}"
                                                             data-due="{{ $sell->due }}"

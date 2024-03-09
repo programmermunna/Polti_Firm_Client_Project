@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class BalanceService
 {
-    public function balanceUpdate($id, $due)
+    public function balanceUpdate($id, $payment)
     {
         $buyer = Buyer::where('branch_id', session('branch_id'))->where('id', $id)->first();
 
@@ -20,7 +20,7 @@ class BalanceService
 
         if($buyer){
             $balance = $buyer->balance;
-            $newBalance = $balance + $due;
+            $newBalance = $balance - $payment;
 
             $res = DB::table('buyers')->where('branch_id', session('branch_id'))->where('id', $id)->update(['balance' => $newBalance]);
             if($res){

@@ -131,6 +131,17 @@
                             @error('due')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
+                        </div>                       
+
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">বিবরণ<span
+                                    class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <textarea class="form-control" name='description'></textarea>
+                            </div>
+                            @error('description')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="field item form-group">
@@ -140,17 +151,6 @@
                                 <input class="form-control" class='date' type="date" name="sell_date" required='required'>
                             </div>
                             @error('sell_date')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">বিবরণ<span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <textarea class="form-control" name='description'></textarea>
-                            </div>
-                            @error('description')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>

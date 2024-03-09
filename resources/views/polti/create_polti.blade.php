@@ -120,17 +120,6 @@
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">ক্রয় তারিখ<span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" class='date' type="date" name="buy_date">
-                            </div>
-                            @error('buy_date')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">বয়স<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
@@ -152,6 +141,18 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                        
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">ক্রয় তারিখ<span
+                                    class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" class='date' type="date" name="buy_date">
+                            </div>
+                            @error('buy_date')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="ln_solid">
                             <div class="form-group">
                                 <div class="col-md-6 offset-md-3">
