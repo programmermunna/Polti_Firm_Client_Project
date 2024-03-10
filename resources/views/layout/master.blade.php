@@ -107,9 +107,9 @@
                                     </a>
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('polti.create') }}">বাচ্চা ক্রয়</a></li>
-                                        <li><a href="{{ route('polti.list') }}">পোল্টির তালিকা</a></li>
+                                        <li><a href="{{ route('polti.list') }}">বাচ্চার তালিকা</a></li>
                                         <li><a href="{{ route('polti.sell') }}">পোল্টি বিক্রয়</a></li>
-                                        <li><a href="{{ route('polti_sell.collect') }}">বাকী সংগ্রহ</a></li>
+                                        <li><a href="{{ route('polti_sell.collect') }}">বাকী বিক্রয়</a></li>
                                     </ul>
                                 </li>
 

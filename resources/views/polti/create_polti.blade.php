@@ -10,8 +10,11 @@
             @endif
 
             <div class="page_header">
-                <div class="page_header_menu">
-                    <a class="btn btn-sm btn-primary" href="{{ route('polti.list') }}">পোল্টি তালিকা</a>
+                <div class="d-flex justify-content-end">
+                    <a class="btn btn-sm btn-primary" href="{{ route('polti.list') }}">বাচ্চার তালিকা</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('category.list') }}">বাচ্চার ধরন</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('shed.list') }}">শেড</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('buyer.list') }}">ক্রেতা</a>
                 </div>
             </div>
 

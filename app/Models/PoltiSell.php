@@ -17,6 +17,7 @@ class PoltiSell extends Model
         'polti_id',
         'buyer_id',
         'category_id',
+        'kg',
         'piece',
         'price',
         'payment',

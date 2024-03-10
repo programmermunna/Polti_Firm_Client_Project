@@ -293,7 +293,7 @@ class poltiController extends Controller
 
     public function sellEdit(Request $request)
     {
-        // return $request->category_id;
+        // return $request->kg;
         try {
             DB::beginTransaction();
 
@@ -393,26 +393,32 @@ class poltiController extends Controller
             $hasil     = $request->input('hasil');
             $total     = $price + $transport + $hasil;
 
+           $polti = polti::find($poltiId);
+           if (!$polti) {
+               return redirect()->back()->with('message', 'polti not found');
+           }
+
+           $old_piece = $polti->piece;
+           $old_deth = $polti->deth;      
+
+           $old_piece > $piece ? $deth = $old_piece - $piece : $deth = 0;
+           
+           $deth = $old_deth + $deth;
+
+
             $validatedData = [
                 'price'       => $price,
                 'piece'       => $piece,
                 'category_id' => $request->input('category_id'),
-                'tag'         => $request->input('tag'),
-                'caste'       => $request->input('caste'),
                 'weight'      => $request->input('weight'),
                 'transport'   => $transport,
-                'hasil'       => $hasil,
                 'total'       => $total,
-                'color'       => $request->input('color'),
                 'buy_date'    => $request->input('buy_date'),
                 'age'         => $request->input('age'),
+                'new'         => $request->input('new'),
+                'deth'         => $deth,
                 'description' => $request->input('description'),
             ];
-
-            $polti = polti::find($poltiId);
-            if (!$polti) {
-                return redirect()->back()->with('message', 'polti not found');
-            }
 
             $res = $polti->update($validatedData);
 

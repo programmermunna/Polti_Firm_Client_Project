@@ -25,6 +25,7 @@ class polti extends Model
         'total',
         'buy_date',
         'age',
+        'deth',
         'description',
         'status',
         'flag',
