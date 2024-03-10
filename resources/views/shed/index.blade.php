@@ -11,12 +11,16 @@
             @endif
 
             <div class="x_panel my-5">
+                
+                <div class="page_header">
+                    <h2 class="list_title">শেড তালিকা</h2>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#createModal">শেড যুক্ত করুন</button>
 
-                <div class="x_title d-flex justify-content-between">
-                    <h2 style="font-weight: bold; color:#000;">Shed List</h2>
-                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#createModal">Create New</button>
-
-                    {{-- <div class="clearfix"></div> --}}
+                        <a class="btn btn-sm btn-primary" href="{{ route('polti.create') }}">বাচ্চা যুক্ত</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('category.list') }}">ধরন</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('buyer.list') }}">ক্রেতা</a>
+                    </div>
                 </div>
 
                 <div class="x_content">

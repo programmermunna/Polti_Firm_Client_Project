@@ -9,12 +9,15 @@
             @endif
 
             <div class="x_panel my-5">
-
-                <div class="x_title  d-flex justify-content-between">
+                
+                <div class="page_header">
                     <h2 class="list_title">বাচ্চার তালিকা সমূহ</h2>
-                    <a class="btn btn-sm btn-primary" href="{{ route('polti.create') }}">নতুন যুক্ত করুন</a>
-
-                    {{-- <div class="clearfix"></div> --}}
+                    <div class="d-flex justify-content-end">
+                        <a class="btn btn-sm btn-primary" href="{{ route('polti.create') }}">বাচ্চা যুক্ত</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('category.list') }}">ধরন</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('shed.list') }}">শেড</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('buyer.list') }}">ক্রেতা</a>
+                    </div>
                 </div>
 
                 <div class="x_content">

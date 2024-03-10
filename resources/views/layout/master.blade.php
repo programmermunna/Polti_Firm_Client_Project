@@ -55,7 +55,7 @@
                             <span>ইসবাহ পোল্টি ফার্ম</span></a>
                     </div>
 
-                    <div class="clearfix"></div>
+                    
 
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
@@ -123,6 +123,7 @@
                                         <li><a href="{{ route('polti.create') }}">বাচ্চা ক্রয়</a></li>
                                         <li><a href="{{ route('polti.list') }}">বাচ্চার তালিকা</a></li>
                                         <li><a href="{{ route('polti.sell') }}">পোল্টি বিক্রয়</a></li>
+                                        <li><a href="{{ route('polti_sell.list') }}">পোল্টি বিক্রয় তালিকা</a></li>
                                         <li><a href="{{ route('polti_sell.collect') }}">বাকী বিক্রয়</a></li>
                                     </ul>
                                 </li>                            
@@ -397,7 +398,7 @@
                 <div class="pull-right">
                     Isbah Polti Firm- Admin Panel by <a href="#">Isbah IT</a>
                 </div>
-                <div class="clearfix"></div>
+                
             </footer>
             <!-- /footer content -->
         </div>

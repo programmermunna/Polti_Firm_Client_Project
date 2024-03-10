@@ -9,40 +9,22 @@
                 </div>
             @endif
 
-            <div class="page_header">
-                <div style="width: 15%;" class="page_header_menu">
-                    <a class="btn btn-sm btn-primary" href="{{ route('polti_sell.list') }}">Sell List</a>
-                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal">
-                        Add Buyer
-                    </button>
-                </div>
-            </div>
-
             <div class="x_panel">
-                <div class="x_title">
-                    <h2>This polti sell from <small style="font-weight: bold; color:#000;">Branch :
-                            {{ session('branch_id') }}</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Settings 1</a>
-                                <a class="dropdown-item" href="#">Settings 2</a>
-                            </div>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
+                <div class="page_header">
+                    <h2 class="list_title">বিক্রয় তালিকা সমূহ</h2>
+                    <div class="d-flex justify-content-end">
+                        <a class="btn btn-sm btn-primary" href="{{ route('polti_sell.list') }}">বিক্রয় তালিকা</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('polti.create') }}">বাচ্চা যুক্ত</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('category.list') }}">ধরন</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('shed.list') }}">শেড</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('buyer.list') }}">ক্রেতা</a>
+                    </div>
                 </div>
                 <div class="x_content">
 
                     <form class="" action="{{ route('sell.store') }}" method="post" novalidate>
                         @csrf
-                        <span class="section">polti Sell Info</span>
+                        <span class="section">বিক্রয় তথ্য</span>
 
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">ক্রেতা<span

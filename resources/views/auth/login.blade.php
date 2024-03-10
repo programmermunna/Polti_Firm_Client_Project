@@ -58,7 +58,7 @@
                             <a class="reset_pass" href="#">Lost your password?</a>
                         </div>
 
-                        <div class="clearfix"></div>
+                        
 
                         <div class="separator">
 
@@ -66,7 +66,7 @@
                                 <a href="#signup" class="to_register"> Create Account </a>
                             </p>
 
-                            <div class="clearfix"></div>
+                            
                             <br />
 
                             <div>
@@ -100,14 +100,14 @@
                             <input type="submit" class="btn btn-primary" value="Submit">
                         </div>
 
-                        <div class="clearfix"></div>
+                        
 
                         <div class="separator">
                             <p class="change_link">Already a member ?
                                 <a href="#signin" class="to_register"> Log in </a>
                             </p>
 
-                            <div class="clearfix"></div>
+                            
                             <br />
 
                             <div>

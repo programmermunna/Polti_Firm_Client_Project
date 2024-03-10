@@ -37,7 +37,7 @@
                         </li>
                     </ul>
 
-                    <div class="clearfix"></div>
+                    
                 </div>
 
                 <div class="x_content">
