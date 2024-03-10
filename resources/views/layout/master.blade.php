@@ -91,11 +91,25 @@
                                 <li><a><i class="fa-solid fa-warehouse"></i> শেড বিবরণী <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('shed.list') }}">শেড তালিকা</a></li>
-                                        <li><a href="{{ route('shed.list') }}">বাচ্চার শেড</a></li>
-                                        <li><a href="{{ route('shed.list') }}">পোল্টির শেড</a></li>
+                                        <li><a href="{{ route('shed.list') }}">শেড রিপোর্ট</a></li>
                                     </ul>
                                 </li>
                                 {{-- Shed List --}}
+
+                                
+                                {{-- Category Menu List --}}
+                                <li>
+                                    <a>
+                                        <i style="margin-right:8px; font-size: 1.2rem;" class="fa-solid fa-list"></i>
+                                        পোল্টির ধরন
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{ route('category.create') }}">পোল্টির ধরন যুক্ত</a></li>
+                                        <li><a href="{{ route('category.list') }}">পোল্টির ধরন তালিকা</a></li>
+                                    </ul>
+                                </li>
+                                {{-- Category Menu List --}}
 
 
                                 {{-- Polti List --}}
@@ -111,72 +125,8 @@
                                         <li><a href="{{ route('polti.sell') }}">পোল্টি বিক্রয়</a></li>
                                         <li><a href="{{ route('polti_sell.collect') }}">বাকী বিক্রয়</a></li>
                                     </ul>
-                                </li>
-
-                                <li>
-                                    <a href="{{ route('polti.feed') }}">
-                                        <i style="font-size: 1.2rem;" class="fa-solid fa-bowl-food"></i>
-                                        পোল্টি খাদ্য
-                                    </a>
-                                </li>
+                                </li>                            
                                 {{-- Polti List --}}
-
-                                {{-- Monitoring --}}
-                                <li>
-                                    <a>
-                                        <i style="margin-right:8px; font-size: 1.2rem;"
-                                            class="fa-brands fa-watchman-monitoring"></i>
-                                        মনিটরিং
-                                        <span class="fa fa-chevron-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="{{ route('routine.monitoring') }}">রুটিন মনিটরিং</a></li>
-                                        <li><a href="{{ route('vaccine.monitoring') }}">ভ্যাকসিন মনিটরিং</a></li>
-                                    </ul>
-                                </li>
-                                {{-- Monitoring --}}
-
-
-                                {{-- Firm Expance --}}
-                                <li>
-                                    <a><i style="margin-right:8px; font-size: 1.2rem;"
-                                            class="fa-solid fa-circle-dollar-to-slot"></i>ফার্মের খরচ
-                                        <span class="fa fa-chevron-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="{{ route('cost.list') }}">খরচের তালিকা</a></li>
-                                        <li><a href="{{ route('expense.type') }}"> খরচের ধরণ </a></li>
-                                    </ul>
-                                </li>
-                                {{-- Firm Expance --}}
-
-                                {{-- Category Menu List --}}
-                                <li>
-                                    <a>
-                                        <i style="margin-right:8px; font-size: 1.2rem;" class="fa-solid fa-list"></i>
-                                        ক্যাটাগরি
-                                        <span class="fa fa-chevron-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="{{ route('category.create') }}">ক্যাটাগরি যুক্ত</a></li>
-                                        <li><a href="{{ route('category.list') }}">ক্যাটাগরি তালিকা</a></li>
-                                    </ul>
-                                </li>
-                                {{-- Category Menu List --}}
-
-                                {{-- HR Menu List --}}
-                                <li><a><i style="font-size: 1.2rem; margin-right:8px;" class="fa-solid fa-user"></i>
-                                        মানব সম্পদ <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="{{ route('staff.us') }}">স্টাফ যুক্ত</a></li>
-                                        <li><a href="{{ route('staff.list') }}">স্টাফ তালিকা</a></li>
-                                        <li><a href="{{ route('user.list') }}">ব্যাবহারকারীদের তালিকা</a></li>
-                                        <li><a href="{{ route('user.create') }}">ব্যাবহারকারী যুক্ত</a></li>
-                                        <li><a href="{{ route('staff.salary') }}">স্টাফ বেতন</a></li>
-                                        <li><a href="{{ route('salary.list') }}">বেতন তালিকা </a></li>
-                                    </ul>
-                                </li>
-                                {{-- HR Menu List --}}
 
                                 {{-- Buyer Menu List --}}
                                 <li>
@@ -192,6 +142,49 @@
                                     </ul>
                                 </li>
                                 {{-- Buyer Menu List --}}
+
+                                {{-- HR Menu List --}}
+                                <li><a><i style="font-size: 1.2rem; margin-right:8px;" class="fa-solid fa-user"></i>
+                                    এডমিন ও স্টাফ <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ route('user.create') }}">ব্যাবহারকারী যুক্ত</a></li>
+                                    <li><a href="{{ route('user.list') }}">ব্যাবহারকারী তালিকা</a></li>
+                                    <li><a href="{{ route('staff.us') }}">স্টাফ যুক্ত</a></li>
+                                    <li><a href="{{ route('staff.list') }}">স্টাফ তালিকা</a></li>
+                                    <li><a href="{{ route('staff.salary') }}">স্টাফ বেতন</a></li>
+                                    <li><a href="{{ route('salary.list') }}">বেতন তালিকা </a></li>
+                                </ul>
+                                </li>
+                                {{-- HR Menu List --}}
+
+                                {{-- Firm Expance --}}
+                                <li>
+                                    <a><i style="margin-right:8px; font-size: 1.2rem;"
+                                            class="fa-solid fa-circle-dollar-to-slot"></i>ফার্মের খরচ
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{ route('expense.type') }}"> খরচের ধরণ </a></li>
+                                        <li><a href="{{ route('cost.list') }}">খরচের তালিকা</a></li>
+                                    </ul>
+                                </li>
+                                {{-- Firm Expance --}}
+                                
+
+                                {{-- Monitoring --}}
+                                <li>
+                                    <a>
+                                        <i style="margin-right:8px; font-size: 1.2rem;"
+                                            class="fa-brands fa-watchman-monitoring"></i>
+                                        মনিটরিং
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{ route('routine.monitoring') }}">রুটিন মনিটরিং</a></li>
+                                        <li><a href="{{ route('vaccine.monitoring') }}">ভ্যাকসিন মনিটরিং</a></li>
+                                    </ul>
+                                </li>
+                                {{-- Monitoring --}}
 
                                 {{-- Invoice Menu List --}}
                                 {{-- <li>
