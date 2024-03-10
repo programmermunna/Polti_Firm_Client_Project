@@ -16,11 +16,6 @@
             </div> --}}
 
             <div class="x_panel">
-                <div class="x_title">
-                    <h2>Project Info Save all branches</h2>
-                    
-                    
-                </div>
                 <div class="x_content">
 
                     <span class="section">Setting Info</span>

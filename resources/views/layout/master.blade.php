@@ -50,9 +50,9 @@
                     <div class="navbar nav_title" style="border: 0;">
                         <a href="{{ route('dashboard') }}" class="site_title"> <img
                                 style="width: 30px; height:30px; border-radius:50%;"
-                                src="{{ asset('custom/logos/7395804.png') }}"
+                                src="{{ asset("custom/logos/")."/".$homeSetting->project_logo }}"
                                 alt="">
-                            <span>ইসবাহ পোল্টি ফার্ম</span></a>
+                            <span>{{ $homeSetting->project_name }}</span></a>
                     </div>
 
                     
