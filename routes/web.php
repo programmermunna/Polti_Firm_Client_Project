@@ -220,6 +220,7 @@ Route::middleware(['auth', 'auth.branch'])->group(function(){
 
     Route::get('/settings', [SettingController::class, 'create'])->name('setting.create');
     Route::post('/project/home', [SettingController::class, 'store'])->name('project.home');
+    Route::post('/project/logo', [SettingController::class, 'store_logo'])->name('project.logo');
 
     // Logout Route
     Route::get('/logout', [AuthController::class, 'logout']);

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Setting;
-use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
+use App\Models\Setting;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SettingController extends Controller
 {
@@ -32,6 +33,7 @@ class SettingController extends Controller
      */
     public function store(StoreSettingRequest $request)
     {
+        
         try {
             DB::beginTransaction();
 
@@ -40,6 +42,39 @@ class SettingController extends Controller
             $data = [
                 'project_name' => $request->input('project_name'),
                 'project_title' => $request->input('project_title'),
+            ];
+
+            $res = $settingObj->update($data);
+
+            DB::commit();
+            if($res){
+                return redirect()->back()->with('message', 'Data updated');
+            }
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            info($e);
+        }
+    }
+
+    public function store_logo(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+
+            $settingObj = Setting::first();           
+
+            if($request->hasfile('project_logo'))
+            {
+                $file = $request->file('project_logo');
+                $extenstion = $file->getClientOriginalExtension();
+                $filename = time().'.'.$extenstion;
+                $file->move('custom/logos/', $filename);
+                $settingObj->project_logo = $filename;
+            }
+
+            $data = [
+                'project_logo' => $filename,
             ];
 
             $res = $settingObj->update($data);
