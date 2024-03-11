@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('project_name', 250)->nullable();
             $table->string('project_title', 250)->nullable();
+            $table->string('project_phone', 250)->nullable();
+            $table->string('project_email', 250)->nullable();
+            $table->string('project_address', 250)->nullable();
             $table->string('project_logo', 250)->nullable();
             $table->softDeletes();
             $table->timestamps();

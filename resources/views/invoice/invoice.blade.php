@@ -4,32 +4,24 @@
         <div class="col-md-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Invoice Design <small>Sample user invoice design</small></h2>
-                    
-                    
-                </div>
+                    <div style="text-align: center">
+                        <img style="width: 30px; height:30px; border-radius:50%;" src="{{ asset("custom/logos/")."/".session("project_logo") }}" alt="">
+                        <span style="font-size: 20px">{{ session("project_name") }}</span> 
+                    </div>
                 <div class="x_content">
 
                     <section class="content invoice">
                         <!-- title row -->
-                        <div class="row">
-                            <div class="  invoice-header">
-                                <h1>
-                                    <small class="pull-right">Date: {{ dateTimeFormat($poltiSellInfo->created_at) }}</small>
-                                </h1>
-                            </div>
-                            <!-- /.col -->
-                        </div>
+                        <br>
                         <!-- info row -->
                         <div class="row invoice-info">
                             <div class="col-sm-4 invoice-col">
                                 From
                                 <address>
-                                    <strong>{{ auth()->user()->name }}</strong>
-                                    <br>IMPEX AGRO FARM
-                                    <br>Dhaka , Bangladesh
-                                    <br>Phone: {{ auth()->user()->phone_number }}
-                                    <br>Email: {{ auth()->user()->email }}
+                                    {{ $settings->project_name }}
+                                    <br>Phone: {{ $settings->project_phone }}
+                                    <br>Email: {{ $settings->project_email }}
+                                    <br>Address: {{ $settings->project_address }}
                                 </address>
                             </div>
                             <!-- /.col -->
@@ -37,22 +29,19 @@
                                 To
                                 <address>
                                     <strong>{{ $poltiSellInfo->buyer->name }}</strong>
-                                    <br>{{ $poltiSellInfo->buyer->address }}
-                                    <br>Bangladesh, CA 94107
                                     <br>Phone: {{ $poltiSellInfo->buyer->phone_number }}
-                                    <br>Email: jon@ironadmin.com
+                                    <br>Address: {{ $poltiSellInfo->buyer->address }}
                                 </address>
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-4 invoice-col">
-                                <b>Invoice #{{ $poltiSellInfo->id }}</b>
+                                <b>Invoice</b> <b style="font-weight:bolder">({{ date("d-M-Y") }})</b>
                                 <br>
+                                <b>Order ID:</b> #{{ $poltiSellInfo->id }}
                                 <br>
-                                <b>Order ID:</b> {{ $poltiSellInfo->id }}
+                                Payment Due: {{ $poltiSellInfo->due }}
                                 <br>
-                                <b>Payment Due:</b> {{ dateTimeFormat($poltiSellInfo->created_at) }}
-                                <br>
-                                <b>Account:</b> 968-34567
+                                Order Date: {{ dateTimeFormat($poltiSellInfo->created_at) }}
                             </div>
                             <!-- /.col -->
                         </div>
@@ -65,41 +54,22 @@
                                     <thead>
                                         <tr>
                                             <th>Qty</th>
-                                            <th>polti</th>
-                                            <th>Serial #</th>
-                                            <th style="width: 59%">Description</th>
-                                            <th>Subtotal</th>
+                                            <th>Category</th>
+                                            <th>KG</th>
+                                            <th>Piece</th>
+                                            <th>Pirce</th>
+                                            <th>Sub Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                        @if (count($poltis) > 0)
-                                            @foreach ($poltis as $key => $polti)
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td style="color:#000; font-weight:bold;">
-                                                        tag
-                                                    </td>
-                                                    <td>{{ $polti->id }}</td>
-                                                    <td>
-                                                        {{ $polti->description }}
-                                                    </td>
-                                                    <td>{{ number_format($polti->price, 2) }}</td>
-                                                </tr>
-                                            @endforeach
-                                        @else
-                                            <tr>
-                                                <td>1</td>
-                                                <td style="color:#000; font-weight:bold;">
-                                                    {{ '#' . $poltiSellInfo->polti->tag }}
-                                                </td>
-                                                <td>{{ $poltiSellInfo->id }}</td>
-                                                <td>
-                                                    {{ $poltiSellInfo->description }}
-                                                </td>
-                                                <td>{{ number_format($poltiSellInfo->price, 2) }}</td>
-                                            </tr>
-                                        @endif
+                                        <tr>
+                                            <td>1</td>
+                                            <td>{{ $poltiSellInfo->category->name }}</td>
+                                            <td>{{ $poltiSellInfo->kg }}</td>
+                                            <td>{{ $poltiSellInfo->piece }}</td>
+                                            <td>{{ number_format($poltiSellInfo->price, 2) }}</td>
+                                            <td>{{ number_format($poltiSellInfo->price, 2) }}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -116,14 +86,14 @@
                                 <img src="{{ asset('asset/images/american-express.png') }}" alt="American Express">
                                 <img src="{{ asset('asset/images/paypal.png') }}" alt="Paypal">
                                 <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-                                    At Impex Agro Farm, we prioritize convenience and security in every transaction. Whether
+                                    At Isbah Polti Firm, we prioritize convenience and security in every transaction. Whether
                                     you're purchasing our premium farm produce or engaging in a business partnership, we
                                     offer a range of reliable payment methods to suit your needs.
                                 </p>
                             </div>
                             <!-- /.col -->
                             <div class="col-md-6">
-                                <p class="lead">Amount Due 2/22/2014</p>
+                                <p class="lead">Order Checkout</p>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <tbody>
@@ -131,15 +101,15 @@
                                                 <th style="width:50%">Subtotal:</th>
                                                 <td>{{ number_format($poltiSellInfo->price, 2) }}</td>
                                             </tr>
-                                            <tr>
+                                            <tr style="color:green">
                                                 <th>Payment</th>
                                                 <td>{{ number_format($poltiSellInfo->payment, 2) }}</td>
                                             </tr>
-                                            <tr>
+                                            <tr style="color:red">
                                                 <th>Due:</th>
                                                 <td>{{ number_format($poltiSellInfo->due, 2) }}</td>
                                             </tr>
-                                            <tr>
+                                            <tr style="font-size:20px;font-weight:bolder;">
                                                 <th>Total:</th>
                                                 <td>{{ number_format($poltiSellInfo->price, 2) }}</td>
                                             </tr>
@@ -154,12 +124,12 @@
                         <!-- this row will not appear when printing -->
                         <div class="row no-print">
                             <div class=" ">
-                                <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i>
+                                <button class="btn btn-success" onclick="window.print();"><i class="fa fa-print"></i>
                                     Print</button>
-                                <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit
+                                {{-- <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit
                                     Payment</button>
                                 <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i
-                                        class="fa fa-download"></i> Generate PDF</button>
+                                        class="fa fa-download"></i> Generate PDF</button> --}}
                             </div>
                         </div>
                     </section>

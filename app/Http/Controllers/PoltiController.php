@@ -37,12 +37,11 @@ class poltiController extends Controller
 
     public function sellIndex()
     {
-        $sellList = poltiSell::with('branch:id,branch_name', 'buyer:id,name','polti:id,tag,category_id', 'category:id,name')->where('branch_id', session('branch_id'))->latest()->get();
-        $poltis     = polti::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->get();
+        $sellList = poltiSell::with('branch:id,branch_name', 'buyer:id,name', 'category:id,name')->where('branch_id', session('branch_id'))->latest()->get();
         $buyers   = Buyer::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('status', '1')->latest()->get();
         $categories = Category::where('status', '1')->get();
 
-        return view('polti.sell_list', compact('sellList', 'poltis', 'buyers','categories'));
+        return view('polti.sell_list', compact('sellList', 'buyers','categories'));
     }
 
     public function bacchaIndex()
@@ -364,17 +363,9 @@ class poltiController extends Controller
 
     public function sellInvoice($id)
     {
-        $poltiSellInfo = poltiSell::with('branch:id,branch_name', 'buyer','polti:id,tag,category_id', 'polti.category:id,name')->where('branch_id', session('branch_id'))->where('id', $id)->first();
-
-        // return $poltiSellInfo;
-
-        if($poltiSellInfo){
-            $buyerId = $poltiSellInfo->buyer->id;
-
-            $poltis = poltiSell::with('branch:id,branch_name', 'buyer:id,name,phone_number','polti:id,tag,category_id', 'polti.category:id,name')->where('branch_id', session('branch_id'))->where('buyer_id', $buyerId)->where('due', '>', 0)->get();
-
-            return view('invoice.invoice', compact('poltiSellInfo', 'poltis'));
-        }
+        $poltiSellInfo = poltiSell::with('branch:id,branch_name', 'buyer')->where('branch_id', session('branch_id'))->where('id', $id)->first();
+        
+        return view('invoice.invoice', compact('poltiSellInfo'));
 
     }
 

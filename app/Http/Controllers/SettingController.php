@@ -23,9 +23,9 @@ class SettingController extends Controller
      */
     public function create()
     {
-        $homeSetting = Setting::first();
+        $settings = Setting::first();
 
-        return view('setting.create', compact('homeSetting'));
+        return view('setting.create', compact('settings'));
     }
 
     /**
@@ -42,6 +42,9 @@ class SettingController extends Controller
             $data = [
                 'project_name' => $request->input('project_name'),
                 'project_title' => $request->input('project_title'),
+                'project_phone' => $request->input('project_phone'),
+                'project_email' => $request->input('project_email'),
+                'project_address' => $request->input('project_address'),
             ];
 
             $res = $settingObj->update($data);

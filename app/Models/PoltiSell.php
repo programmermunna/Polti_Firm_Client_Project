@@ -51,11 +51,6 @@ class PoltiSell extends Model
         return $this->belongsTo(Branch::class, 'branch_id', 'id');
     }
 
-    public function polti()
-    {
-        return $this->belongsTo(polti::class, 'polti_id', 'id');
-    }
-
     public function buyer()
     {
         return $this->belongsTo(Buyer::class, 'buyer_id', 'id');

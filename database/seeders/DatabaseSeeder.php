@@ -20,8 +20,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            // BuyerSeeder::class,
-            // ShedSeeder::class,
+            SettingSeeder::class,
             BranchSeeder::class,
             UserSeeder::class,
             RolePermissionSeeder::class,

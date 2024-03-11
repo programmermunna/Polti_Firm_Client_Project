@@ -12,6 +12,9 @@ class Setting extends Model
     protected $fillable = [
         'project_name',
         'project_title',
+        'project_phone',
+        'project_email',
+        'project_address',
         'project_logo',
     ];
 
@@ -19,6 +22,9 @@ class Setting extends Model
         'id'            => 'integer',
         'project_name'  => 'string',
         'project_title' => 'string',
+        'project_phone' => 'string',
+        'project_email' => 'string',
+        'project_address' => 'string',
         'project_logo'  => 'string',
         'created_at'    => 'datetime',
         'updated_at'    => 'datetime',

@@ -43,7 +43,7 @@
                                             @csrf
                                             <div class="form-group">
                                                 <label for="">Project Name</label>
-                                                <input type="text" name="project_name" value="{{ $homeSetting->project_name }}" class="form-control">
+                                                <input type="text" name="project_name" value="{{ $settings->project_name }}" class="form-control">
                                                 @error('project_name')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -51,8 +51,32 @@
 
                                             <div class="form-group">
                                                 <label for="">Project Title</label>
-                                                <input type="text" name="project_title" value="{{ $homeSetting->project_title }}" class="form-control">
+                                                <input type="text" name="project_title" value="{{ $settings->project_title }}" class="form-control">
                                                 @error('project_title')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="">Project Title</label>
+                                                <input type="text" name="project_phone" value="{{ $settings->project_phone }}" class="form-control">
+                                                @error('project_phone')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="">Project Title</label>
+                                                <input type="text" name="project_email" value="{{ $settings->project_email }}" class="form-control">
+                                                @error('project_email')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="">Project Title</label>
+                                                <input type="text" name="project_address" value="{{ $settings->project_address }}" class="form-control">
+                                                @error('project_address')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -65,7 +89,7 @@
                                         <form action="{{ route('project.logo') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
-                                                <img style="width: 200px" src="{{ asset("custom/logos/")."/".$homeSetting->project_logo }}" alt="Website Logo">
+                                                <img style="width: 200px" src="{{ asset("custom/logos/")."/".$settings->project_logo }}" alt="Website Logo">
                                                 <br><br>
                                                 <label for="">Update Project Logo</label>
                                                 <input type="file" name="project_logo" class="form-control">

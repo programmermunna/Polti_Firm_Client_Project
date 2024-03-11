@@ -44,7 +44,7 @@ class AdminController extends Controller
         $farm1Cost     = Cost::where('branch_id', session('branch_id'))->where('expense_type', 1)->sum('cost_amount');
         $staffs        = Staff::where('branch_id', session('branch_id'))->where('status', 1)->count();
         $farmCosts     = Account::where('branch_id', session('branch_id'))->where('expense_type', 1)->sum('amount');
-        $homeSetting = Setting::first();
+        $settings = Setting::first();
         $totalCost = $permanetCost + $farm1Cost + $farmCosts;
 
         $incomes  = Income::where('branch_id', session('branch_id'))->sum('amount');
@@ -52,7 +52,7 @@ class AdminController extends Controller
 
         $staffSalaryAmount = StaffSalary::where('branch_id', session('branch_id'))->sum('amount');
 
-        return view('welcome', compact('homeSetting','dues','poltis', 'staffSalaryAmount', 'branchName', 'permanetCost', 'staffs', 'farmCosts','incomes', 'totalCost', 'farm1Cost'));
+        return view('welcome', compact('settings','dues','poltis', 'staffSalaryAmount', 'branchName', 'permanetCost', 'staffs', 'farmCosts','incomes', 'totalCost', 'farm1Cost'));
     }
 
     public function branch()

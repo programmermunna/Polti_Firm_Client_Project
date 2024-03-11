@@ -1,4 +1,7 @@
-@php $homeSetting = \App\Models\Setting::first(); @endphp
+@php 
+$settings = \App\Models\Setting::first(); 
+
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,11 +52,10 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="{{ route('dashboard') }}" class="site_title"> <img
-                                style="width: 30px; height:30px; border-radius:50%;"
-                                src="{{ asset("custom/logos/")."/".$homeSetting->project_logo }}"
-                                alt="">
-                            <span> {{ $homeSetting->project_name }} </span></a>
+                        <a href="{{ route('dashboard') }}" class="site_title"> 
+                            <img style="width: 30px; height:30px; border-radius:50%;"
+                                src="{{ asset("custom/logos/")."/".$settings->project_logo }}" alt="">
+                            <span> {{ $settings->project_name }} </span></a>
                     </div>
                     
 
