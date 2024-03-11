@@ -34,7 +34,6 @@
                                             <th>Price</th>
                                             <th>Payment</th>
                                             <th>Due</th>
-                                            <th>Action</th>
                                         </tr>
                                     </thead>
 
@@ -47,12 +46,7 @@
                                                     <td>{{ number_format($due->price, 2) }}</td>
                                                     <td>{{ number_format($due->payment, 2) }}</td>
                                                     <td style="color:red; font-weight:bold;">{{ number_format($due->due, 2) }}</td>
-                                                    <td>
-                                                        <button class="btn btn-sm btn-primary editBtn" data-toggle="modal" data-target="#myModal"
-                                                        data-id="{{ $due->id }}" data-name="{{ $due->name }}" data-status="{{ $due->status }}">
-                                                            <i class="fa-regular fa-pen-to-square"></i>
-                                                        </button>
-                                                    </td>
+                                                   
                                                 </tr>
                                             @endforeach
                                         @else

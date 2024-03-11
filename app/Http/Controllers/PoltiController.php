@@ -207,7 +207,7 @@ class poltiController extends Controller
 
     public function sellCollect()
     {
-        $dueCollect = poltiSell::with('branch:id,branch_name', 'buyer:id,name', 'polti:id,tag')->where('branch_id', session('branch_id'))->where('due', '>', 0)->get();
+        $dueCollect = poltiSell::with('branch:id,branch_name', 'buyer:id,name')->where('branch_id', session('branch_id'))->where('due', '>', 0)->get();
 
         return view('polti.sell_collect', compact('dueCollect'));
     }

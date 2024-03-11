@@ -84,10 +84,6 @@
                                                             data-id="{{ $polti->id }}">
                                                             <i class="fa-solid fa-trash"></i>
                                                         </button>
-                                                        <a href="" class="btn btn-sm btn-warning deleteButton"
-                                                            data-id="{{ $polti->id }}">
-                                                            <i class="fa-solid fa-file-invoice"></i>
-                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endforeach

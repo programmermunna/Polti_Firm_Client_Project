@@ -8,6 +8,7 @@ use App\Models\Cost;
 use App\Models\Designation;
 use App\Models\Income;
 use App\Models\polti;
+use App\Models\PoltiSell;
 use App\Models\Setting;
 use App\Models\Shed;
 use App\Models\Staff;
@@ -37,8 +38,22 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        $poltis        = polti::where('branch_id', session('branch_id'))->where('status', '1')->where('flag', '0')->count();
         $currentDate   = Carbon::today();
+
+        //polties
+        $poltis        = polti::where('branch_id', session('branch_id'))->where('status', '1')->sum('piece');
+        $deth          = polti::where('branch_id', session('branch_id'))->where('status', '1')->sum('deth');
+        $polti_sell_delivered  = PoltiSell::where('branch_id', session('branch_id'))->where('status', '0')->sum('piece');
+        $polti_sell_booking  = PoltiSell::where('branch_id', session('branch_id'))->where('status', '1')->sum('piece');
+
+        $poltiInfo = ([
+            'polti_all' => $poltis,
+            'polti_deth' => $deth,
+            'polti_sell_delivered' => $polti_sell_delivered,
+            'polti_sell_booking' => $polti_sell_booking,
+        ]);       
+
+
         $branchName    = Branch::where('id', session('branch_id'))->first();
         $permanetCost  = Cost::where('branch_id', session('branch_id'))->where('expense_type', 2)->sum('cost_amount');
         $farm1Cost     = Cost::where('branch_id', session('branch_id'))->where('expense_type', 1)->sum('cost_amount');
@@ -52,7 +67,7 @@ class AdminController extends Controller
 
         $staffSalaryAmount = StaffSalary::where('branch_id', session('branch_id'))->sum('amount');
 
-        return view('welcome', compact('settings','dues','poltis', 'staffSalaryAmount', 'branchName', 'permanetCost', 'staffs', 'farmCosts','incomes', 'totalCost', 'farm1Cost'));
+        return view('welcome', compact('settings','dues','poltiInfo', 'staffSalaryAmount', 'branchName', 'permanetCost', 'staffs', 'farmCosts','incomes', 'totalCost', 'farm1Cost'));
     }
 
     public function branch()

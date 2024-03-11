@@ -1,19 +1,5 @@
 @extends('layout.master')
 @section('content')
-    {{-- <div class="row">
-        <div class="col-2">
-            <select name="" class="form-control language_switcher" id="">
-                <option value="">{{ Config::get('language')[App::getLocale()] }}</option>
-                @foreach (Config::get('language') as $lang => $language)
-                    @if ($lang != App::getLocale())
-                        <option value="{{ $lang }}">
-                            <a href="">{{ $language }}</a>
-                        </option>
-                    @endif
-                @endforeach
-            </select>
-        </div>
-    </div> --}}
 
     <div class="row" style="display: inline-block;">
         <div class="tile_count">
@@ -29,39 +15,12 @@
                             alt="polti image">
                     </div>
                     <div class="dashboard_item">
-                        <h2>মোট বাচ্চা</h2>
-                        <p>{{ numberCountingFormat(0) }}</p>
+                        <h2>মোট বাচ্চা/ পোল্টি</h2>
+                        <p>{{ $poltiInfo['polti_all'] }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
-                    <button><i class="fa-solid fa-caret-down"></i></button>
-                </div>
-
-                <div class="item-menu-info">
-                    <p>
-                        0
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-4  tile_stats_count">
-                <div class="d-flex custom-col">
-                    <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/polti.png') }}" alt="polti image">
-                    </div>
-                    <div class="dashboard_item">
-                        <h2>মোট পোল্টি</h2>
-                        <p>{{ numberCountingFormat($poltis > 0 ? $poltis : '0') }}</p>
-                    </div>
-                </div>
-                <div class="item-foot-head">
-                    <button><i class="fa-solid fa-caret-down"></i></button>
-                </div>
-
-                <div class="item-menu-info">
-                    <p>
-                        {{ ($poltis > 0) ? $poltis : '0' }}
-                    </p>
+                    <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
             </div>
 
@@ -71,18 +30,41 @@
                         <img src="{{ asset('custom/logos/deth polti.png') }}" alt="polti image">
                     </div>
                     <div class="dashboard_item">
-                        <h2>মৃত পোল্টি</h2>
-                        <p>dynamic</p>
+                        <h2>মৃত বাচ্চা/পোল্টি</h2>
+                        <p>{{ $poltiInfo['polti_deth'] }}</p>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="col-md-3 col-sm-4  tile_stats_count">
+                <div class="d-flex custom-col">
+                    <div class="dashboard_menu">
+                        <img src="{{ asset('custom/logos/polti.png') }}" alt="polti image">
+                    </div>
+                    <div class="dashboard_item">
+                        <h2>মোট পোল্টি বিক্রয়</h2>
+                        <p>{{ $poltiInfo['polti_sell_delivered'] }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
-                    <button><i class="fa-solid fa-caret-down"></i></button>
+                    <a href="{{ route('polti_sell.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
+            </div>
 
-                <div class="item-menu-info">
-                    <p>
-                        dynamic
-                    </p>
+            <div class="col-md-3 col-sm-4  tile_stats_count">
+                <div class="d-flex custom-col">
+                    <div class="dashboard_menu">
+                        <img src="{{ asset('custom/logos/polti.png') }}" alt="polti image">
+                    </div>
+                    <div class="dashboard_item">
+                        <h2>মোট পোল্টি বুকিং</h2>
+                        <p>{{ $poltiInfo['polti_sell_booking'] }}</p>
+                    </div>
+                </div>
+                <div class="item-foot-head">
+                    <a href="{{ route('polti_sell.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
             </div>
 
@@ -97,14 +79,10 @@
                     </div>
                 </div>
                 <div class="item-foot-head">
-                    <button><i class="fa-solid fa-caret-down"></i></button>
+                    <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
 
-                <div class="item-menu-info">
-                    <p>
-                        dynamic
-                    </p>
-                </div>
+                
             </div>
 
             <div class="col-md-3 col-sm-4  tile_stats_count">
@@ -118,13 +96,7 @@
                     </div>
                 </div>
                 <div class="item-foot-head">
-                    <button><i class="fa-solid fa-caret-down"></i></button>
-                </div>
-
-                <div class="item-menu-info">
-                    <p>
-                        {{ number_format($permanetCost, 2) . ' Tk' }}
-                    </p>
+                    <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
             </div>
 
@@ -139,13 +111,7 @@
                     </div>
                 </div>
                 <div class="item-foot-head">
-                    <button><i class="fa-solid fa-caret-down"></i></button>
-                </div>
-
-                <div class="item-menu-info">
-                    <p>
-                        {{ number_format($farmCosts + $farm1Cost + $staffSalaryAmount, 2) . ' Tk' }}
-                    </p>
+                    <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
             </div>
 
@@ -159,13 +125,7 @@
                         <p>Dynamic</p>
                     </div>
                     <div class="item-foot-head">
-                        <button><i class="fa-solid fa-caret-down"></i></button>
-                    </div>
-
-                    <div class="item-menu-info">
-                        <p>
-                            Dynamic
-                        </p>
+                        <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                     </div>
                 </div>
             </div>
@@ -181,14 +141,10 @@
                     </div>
                 </div>
                 <div class="item-foot-head">
-                    <button><i class="fa-solid fa-caret-down"></i></button>
+                    <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
 
-                <div class="item-menu-info">
-                    <p>
-                        Dynamic
-                    </p>
-                </div>
+                
             </div>
 
             <div class="col-md-3 col-sm-4  tile_stats_count">
@@ -202,14 +158,10 @@
                     </div>
                 </div>
                 <div class="item-foot-head">
-                    <button><i class="fa-solid fa-caret-down"></i></button>
+                    <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
 
-                <div class="item-menu-info">
-                    <p>
-                        Dynamic
-                    </p>
-                </div>
+                
             </div>
 
             <div class="col-md-3 col-sm-4  tile_stats_count">
@@ -223,13 +175,7 @@
                     </div>
                 </div>
                 <div class="item-foot-head">
-                    <button><i class="fa-solid fa-caret-down"></i></button>
-                </div>
-
-                <div class="item-menu-info">
-                    <p>
-                        {{ numberCountingFormat($staffs) }}
-                    </p>
+                    <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
             </div>
 
@@ -243,13 +189,7 @@
                         <p>{{ numberCountingFormat($staffSalaryAmount) }}</p>
                     </div>
                     <div class="item-foot-head">
-                        <button><i class="fa-solid fa-caret-down"></i></button>
-                    </div>
-
-                    <div class="item-menu-info">
-                        <p>
-                            {{ number_format($staffSalaryAmount, 2) }}
-                        </p>
+                        <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                     </div>
                 </div>
             </div>
