@@ -1,3 +1,4 @@
+@php $homeSetting = \App\Models\Setting::first(); @endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,9 +53,8 @@
                                 style="width: 30px; height:30px; border-radius:50%;"
                                 src="{{ asset("custom/logos/")."/".$homeSetting->project_logo }}"
                                 alt="">
-                            <span>{{ $homeSetting->project_name }}</span></a>
+                            <span> {{ $homeSetting->project_name }} </span></a>
                     </div>
-
                     
 
                     <!-- menu profile quick info -->
