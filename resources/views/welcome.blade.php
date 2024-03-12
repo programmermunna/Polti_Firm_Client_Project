@@ -75,7 +75,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>আজকের খরচ</h2>
-                        <p>dynamic</p>
+                        <p>{{ '৳'.numberCountingFormat($poltiInfo['costs_today']) }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -92,22 +92,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>স্থায়ী খরচ</h2>
-                        <p>{{ numberCountingFormat($permanetCost) . ' Tk' }}</p>
-                    </div>
-                </div>
-                <div class="item-foot-head">
-                    <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-4  tile_stats_count">
-                <div class="d-flex custom-col">
-                    <div class="dashboard_menu">
-                        <img src="{{ asset('custom/logos/firm expance.png') }}" alt="polti image">
-                    </div>
-                    <div class="dashboard_item">
-                        <h2>ফার্ম খরচ</h2>
-                        <p>{{ numberCountingFormat($farmCosts + $farm1Cost + $staffSalaryAmount) . ' Tk' }}</p>
+                        <p>{{ '৳'.numberCountingFormat($poltiInfo['costs_total']) }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">

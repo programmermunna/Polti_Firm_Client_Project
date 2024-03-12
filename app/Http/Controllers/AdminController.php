@@ -40,17 +40,21 @@ class AdminController extends Controller
     {
         $currentDate   = Carbon::today();
 
-        //polties
         $poltis        = polti::where('branch_id', session('branch_id'))->where('status', '1')->sum('piece');
         $deth          = polti::where('branch_id', session('branch_id'))->where('status', '1')->sum('deth');
         $polti_sell_delivered  = PoltiSell::where('branch_id', session('branch_id'))->where('status', '0')->sum('piece');
         $polti_sell_booking  = PoltiSell::where('branch_id', session('branch_id'))->where('status', '1')->sum('piece');
+
+        $costs_today  = Cost::where('branch_id', session('branch_id'))->where('cost_date', $currentDate)->where('status', '1')->sum('cost_amount');
+        $costs_total  = Cost::where('branch_id', session('branch_id'))->where('status', '1')->sum('cost_amount');
 
         $poltiInfo = ([
             'polti_all' => $poltis,
             'polti_deth' => $deth,
             'polti_sell_delivered' => $polti_sell_delivered,
             'polti_sell_booking' => $polti_sell_booking,
+            'costs_today' => $costs_today,
+            'costs_total' => $costs_total,
         ]);       
 
 

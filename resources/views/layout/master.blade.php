@@ -1,7 +1,3 @@
-@php 
-$settings = \App\Models\Setting::first(); 
-
-@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +9,7 @@ $settings = \App\Models\Setting::first();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ asset('custom/logos/7395804.png') }}" type="image/ico" />
 
-    <title>Isbah Polti Firm | Admin Dashboard</title>
+    <title>{{ $settings->project_name }} | Admin Dashboard</title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('asset/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -167,7 +163,9 @@ $settings = \App\Models\Setting::first();
                                         <span class="fa fa-chevron-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
-                                        <li><a href="{{ route('expense.type') }}"> খরচের ধরণ </a></li>
+                                        <li><a href="{{ route('expense.type') }}"> খরচের ধরণ যুক্ত</a></li>
+                                        <li><a href="{{ route('expense.list') }}"> খরচের ধরণ তালিকা</a></li>
+                                        <li><a href="{{ route('cost.create') }}">খরচ যুক্ত করুন</a></li>
                                         <li><a href="{{ route('cost.list') }}">খরচের তালিকা</a></li>
                                     </ul>
                                 </li>
