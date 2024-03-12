@@ -122,7 +122,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট আয়</h2>
-                        <p> {{ '৳'.numberCountingFormat($poltiInfo['sell_total']) }} </p>
+                        <p>{{ '৳'.numberCountingFormat($poltiInfo['sell_total']) }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -139,7 +139,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট বাকি</h2>
-                        <p>Dynamic</p>
+                        <p>{{ '৳'.numberCountingFormat($poltiInfo['sell_due']) }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">

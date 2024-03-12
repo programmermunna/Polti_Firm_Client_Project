@@ -73,11 +73,11 @@ class BranchController extends Controller
                 }
 
                 // Resize and compress the image
-                Image::make($branch_image->getRealPath())
-                    ->resize(300, 200, function ($constraint) {
-                        $constraint->aspectRatio();
-                    })
-                    ->save($image_path, 60); // 60 is the quality of the compressed image (0-100)
+                // Image::make($branch_image->getRealPath())
+                //     ->resize(300, 200, function ($constraint) {
+                //         $constraint->aspectRatio();
+                //     })
+                //     ->save($image_path, 60); // 60 is the quality of the compressed image (0-100)
 
                 // Assign the image name to the branch object property
             }

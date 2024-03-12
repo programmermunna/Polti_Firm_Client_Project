@@ -185,21 +185,6 @@
                                         <li><a href="{{ route('vaccine.monitoring') }}">ভ্যাকসিন মনিটরিং</a></li>
                                     </ul>
                                 </li>
-                                {{-- Monitoring --}}
-
-                                {{-- Invoice Menu List --}}
-                                {{-- <li>
-                                    <a>
-                                        <i style="margin-right:8px;" class="fa-solid fa-file-invoice"></i>
-                                        ইনভয়েস
-                                        <span class="fa fa-chevron-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="{{ route('invoice.create') }}">নতুন ইনভয়েস</a></li>
-                                        <li><a href="{{ route('beef.sell') }}"> ইনভয়েস তালিকা </a></li>
-                                    </ul>
-                                </li> --}}
-                                {{-- Invoice Menu List --}}
                             </ul>
                         </div>
 
@@ -212,13 +197,6 @@
                                         <i style="margin-right:8px; font-size: 1.2rem;"
                                             class="fa-solid fa-people-group"></i>
                                         Supplier
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="{{ route('polti.list') }}">
-                                        <i style="margin-right:8px; font-size: 1.2rem;" class="fa-solid fa-list"></i>
-                                        পোল্টির তালিকা
                                     </a>
                                 </li>
 
