@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="item-foot-head">
-                    <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
+                    <a href="{{ route('cost.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
 
                 
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="item-foot-head">
-                    <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
+                    <a href="{{ route('cost.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
             </div>
 
@@ -110,7 +110,7 @@
                         <p>{{ '৳'.numberCountingFormat($poltiInfo['sell_total']) }}</p>
                     </div>
                     <div class="item-foot-head">
-                        <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
+                        <a href="{{ route('polti_sell.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                     </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@
                     </div>
                 </div>
                 <div class="item-foot-head">
-                    <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
+                    <a href="{{ route('polti_sell.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
 
                 
@@ -143,7 +143,7 @@
                     </div>
                 </div>
                 <div class="item-foot-head">
-                    <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
+                    <a href="{{ route('polti_sell.collect') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
 
                 
@@ -160,7 +160,7 @@
                     </div>
                 </div>
                 <div class="item-foot-head">
-                    <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
+                    <a href="{{ route('staff.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                 </div>
             </div>
 
@@ -174,7 +174,7 @@
                         <p>{{ numberCountingFormat($staffSalaryAmount) }}</p>
                     </div>
                     <div class="item-foot-head">
-                        <a href="{{ route('polti.list') }}"><i class="fa-solid fa-caret-down"></i></a>
+                        <a href="{{ route('salary.list') }}"><i class="fa-solid fa-caret-down"></i></a>
                     </div>
                 </div>
             </div>

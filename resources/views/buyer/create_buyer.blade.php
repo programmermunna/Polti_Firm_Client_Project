@@ -17,14 +17,14 @@
 
         <div class="x_panel">
             <div class="x_title">
-                <h2>Buyer info <small style="font-weight: bold; color:#000;">Branch {{ session('branch_id') }}</small></h2>
+                <h2>ক্রেতা তথ্য <small style="font-weight: bold; color:#000;">Branch {{ session('branch_id') }}</small></h2>
                 
             </div>
             <div class="x_content">
 
                 <form class="" action="{{ route('buyer.store') }}" method="post" novalidate>
                     @csrf
-                    <span class="section">Buyer Info</span>
+                    <span class="section">ক্রেতা তথ্য</span>
 
                     <div class="field item form-group">
                         <label class="col-form-label col-md-3 col-sm-3  label-align">ক্রেতার নাম<span class="required">*</span></label>

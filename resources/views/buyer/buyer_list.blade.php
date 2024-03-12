@@ -17,7 +17,7 @@
 
         <div class="x_panel">
                 <div class="x_title">
-                <h2>Buyer List</h2>
+                <h2>ক্রেতা তালিকা</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -111,7 +111,7 @@
 
                 <form class="" action="{{ route('buyer.edit') }}" method="post" novalidate>
                     @csrf
-                    <span class="section">Buyer Info</span>
+                    <span class="section">ক্রেতা তথ্য</span>
 
                     <input type="hidden" name="buyer_id">
 

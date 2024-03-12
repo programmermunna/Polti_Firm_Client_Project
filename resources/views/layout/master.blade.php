@@ -137,7 +137,7 @@
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('buyer.us') }}">ক্রেতা যুক্ত</a></li>
                                         <li><a href="{{ route('buyer.list') }}">ক্রেতা তালিকা</a></li>
-                                        <li><a href="{{ route('buyer.due') }}">ক্রেতা বাকি</a></li>
+                                        {{-- <li><a href="{{ route('buyer.due') }}">ক্রেতা বাকি</a></li> --}}
                                     </ul>
                                 </li>
                                 {{-- Buyer Menu List --}}

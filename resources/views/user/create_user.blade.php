@@ -17,7 +17,7 @@
 
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>User Info <small>Include All Field</small></h2>
+                    <h2>ব্যাবহারকারী তথ্য <small>Include All Field</small></h2>
 
                     
                 </div>

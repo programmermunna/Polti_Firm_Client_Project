@@ -18,7 +18,7 @@
             <div class="x_panel">
 
                 <div class="x_title">
-                    <h2 style="color:#000; font-weight:bold;">Branch List</h2>
+                    <h2 style="color:#000; font-weight:bold;">ব্রাঞ্চ তালিকা</h2>
                     
                 </div>
 

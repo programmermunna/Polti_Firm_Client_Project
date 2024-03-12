@@ -5,7 +5,7 @@
 
             <div class="page_header">
                 <div class="page_header_menu">
-                    <a class="btn btn-sm btn-primary" href="{{ route('staff.us') }}">Add Staff</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('staff.us') }}">কর্মচারী যুক্ত করুন</a>
                 </div>
             </div>
 
@@ -18,7 +18,7 @@
             <div class="x_panel">
 
                 <div class="x_title">
-                    <h2>Staff List</h2>
+                    <h2>কর্মচারী তালিকা</h2>
                     
                 </div>
 

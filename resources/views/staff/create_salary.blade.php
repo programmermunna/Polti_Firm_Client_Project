@@ -9,7 +9,7 @@
     </div>
 
     <div class="container mt-5">
-        <h2 style="color: #000; font-weight:bold;" class="mb-4">Salary Update</h2>
+        <h2 style="color: #000; font-weight:bold;" class="mb-4">বেতন আপডেট</h2>
 
         <h2 id="demo" style="display: none; color:darkblue; font-weight:bold;">The Time is now</h2>
 

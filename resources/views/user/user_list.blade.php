@@ -18,7 +18,7 @@
             <div class="x_panel">
 
                 <div class="x_title">
-                    <h2>User List</h2>
+                    <h2>ব্যাবহারকারী তালিকা</h2>
                     
                 </div>
 

@@ -4,7 +4,7 @@
 
         <div class="page_header">
             <div class="page_header_menu">
-                <a class="btn btn-sm btn-primary" href="{{ route('staff.list') }}">Staff List</a>
+                <a class="btn btn-sm btn-primary" href="{{ route('staff.list') }}">কর্মচারী তালিকা</a>
             </div>
         </div>
 

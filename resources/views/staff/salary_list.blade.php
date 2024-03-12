@@ -18,7 +18,7 @@
             <div class="x_panel">
 
                 <div class="x_title">
-                    <h2>Salary List</h2>
+                    <h2>স্টাফ বেতন তালিকা</h2>
                     
                 </div>
 
