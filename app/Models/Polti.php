@@ -66,9 +66,9 @@ class polti extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
-    public function poltiFeeds()
+    public function PoltiFeeds()
     {
-        return $this->hasMany(poltiFeed::class);
+        return $this->hasMany(PoltiFeed::class);
     }
 
     public function shed()

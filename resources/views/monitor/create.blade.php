@@ -16,7 +16,6 @@
         <div class="col-8">
             <form action="{{ route('feed.store') }}" method="post">
                 @csrf
-                <input type="submit" value="Save Information" class="form-control btn btn-sm btn-primary">
                 <div class="polti_feed">
                     <div class="polti_basic_info">
                         <div class="basic_form">
@@ -29,7 +28,7 @@
                                 <div class="form-group">
                                     <label for="">Select Shed</label>
                                     <select name="shed_id" id="shedId" class="form-control">
-                                        <option value="">Select</option>
+                                        <option value="">Select Shed</option>
                                         @foreach ($sheds as $key => $shed)
                                             <option value="{{ $shed->id }}">{{ $shed->name }}</option>
                                         @endforeach
@@ -40,9 +39,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">Select polti</label>
+                                    <label for="">Select Polti</label>
                                     <select name="polti_id" id="poltiId" class="form-control">
                                         <option value="">Select</option>
+
+                                        @foreach ($polties as $polti)
+                                            <option value="{{ $polti->id }}">{{ $polti->category->name." Piece (".$polti->piece }})</option>
+                                        @endforeach
                                     </select>
                                     @error('polti_id')
                                         <span class="text-danger">{{ $message }}</span>
@@ -119,6 +122,8 @@
                         </div>
                     </div>
                 </div>
+                <input type="submit" value="Save Information" class="form-control btn btn-sm btn-primary">
+
             </form>
         </div>
         <div class="col-2"></div>

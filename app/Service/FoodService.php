@@ -21,18 +21,18 @@ class FoodService
             DB::beginTransaction();
 
             foreach($foodIds as $key => $foodId){
-                $poltiFeedObj = new poltiFeed();
+                $PoltiFeedObj = new PoltiFeed();
 
-                $poltiFeedObj->branch_id       = session('branch_id');
-                $poltiFeedObj->polti_tag       = $poltiId;
-                $poltiFeedObj->description   = $description;
-                $poltiFeedObj->shed_id       = $shedId;
-                $poltiFeedObj->food_id       = $foodId;
-                $poltiFeedObj->food_quantity = $foodQuantities[$key];
-                $poltiFeedObj->unit_id       = $unitIds[$key];
+                $PoltiFeedObj->branch_id       = session('branch_id');
+                $PoltiFeedObj->polti_tag       = $poltiId;
+                $PoltiFeedObj->description   = $description;
+                $PoltiFeedObj->shed_id       = $shedId;
+                $PoltiFeedObj->food_id       = $foodId;
+                $PoltiFeedObj->food_quantity = $foodQuantities[$key];
+                $PoltiFeedObj->unit_id       = $unitIds[$key];
 
                 DB::commit();
-                $poltiFeedObj->save();
+                $PoltiFeedObj->save();
             }
 
             return true;

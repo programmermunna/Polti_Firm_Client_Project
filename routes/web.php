@@ -187,6 +187,7 @@ Route::middleware(['auth', 'auth.branch'])->group(function(){
         Route::get('/vaccine/monitoring', 'vaccineIndex')->name('vaccine.monitoring');
         Route::post('/monitoring/vaccine/store', 'vaccineMonitoringStore')->name('vaccine_monitoring.store');
         Route::get('/monitoring/create', 'create')->name('monitoring.create');
+        Route::get('/monitoring/show/{id}', 'show')->name('monitoring.show');
         Route::get('/vaccine/create', 'vaccineCreate')->name('vaccine.create');
 
         // For Vaccine Model

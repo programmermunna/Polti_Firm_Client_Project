@@ -5,7 +5,9 @@
 
             <div class="page_header">
                 <div class="page_header_menu">
-                    
+                    <a href="{{ route('routine.monitoring') }}" class="btn btn-sm btn-primary">
+                        Monitoring List
+                    </a>
                 </div>
             </div>
 
@@ -18,15 +20,10 @@
             <div class="x_panel">
 
                 <div class="x_title">
-                    <div class="page_header">
-                        <h2 class="list_title">Monitoring List</h2>
-                        <div class="d-flex justify-content-end">
-                            <a href="{{ route('monitoring.create') }}" class="btn btn-sm btn-primary"> New Action </a>
-                        </div>
-                    </div>
+                    <h2 style="font-weight: bold; color:#000;">Monitoring Details</h2>
+                    
+                    
                 </div>
-
-                
 
                 <div class="x_content">
                     <div class="row">
@@ -37,26 +34,28 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Branch Name</th>
-                                            <th>Polti Type</th>
-                                            <th>Action</th>
+                                            <th>Shed</th>
+                                            <th>Food</th>
+                                            <th>Quantity</th>
+                                            <th>Descripotion</th>
+                                            <th>Date & Time</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
 
-                                        @if (count($poltis) > 0)
+                                        @if (1 == 1)
                                             @php
                                                 $sl = 1;
                                             @endphp
-                                            @foreach ($poltis as $key => $polti)
+                                            @foreach ($polti_feeds as $item)
                                                 <tr class="list-item">
                                                     <td>{{ $sl }}</td>
-                                                    <td>{{ ucfirst($polti->branch->branch_name) }}</td>
-                                                    <td>{{ ucfirst($polti->category->name)." (Piece:".$polti->piece }})</td>
-                                                    <td>
-                                                        <a href="{{ route("monitoring.show",$polti->id) }}"  class="btn btn-sm btn-primary"><i class="fas fa-regular fa-eye"></i></a>
-                                                    </td>
+                                                    <td>{{ $item->Shed->name }}</td>
+                                                    <td>{{ $item->food->name }}</td>
+                                                    <td>{{ $item->food_quantity }}</td>
+                                                    <td>{{ $item->description }}</td>
+                                                    <td>{{ $item->updated_at }}</td>
                                                 </tr>
                                                 @php
                                                     $sl++;

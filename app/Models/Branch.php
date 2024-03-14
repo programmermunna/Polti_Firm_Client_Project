@@ -108,8 +108,8 @@ class Branch extends Model
         return $this->hasMany(Shed::class);
     }
 
-    public function poltiFeeds()
+    public function PoltiFeeds()
     {
-        return $this->hasMany(poltiFeed::class);
+        return $this->hasMany(PoltiFeed::class);
     }
 }

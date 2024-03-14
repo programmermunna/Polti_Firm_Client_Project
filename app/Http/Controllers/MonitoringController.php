@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Polti;
 use App\Models\Food;
+use App\Models\Polti;
+use App\Models\PoltiFeed;
 use App\Models\Shed;
 use App\Models\Unit;
 use App\Models\Vaccine;
-use Illuminate\Http\Request;
 use App\Service\VaccineService;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class MonitoringController extends Controller
 {
@@ -93,8 +94,16 @@ class MonitoringController extends Controller
         $sheds = Shed::with('poltis')->where('branch_id', session('branch_id'))->get();
         $foods = Food::all();
         $units = Unit::all();
+        $polties = Polti::all();
 
-        return view('monitor.create', compact('sheds', 'foods', 'units'));
+        return view('monitor.create', compact('sheds', 'foods', 'units','polties'));
+    }
+
+    public function show($id)
+    {
+        $polti_feeds = PoltiFeed::where('branch_id', session('branch_id'))->where('polti_tag',$id)->get();
+
+        return view('monitor.show', compact('polti_feeds'));
     }
 
     public function vaccineCreate()

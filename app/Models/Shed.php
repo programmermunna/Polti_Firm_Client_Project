@@ -43,8 +43,8 @@ class Shed extends Model
         return $this->hasMany(polti::class);
     }
 
-    public function poltiFeeds()
+    public function PoltiFeeds()
     {
-        return $this->hasMany(poltiFeed::class);
+        return $this->hasMany(PoltiFeed::class);
     }
 }

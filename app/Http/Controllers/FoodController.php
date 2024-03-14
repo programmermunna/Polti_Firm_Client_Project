@@ -49,7 +49,7 @@ class FoodController extends Controller
     {
         $data['poltis'] = polti::with('branch:id,branch_name')->where('branch_id', session('branch_id'))->where('flag', 0)->get();
 
-        return view('poltiFeed.index')->with($data);
+        return view('PoltiFeed.index')->with($data);
     }
 
     /**
@@ -60,7 +60,7 @@ class FoodController extends Controller
         $sheds = Shed::with('poltis')->where('branch_id', session('branch_id'))->get();
         $foods = Food::all();
         $units = Unit::all();
-        return view('poltiFeed.create', compact('sheds', 'foods', 'units'));
+        return view('PoltiFeed.create', compact('sheds', 'foods', 'units'));
     }
 
     /**
@@ -92,7 +92,7 @@ class FoodController extends Controller
     {
         $foodServiceObj = new FoodService;
         $shedId         = $request->input('shed_id');
-        $poltiId          = $request->input('polti_id');
+        $poltiId        = $request->input('polti_id');
         $description    = $request->input('description');
         $foodIds        = $request->input('food_id');
         $foodQuantities = $request->input('food_quantity');
@@ -135,7 +135,7 @@ class FoodController extends Controller
 
     public function getpoltiInfo($id)
     {
-        $feeds = poltiFeed::with('food:id,name', 'unit:id,name')->where('branch_id', session('branch_id'))->where('polti_tag', $id)->get();
+        $feeds = PoltiFeed::with('food:id,name', 'unit:id,name')->where('branch_id', session('branch_id'))->where('polti_tag', $id)->get();
 
         return response()->json(['feeds' => $feeds]);
     }

@@ -181,8 +181,8 @@
                                         <span class="fa fa-chevron-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
+                                        <li><a href="{{ route('monitoring.create') }}">নতুন মনিটরিং</a></li>
                                         <li><a href="{{ route('routine.monitoring') }}">রুটিন মনিটরিং</a></li>
-                                        <li><a href="{{ route('vaccine.monitoring') }}">ভ্যাকসিন মনিটরিং</a></li>
                                     </ul>
                                 </li>
                             </ul>

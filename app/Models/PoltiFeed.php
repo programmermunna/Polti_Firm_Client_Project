@@ -10,7 +10,7 @@ use App\Models\Branch;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class poltiFeed extends Model
+class PoltiFeed extends Model
 {
     use HasFactory;
 

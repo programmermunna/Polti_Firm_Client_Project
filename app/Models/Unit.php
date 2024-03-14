@@ -25,8 +25,8 @@ class Unit extends Model
     ];
 
     //Relation Start
-    public function poltiFeeds()
+    public function PoltiFeeds()
     {
-        return $this->hasMany(poltiFeed::class);
+        return $this->hasMany(PoltiFeed::class);
     }
 }
