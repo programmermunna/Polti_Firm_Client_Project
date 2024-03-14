@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\polti;
+use App\Models\Polti;
 use App\Models\Beef;
 use App\Models\Cost;
 use App\Models\Milk;
@@ -12,8 +12,8 @@ use App\Models\Semen;
 use App\Models\Staff;
 use App\Models\Income;
 use App\Models\Account;
-use App\Models\poltiFeed;
-use App\Models\poltiSell;
+use App\Models\PoltiFeed;
+use App\Models\PoltiSell;
 use App\Models\Invoice;
 use App\Models\BeefSell;
 use App\Models\Pregnancy;

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\poltiController;
+use App\Http\Controllers\PoltiController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CostController;
@@ -145,23 +145,23 @@ Route::middleware(['auth', 'auth.branch'])->group(function(){
     Route::get('/cost/create', [CostController::class, 'create'])->name('cost.create');
     Route::post('/cost/store', [CostController::class, 'store'])->name('cost.store');
     Route::post('/cost/edit', [CostController::class, 'update'])->name('cost.edit');
-    Route::get('/baccha/list', [poltiController::class, 'bacchaIndex'])->name('baccha.list');
+    Route::get('/baccha/list', [PoltiController::class, 'bacchaIndex'])->name('baccha.list');
 
     // For polti Route
-    Route::get('/polti/list', [poltiController::class, 'index'])->name('polti.list');
-    Route::get('/polti/create', [poltiController::class, 'create'])->name('polti.create');
-    Route::get('/polti/sell', [poltiController::class, 'sellCreate'])->name('polti.sell');
-    Route::post('/polti/sell/store', [poltiController::class, 'sellStore'])->name('sell.store');
-    Route::post('/polti/store', [poltiController::class, 'store'])->name('polti.store');
-    Route::post('/polti/update', [poltiController::class, 'update'])->name('polti.edit');
-    Route::get('/sell/polti/list', [poltiController::class, 'sellIndex'])->name('polti_sell.list');
-    Route::post('/sell/edit', [poltiController::class, 'sellEdit'])->name('polti_sell.edit');
-    Route::post('/payment/store', [poltiController::class, 'paymentStore'])->name('payment.store');
-    Route::get('/polti/sell/collect', [poltiController::class, 'sellCollect'])->name('polti_sell.collect');
-    Route::get('/polti/sell/invoice/{id}', [poltiController::class, 'sellInvoice'])->name('sell.invoice');
-    Route::get('/get/polti/info/{id}', [poltiController::class, 'poltiInfo']);
-    Route::get('/polti/delete/{id}', [poltiController::class, 'destroy'])->middleware('role:admin');
-    Route::get('/sell/polti/delete/{id}', [poltiController::class, 'sellDestroy'])->middleware('role:admin');
+    Route::get('/polti/list', [PoltiController::class, 'index'])->name('polti.list');
+    Route::get('/polti/create', [PoltiController::class, 'create'])->name('polti.create');
+    Route::get('/polti/sell', [PoltiController::class, 'sellCreate'])->name('polti.sell');
+    Route::post('/polti/sell/store', [PoltiController::class, 'sellStore'])->name('sell.store');
+    Route::post('/polti/store', [PoltiController::class, 'store'])->name('polti.store');
+    Route::post('/polti/update', [PoltiController::class, 'update'])->name('polti.edit');
+    Route::get('/sell/polti/list', [PoltiController::class, 'sellIndex'])->name('polti_sell.list');
+    Route::post('/sell/edit', [PoltiController::class, 'sellEdit'])->name('polti_sell.edit');
+    Route::post('/payment/store', [PoltiController::class, 'paymentStore'])->name('payment.store');
+    Route::get('/polti/sell/collect', [PoltiController::class, 'sellCollect'])->name('polti_sell.collect');
+    Route::get('/polti/sell/invoice/{id}', [PoltiController::class, 'sellInvoice'])->name('sell.invoice');
+    Route::get('/get/polti/info/{id}', [PoltiController::class, 'poltiInfo']);
+    Route::get('/polti/delete/{id}', [PoltiController::class, 'destroy'])->middleware('role:admin');
+    Route::get('/sell/polti/delete/{id}', [PoltiController::class, 'sellDestroy'])->middleware('role:admin');
 
     // For Invoice Controller
     Route::get('/invoice/create', [InvoiceController::class, 'create'])->name('invoice.create');

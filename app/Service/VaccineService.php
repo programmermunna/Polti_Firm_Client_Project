@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Models\poltiVaccine;
+use App\Models\PoltiVaccine;
 use Carbon\Carbon;
 use App\Models\Vaccine;
 use Illuminate\Support\Str;

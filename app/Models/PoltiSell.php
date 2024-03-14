@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\polti;
+use App\Models\Polti;
 use App\Models\Buyer;
 use App\Models\Branch;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

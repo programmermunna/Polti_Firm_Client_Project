@@ -8,9 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>RH Dairy Farm | Login</title>
-    <link rel="icon" href="{{ asset('custom/logos/751280420015239.png') }}" type="image/ico" />
-
+    <title>{{ $settings->project_name }} | Login</title>
+    <link rel="icon" href="{{ asset("custom/logos/")."/".$settings->project_logo }}" type="image/ico" />
     <!-- Bootstrap -->
     <link href="{{ asset('asset/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -56,23 +55,23 @@
                         <div>
                             <input type="submit" class="btn btn-primary" value="Log in">
                             <a class="reset_pass" href="#">Lost your password?</a>
-                        </div>
-
-                        
+                        </div>                        
 
                         <div class="separator">
 
                             <p class="change_link">New to site?
-                                <a href="#signup" class="to_register"> Create Account </a>
+                                <a href="#signup" class="to_register"><small>Create Account</small></a>
                             </p>
 
                             
                             <br />
 
                             <div>
-                                <h1><img style="width:40px; height:40px;" src="{{ asset('custom/logos/logo.png') }}"
-                                        alt=""> RH AGRO FARM</h1>
-                                <p>©2023 All Rights Reserved. TS WEB BUILD! is a Advanced Admin Board. Privacy and Terms
+                                <h1><img style="width:40px; height:40px;" src="{{ asset("custom/logos/")."/".$settings->project_logo }}"
+                                        alt=""> {{ $settings->project_name }}</h1>
+                                <p>©2023 All Rights Reserved {{ $settings->project_name }}
+                                    <br>
+                                    Privacy and Terms Conditions
                                 </p>
                             </div>
                         </div>
@@ -111,9 +110,12 @@
                             <br />
 
                             <div>
-                                <h1> <img style="width:40px; height:40px;" src="{{ asset('custom/logos/logo.png') }}"
-                                        alt=""> RH DAIRY FARM</h1>
-                                <p>©2023 All Rights Reserved. ISBAH IT!. Privacy and Terms</p>
+                                <h1> <img style="width:40px; height:40px;" src="{{ asset("custom/logos/")."/".$settings->project_logo }}"
+                                        alt=""> {{ $settings->project_name }}</h1>
+                                        <p>©2023 All Rights Reserved {{ $settings->project_name }}
+                                            <br>
+                                            Privacy and Terms Conditions
+                                        </p>
                             </div>
                         </div>
                     </form>

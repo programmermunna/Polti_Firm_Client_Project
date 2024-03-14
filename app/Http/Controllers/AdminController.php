@@ -7,7 +7,7 @@ use App\Models\Branch;
 use App\Models\Cost;
 use App\Models\Designation;
 use App\Models\Income;
-use App\Models\polti;
+use App\Models\Polti;
 use App\Models\PoltiSell;
 use App\Models\Setting;
 use App\Models\Shed;
@@ -40,17 +40,17 @@ class AdminController extends Controller
     {
         $currentDate   = Carbon::today();
 
-        $poltis        = polti::where('branch_id', session('branch_id'))->where('status', '1')->sum('piece');
-        $deth          = polti::where('branch_id', session('branch_id'))->where('status', '1')->sum('deth');
-        $polti_sell_delivered  = PoltiSell::where('branch_id', session('branch_id'))->where('status', '0')->sum('piece');
-        $polti_sell_booking  = PoltiSell::where('branch_id', session('branch_id'))->where('status', '1')->sum('piece');
+        $poltis        = Polti::where('branch_id', session('branch_id'))->where('status', '1')->sum('piece');
+        $deth          = Polti::where('branch_id', session('branch_id'))->where('status', '1')->sum('deth');
+        $polti_sell_delivered  = Poltisell::where('branch_id', session('branch_id'))->where('status', '0')->sum('piece');
+        $polti_sell_booking  = Poltisell::where('branch_id', session('branch_id'))->where('status', '1')->sum('piece');
 
         $costs_today  = Cost::where('branch_id', session('branch_id'))->where('cost_date', $currentDate)->where('status', '1')->sum('cost_amount');
         $costs_total  = Cost::where('branch_id', session('branch_id'))->where('status', '1')->sum('cost_amount');
         
-        $sell_today  = PoltiSell::where('branch_id', session('branch_id'))->where('sell_date', $currentDate)->where('status', '0')->sum('piece');
-        $sell_total  = PoltiSell::where('branch_id', session('branch_id'))->where('status', '0')->sum('piece');
-        $sell_due  = PoltiSell::where('branch_id', session('branch_id'))->where('status', '0')->sum('due');
+        $sell_today  = Poltisell::where('branch_id', session('branch_id'))->where('sell_date', $currentDate)->where('status', '0')->sum('price');
+        $sell_total  = Poltisell::where('branch_id', session('branch_id'))->where('status', '0')->sum('price');
+        $sell_due  = Poltisell::where('branch_id', session('branch_id'))->where('status', '0')->sum('due');
 
         $poltiInfo = ([
             'polti_all' => $poltis,

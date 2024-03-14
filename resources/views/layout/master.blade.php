@@ -50,7 +50,7 @@
                     <div class="navbar nav_title" style="border: 0;">
                         <a href="{{ route('dashboard') }}" class="site_title"> 
                             <img style="width: 30px; height:30px; border-radius:50%;"
-                                src="{{ asset("custom/logos/")."/".$settings->project_logo }}" alt="">
+                                src="{{ asset("custom/logos/")."/".$settings->project_logo }}" alt="Logo">
                             <span> {{ $settings->project_name }} </span></a>
                     </div>
                     
@@ -63,7 +63,7 @@
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
-                            <h2>{{ auth()->user()->name }}</h2>
+                            <h2><b>{{ auth()->user()->name }}</b></h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->

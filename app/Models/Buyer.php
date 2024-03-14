@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Branch;
-use App\Models\poltiSell;
+use App\Models\PoltiSell;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

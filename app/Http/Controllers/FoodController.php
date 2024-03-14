@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\polti;
+use App\Models\Polti;
 use App\Models\Food;
 use App\Models\Shed;
 use App\Models\Unit;
@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreFoodRequest;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UpdateFoodRequest;
-use App\Models\poltiFeed;
-use App\Models\poltiVaccine;
+use App\Models\PoltiFeed;
+use App\Models\PoltiVaccine;
 use App\Service\FoodService;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
@@ -129,7 +129,7 @@ class FoodController extends Controller
     public function shedpoltis($id)
     {
         $shedId = $id;
-        $poltis = polti::where('shed_id', $shedId)->where('branch_id', session('branch_id'))->get();
+        $poltis = Polti::where('shed_id', $shedId)->where('branch_id', session('branch_id'))->get();
         return response()->json($poltis);
     }
 

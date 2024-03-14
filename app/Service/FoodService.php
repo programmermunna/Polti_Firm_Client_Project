@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Models\poltiFeed;
+use App\Models\PoltiFeed;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 

@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\polti;
+use App\Models\Polti;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 

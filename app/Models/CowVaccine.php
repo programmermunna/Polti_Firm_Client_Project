@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\polti;
+use App\Models\Polti;
 use App\Models\Shed;
 use App\Models\Branch;
 use App\Models\Vaccine;

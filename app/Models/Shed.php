@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\polti;
+use App\Models\Polti;
 use App\Models\Branch;
-use App\Models\poltiFeed;
+use App\Models\PoltiFeed;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

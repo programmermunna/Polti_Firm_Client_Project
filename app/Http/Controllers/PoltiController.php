@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Models\polti;
+use App\Models\Polti;
 use App\Models\Shed;
 use App\Models\Buyer;
 use App\Models\Income;
 use App\Models\Account;
-use App\Models\poltiSell;
+use App\Models\PoltiSell;
 use App\Models\Expense;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -16,13 +16,13 @@ use App\Service\BalanceService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\StorepoltiRequest;
-use App\Http\Requests\UpdatepoltiRequest;
+use App\Http\Requests\StorePoltiRequest;
+use App\Http\Requests\UpdatePoltiRequest;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 
-class poltiController extends Controller
+class PoltiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -162,7 +162,7 @@ class poltiController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorepoltiRequest $request)
+    public function store(StorePoltiRequest $request)
     {
         try {
             DB::beginTransaction();
@@ -230,7 +230,7 @@ class poltiController extends Controller
             $sellId = $request->input('sell_id');
             $payment = $request->input('payment');
 
-            $sellInfo = poltiSell::where('branch_id', session('branch_id'))->find($sellId);
+            $sellInfo = Poltisell::where('branch_id', session('branch_id'))->find($sellId);
 
             if($sellInfo){
                 $due = $sellInfo->due;
@@ -277,7 +277,7 @@ class poltiController extends Controller
 
     public function poltiInfo($id)
     {
-        $polti = polti::where('branch_id', session('branch_id'))->where('id', $id)->first();
+        $polti = Polti::where('branch_id', session('branch_id'))->where('id', $id)->first();
 
         return response()->json($polti);
     }
@@ -372,7 +372,7 @@ class poltiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatepoltiRequest $request)
+    public function update(UpdatePoltiRequest $request)
     {
         try {
             DB::beginTransaction();

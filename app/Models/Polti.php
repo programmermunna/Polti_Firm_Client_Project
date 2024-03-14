@@ -4,8 +4,8 @@ namespace App\Models;
 
 use App\Models\Shed;
 use App\Models\Branch;
-use App\Models\poltiFeed;
-use App\Models\poltiSell;
+use App\Models\PoltiFeed;
+use App\Models\PoltiSell;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
