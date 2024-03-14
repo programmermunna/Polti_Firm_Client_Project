@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CostController;
 use App\Http\Controllers\FoodController;
-use App\Http\Controllers\MilkController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
@@ -209,8 +208,6 @@ Route::middleware(['auth', 'auth.branch'])->group(function(){
     Route::get('lang/{lang}', [LanguageController::class, 'languageChange'])->name('lang.switch');
 
     // For Report Route
-    Route::get('/milk/sale/report', [ReportController::class, 'milkSaleReport'])->name('milk.sale_report');
-    Route::post('/show/milk/sale/report', [ReportController::class, 'milkSaleReportShow'])->name('show.milk_sale_report');
     Route::get('/farm/expense/report', [ReportController::class, 'farmExpenseReport'])->name('farm.expense_report');
     Route::post('/show/farm/expense/report', [ReportController::class, 'farmExpenseReportShow'])->name('show.farm_expense_report');
     Route::get('/emplyoee/salary/report', [ReportController::class, 'employeeSalaryReport'])->name('employee.salary_report');

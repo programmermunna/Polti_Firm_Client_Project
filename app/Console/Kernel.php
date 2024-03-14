@@ -18,11 +18,6 @@ class Kernel extends ConsoleKernel
             DB::table('staff')->where('status', '1')->update(['flag' => 0]);
         })->monthly();
 
-        $schedule->call(function () {
-            DB::table('milks')->update(['flag' => 0]);
-        })->hourly();
-
-
     }
 
     /**

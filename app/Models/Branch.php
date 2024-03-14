@@ -5,7 +5,6 @@ namespace App\Models;
 use App\Models\Polti;
 use App\Models\Beef;
 use App\Models\Cost;
-use App\Models\Milk;
 use App\Models\Shed;
 use App\Models\Buyer;
 use App\Models\Staff;

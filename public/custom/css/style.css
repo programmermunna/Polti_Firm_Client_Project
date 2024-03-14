@@ -218,31 +218,6 @@ body {
     padding: 5px;
     border-radius: 4px;
 }
-.milk_info_block{
-    border: 1px solid gray;
-    margin-top: 1rem;
-    padding: 5px 5px 5px;
-    display: none;
-}
-
-.milk_info_block h6 strong{
-    padding: 5px 5px 5px;
-    text-align: center;
-    color: darkred;
-    font-size: 1.5rem;
-}
-
-.milk_info_block h6 b{
-    padding: 5px 5px 5px;
-    text-align: center;
-    color: darkblue;
-    font-size: 1rem;
-}
-
-.milk_info_block h5{
-    color: #000;
-    font-weight: bold;
-}
 
 .report_block{
     width: 50%;
