@@ -8,7 +8,6 @@ use App\Models\Cost;
 use App\Models\Milk;
 use App\Models\Shed;
 use App\Models\Buyer;
-use App\Models\Semen;
 use App\Models\Staff;
 use App\Models\Income;
 use App\Models\Account;
@@ -16,7 +15,6 @@ use App\Models\PoltiFeed;
 use App\Models\PoltiSell;
 use App\Models\Invoice;
 use App\Models\BeefSell;
-use App\Models\Pregnancy;
 use App\Models\StaffSalary;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -104,21 +102,6 @@ class Branch extends Model
     public function staffSalaries()
     {
         return $this->hasMany(StaffSalary::class);
-    }
-
-    public function milks()
-    {
-        return $this->hasMany(Milk::class);
-    }
-
-    public function semens()
-    {
-        return $this->hasMany(Semen::class);
-    }
-
-    public function pregnancies()
-    {
-        return $this->hasMany(Pregnancy::class);
     }
 
     public function sheds()

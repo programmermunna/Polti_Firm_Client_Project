@@ -9,12 +9,6 @@
                 </div>
             @endif
 
-            {{-- <div class="page_header">
-                <div class="page_header_menu">
-                    <a class="btn btn-sm btn-primary" href="{{ route('semen.list') }}">Semen List</a>
-                </div>
-            </div> --}}
-
             <div class="x_panel">
                 <div class="x_content">
 

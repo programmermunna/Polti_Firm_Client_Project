@@ -12,7 +12,6 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BuyerController;
-use App\Http\Controllers\SemenController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\ReportController;
@@ -21,7 +20,6 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MonitoringController;
-use App\Http\Controllers\PregnancyController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ShedController;
 

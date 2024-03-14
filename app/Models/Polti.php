@@ -71,11 +71,6 @@ class polti extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
-    public function pregnancies()
-    {
-        return $this->hasMany(Pregnancy::class);
-    }
-
     public function poltiFeeds()
     {
         return $this->hasMany(poltiFeed::class);
