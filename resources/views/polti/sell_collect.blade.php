@@ -49,10 +49,10 @@
                                                     <td>{{ ucfirst($sellDue->buyer->name) }}</td>
                                                     <td>{{ ucfirst($sellDue->branch->branch_name) }}</td>
                                                     <td>{{ $sellDue->piece }}</td>
-                                                    <td>{{ number_format($sellDue->price, 2) }}</td>
-                                                    <td>{{ number_format($sellDue->payment, 2) }}</td>
+                                                    <td>{{ $sellDue->price }}</td>
+                                                    <td>{{ $sellDue->payment }}</td>
                                                     <td style="font-weight: bold;color:red;">
-                                                        {{ number_format($sellDue->due, 2) }}</td>
+                                                        {{ $sellDue->due }}</td>
                                                     <td>
                                                         @if ($sellDue->status == '1')
                                                             <label for=""

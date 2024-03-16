@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Impex Agro Farm | Admin Dashboard</title>
-    <link rel="icon" href="{{ asset('custom/logos/751280420015239.png') }}" type="image/ico" />
+    <title>{{ $settings->project_name }} | Admin Dashboard</title>
+    <link rel="icon" href="{{ asset("custom/logos/")."/".$settings->project_logo }}" type="image/ico" />
 
     <!-- Bootstrap -->
     <link href="{{ asset('asset/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -18,7 +18,7 @@
 <body style="background-color: #595959">
     <div class="container">
         <div class="branch_container">
-            <h2 class="text-align">Impex Agro Farm</h2>
+            <h2 class="text-align">{{ $settings->project_name }}</h2>
             @if (session('message'))
                 <div class="alert alert-success">
                     {{ session('message') }}

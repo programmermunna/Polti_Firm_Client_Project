@@ -58,7 +58,7 @@
                                                     <td>
                                                         <img class="staff-image" src="{{ asset('images/staffs/' . $staff->staff_image) }}" alt="">
                                                     </td>
-                                                    <td>{{ number_format($staff->salary, 2) }}</td>
+                                                    <td>{{ $staff->salary }}</td>
                                                     <td>{{ $staff->present_address }}</td>
                                                     <td>{{ $staff->email }}</td>
                                                     <td>{{ ucfirst($staff->gender) }}</td>

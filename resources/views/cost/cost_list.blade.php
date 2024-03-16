@@ -71,7 +71,7 @@
                                                     <td>{{ ucfirst($cost->name) }}</td>
                                                     <td>{{ $cost->expenseTypes->name }}</td>
                                                     <td>{{ dateTimeFormat($cost->cost_date) }}</td>
-                                                    <td>{{ number_format($cost->cost_amount, 2) }}</td>
+                                                    <td>{{ $cost->cost_amount }}</td>
                                                     <td>{{ $cost->description }}</td>
                                                     <td>
                                                         <button class="btn btn-sm btn-primary editBtn" data-toggle="modal"

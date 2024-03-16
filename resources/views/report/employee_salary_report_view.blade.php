@@ -10,8 +10,8 @@
         @if(isset($salaries))
             <div style="width:100%;background-color: #fff;" class="mt-4">
                 <div class="report_block">
-                    <img src="{{ asset('custom/logos/logo.png') }}" alt="no images">
-                    <h2 style="text-transform: uppercase;">impex agro farm</h2>
+                    <img src="{{ asset("custom/logos/")."/".$settings->project_logo }}" alt="logo images">
+                    <h2 style="text-transform: uppercase;">{{ $settings->project_name }}</h2>
                     <h4>Branch  {{ session('branch_id') }}</h4>
                     <h4>Employee Salary Report</h4>
                     <h4> for {{ $monthName }} in {{ $year }}</h4>
@@ -38,7 +38,7 @@
                                 <td>{{ ucfirst($sale->staff->name) }}</td>
                                 <td>{{ $monthName }}</td>
                                 <td>{{ $year }}</td>
-                                <td>{{ number_format($sale->amount,2) }}</td>
+                                <td>{{ $sale->amount }}</td>
                             </tr>
                             @php
                                 $sl++;

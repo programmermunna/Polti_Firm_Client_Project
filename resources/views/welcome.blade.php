@@ -16,7 +16,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট বাচ্চা/ পোল্টি</h2>
-                        <p>{{ $poltiInfo['polti_all'] }}</p>
+                        <p>{{ $poltiInfo['polti_all'] }} টি</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>মৃত বাচ্চা/পোল্টি</h2>
-                        <p>{{ $poltiInfo['polti_deth'] }}</p>
+                        <p>{{ $poltiInfo['polti_deth'] }} টি</p>
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট পোল্টি বিক্রয়</h2>
-                        <p>{{ $poltiInfo['polti_sell_delivered'] }}</p>
+                        <p>{{ $poltiInfo['polti_kg_delivered'] }} KG , ৳ {{ $poltiInfo['polti_sell_delivered'] }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -60,7 +60,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট পোল্টি বুকিং</h2>
-                        <p>{{ $poltiInfo['polti_sell_booking'] }}</p>
+                        <p>{{ $poltiInfo['polti_kg_booking'] }} KG , ৳ {{ $poltiInfo['polti_sell_booking'] }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -75,7 +75,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>আজকের খরচ</h2>
-                        <p>{{ '৳'.numberCountingFormat($poltiInfo['costs_today']) }}</p>
+                        <p>{{ '৳'.$poltiInfo['costs_today'] }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -92,7 +92,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>স্থায়ী খরচ</h2>
-                        <p>{{ '৳'.numberCountingFormat($poltiInfo['costs_total']) }}</p>
+                        <p>{{ '৳'.$poltiInfo['costs_total'] }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -107,7 +107,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>আজকের আয়</h2>
-                        <p>{{ '৳'.numberCountingFormat($poltiInfo['sell_total']) }}</p>
+                        <p>{{ '৳'.$poltiInfo['sell_total'] }}</p>
                     </div>
                     <div class="item-foot-head">
                         <a href="{{ route('polti_sell.list') }}"><i class="fa-solid fa-caret-down"></i></a>
@@ -122,7 +122,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট আয়</h2>
-                        <p>{{ '৳'.numberCountingFormat($poltiInfo['sell_total']) }}</p>
+                        <p>{{ '৳'.$poltiInfo['sell_total'] }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -139,7 +139,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>মোট বাকি</h2>
-                        <p>{{ '৳'.numberCountingFormat($poltiInfo['sell_due']) }}</p>
+                        <p>{{ '৳'.$poltiInfo['sell_due'] }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -156,7 +156,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>কর্মচারী</h2>
-                        <p>{{ numberCountingFormat($staffs) }}</p>
+                        <p>{{ $staffs }}</p>
                     </div>
                 </div>
                 <div class="item-foot-head">
@@ -171,7 +171,7 @@
                     </div>
                     <div class="dashboard_item">
                         <h2>কর্মচারীর বেতন</h2>
-                        <p>{{ numberCountingFormat($staffSalaryAmount) }}</p>
+                        <p>{{ $staffSalaryAmount }}</p>
                     </div>
                     <div class="item-foot-head">
                         <a href="{{ route('salary.list') }}"><i class="fa-solid fa-caret-down"></i></a>

@@ -50,10 +50,10 @@
                                                     <td>{{ $polti->branch->branch_name }}</td>
                                                     <td style="color:#000; font-weight:bold;">{{ $polti->category->name }}
                                                     </td>
-                                                    <td>{{ number_format($polti->price, 2) }}</td>
+                                                    <td>{{ $polti->price }}</td>
                                                     <td>{{ $polti->piece }}</td>
-                                                    <td>{{ number_format($polti->transport, 2) }}</td>
-                                                    <td>{{ number_format($polti->total, 2) }}</td>
+                                                    <td>{{ $polti->transport }}</td>
+                                                    <td>{{ $polti->total }}</td>
                                                     <td>{{ $polti->weight . ' kg' }}</td>
                                                     <td>{{ $polti->buy_date }}</td>
                                                     <td>
@@ -158,7 +158,7 @@
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">পোল্টির ওজন<span
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">ওজন (গ্রাম)<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
                                 <input class="form-control" type="number" class='email' name="weight"
@@ -182,19 +182,7 @@
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">ক্রয় তারিখ<span
-                                    class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" class='date' type="date" name="buy_date"
-                                    required='required'>
-                            </div>
-                            @error('buy_date')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">পোল্টির বয়স<span
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">বয়স (দিন)<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
                                 <input class="form-control" name="age" class='email' required="required"
@@ -215,6 +203,19 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">ক্রয় তারিখ<span
+                                    class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" class='date' type="date" name="buy_date"
+                                    required='required'>
+                            </div>
+                            @error('buy_date')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        
                         <div class="ln_solid">
                             <div class="form-group">
                                 <div class="col-md-6 offset-md-3">

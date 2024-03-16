@@ -80,7 +80,7 @@
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">ওজন<span
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">ওজন (গ্রাম)<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
                                 <input class="form-control" type="number" class='email' name="weight"
@@ -104,7 +104,7 @@
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">বয়স<span
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">বয়স (দিন)<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
                                 <input class="form-control" name="age" class='email'

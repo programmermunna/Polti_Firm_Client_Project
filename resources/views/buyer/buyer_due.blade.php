@@ -43,9 +43,9 @@
                                             @foreach ($buyerDue as $key => $due)
                                                 <tr class="list-item">
                                                     <td>{{ ucfirst($due->buyer->name) }}</td>
-                                                    <td>{{ number_format($due->price, 2) }}</td>
-                                                    <td>{{ number_format($due->payment, 2) }}</td>
-                                                    <td style="color:red; font-weight:bold;">{{ number_format($due->due, 2) }}</td>
+                                                    <td>{{ $due->price }}</td>
+                                                    <td>{{ $due->payment }}</td>
+                                                    <td style="color:red; font-weight:bold;">{{ $due->due }}</td>
                                                    
                                                 </tr>
                                             @endforeach

@@ -61,7 +61,7 @@
                                             <td>{{ $buyer->branch->branch_name }}</td>
                                             <td>{{ $buyer->phone_number }}</td>
                                             <td>{{ ucfirst($buyer->address) }}</td>
-                                            <td>{{ number_format($buyer->balance, 2) . ' TK' }}</td>
+                                            <td>{{ $buyer->balance . ' TK' }}</td>
                                             <td>
                                                 @if ($buyer->status == 1)
                                                     Active

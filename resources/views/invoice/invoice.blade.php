@@ -67,8 +67,8 @@
                                             <td>{{ $poltiSellInfo->category->name }}</td>
                                             <td>{{ $poltiSellInfo->kg }} kg</td>
                                             <td>{{ $poltiSellInfo->piece }}</td>
-                                            <td>৳{{ number_format($poltiSellInfo->price, 2) }}</td>
-                                            <td>৳{{ number_format($poltiSellInfo->price, 2) }}</td>
+                                            <td>৳{{ $poltiSellInfo->price }}</td>
+                                            <td>৳{{ $poltiSellInfo->price }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -99,19 +99,19 @@
                                         <tbody>
                                             <tr>
                                                 <th style="width:50%">Subtotal:</th>
-                                                <td>৳ {{ number_format($poltiSellInfo->price, 2) }}</td>
+                                                <td>৳ {{ $poltiSellInfo->price }}</td>
                                             </tr>
                                             <tr style="color:green">
                                                 <th>Payment</th>
-                                                <td>৳ {{ number_format($poltiSellInfo->payment, 2) }}</td>
+                                                <td>৳ {{ $poltiSellInfo->payment }}</td>
                                             </tr>
                                             <tr style="color:red">
                                                 <th>Due:</th>
-                                                <td>৳ {{ number_format($poltiSellInfo->due, 2) }}</td>
+                                                <td>৳ {{ $poltiSellInfo->due }}</td>
                                             </tr>
                                             <tr style="font-size:20px;font-weight:bolder;">
                                                 <th>Total:</th>
-                                                <td>৳ {{ number_format($poltiSellInfo->price, 2) }}</td>
+                                                <td>৳ {{ $poltiSellInfo->price }}</td>
                                             </tr>
                                         </tbody>
                                     </table>

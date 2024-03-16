@@ -42,8 +42,10 @@ class AdminController extends Controller
 
         $poltis        = Polti::where('branch_id', session('branch_id'))->where('status', '1')->sum('piece');
         $deth          = Polti::where('branch_id', session('branch_id'))->where('status', '1')->sum('deth');
-        $polti_sell_delivered  = Poltisell::where('branch_id', session('branch_id'))->where('status', '0')->sum('piece');
-        $polti_sell_booking  = Poltisell::where('branch_id', session('branch_id'))->where('status', '1')->sum('piece');
+        $polti_kg_delivered  = Poltisell::where('branch_id', session('branch_id'))->where('status', '0')->sum('kg');
+        $polti_sell_delivered  = Poltisell::where('branch_id', session('branch_id'))->where('status', '0')->sum('price');
+        $polti_kg_booking  = Poltisell::where('branch_id', session('branch_id'))->where('status', '1')->sum('kg');
+        $polti_sell_booking  = Poltisell::where('branch_id', session('branch_id'))->where('status', '1')->sum('price');
 
         $costs_today  = Cost::where('branch_id', session('branch_id'))->where('cost_date', $currentDate)->where('status', '1')->sum('cost_amount');
         $costs_total  = Cost::where('branch_id', session('branch_id'))->where('status', '1')->sum('cost_amount');
@@ -55,7 +57,9 @@ class AdminController extends Controller
         $poltiInfo = ([
             'polti_all' => $poltis,
             'polti_deth' => $deth,
+            'polti_kg_delivered' => $polti_kg_delivered,
             'polti_sell_delivered' => $polti_sell_delivered,
+            'polti_kg_booking' => $polti_kg_booking,
             'polti_sell_booking' => $polti_sell_booking,
             'costs_today' => $costs_today,
             'costs_total' => $costs_total,

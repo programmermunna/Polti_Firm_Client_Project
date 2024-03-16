@@ -44,8 +44,8 @@
                                             @foreach ($salaries as $key => $salary)
                                                 <tr class="list-item">
                                                     <td>{{ ucfirst($salary->staff->name) }}</td>
-                                                    <td>{{ number_format($salary->staff->salary, 2) }}</td>
-                                                    <td>{{ number_format($salary->amount, 2) }}</td>
+                                                    <td>{{ $salary->staff->salary }}</td>
+                                                    <td>{{ $salary->amount }}</td>
                                                     <td>{{ dateTimeFormat($salary->paid_on) }}</td>
                                                     <td>
                                                         <button class="btn btn-sm btn-primary">

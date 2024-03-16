@@ -57,11 +57,11 @@
                                                     <td style="color: #000; font-weight:bold;">
                                                         {{ $sell->piece }}</td>
                                                     <td style="color: #000; font-weight:bold;">
-                                                        {{ number_format($sell->price, 2) }}</td>
+                                                        {{ $sell->price }}</td>
                                                     <td style="color: #000; font-weight:bold;">
-                                                        {{ number_format($sell->payment, 2) }}</td>
+                                                        {{ $sell->payment }}</td>
                                                     <td style="color: red; font-weight:bold;">
-                                                        {{ number_format($sell->due, 2) }}</td>
+                                                        {{ $sell->due }}</td>
                                                     <td>@if ($sell->status == 0)
                                                             <span style="color: green; font-weight:bold;">Delivered</span>
                                                             @else
