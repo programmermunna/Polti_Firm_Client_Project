@@ -13,9 +13,9 @@
             <div class="x_panel my-5">
                 
                 <div class="page_header">
-                    <h2 class="list_title">শেড তালিকা</h2>
+                    <h2 class="list_title">শেড কালার তালিকা</h2>
                     <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#createModal">শেড যুক্ত করুন</button>
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#createModal">শেড কালার যুক্ত করুন</button>
 
                         <a class="btn btn-sm btn-primary" href="{{ route('polti.create') }}">বাচ্চা যুক্ত</a>
                         <a class="btn btn-sm btn-primary" href="{{ route('category.list') }}">ধরন</a>
@@ -33,7 +33,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Branch Name</th>
-                                            <th>Shed No</th>
+                                            <th>Shed Color</th>
                                             <th>Description</th>
                                             <th>Status</th>
                                             <th>Action</th>
@@ -109,11 +109,11 @@
                         <input type="hidden" name="shed_id">
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">
-                                Shed Name
+                                Shed Color
                                 <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6">
-                                <input class="form-control" name="name" placeholder="Shed Name | Number" type="text"
+                                <input class="form-control" name="name" type="text"
                                     required="required" />
                             </div>
                             @error('name')
@@ -180,11 +180,11 @@
                         @csrf
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">
-                                Shed Name
+                                Shed Color
                                 <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6">
-                                <input class="form-control" name="name" placeholder="Shed Name | Number"
+                                <input class="form-control" name="name"
                                     type="text" required="required" />
                             </div>
                             @error('name')

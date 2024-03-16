@@ -86,11 +86,18 @@
                                 </li>
 
                                 {{-- Shed List --}}
-                                <li><a><i class="fa-solid fa-warehouse"></i> শেড বিবরণী <span class="fa fa-chevron-down"></span></a>
+                                {{-- <li><a><i class="fa-solid fa-warehouse"></i> শেড বিবরণী <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('shed.list') }}">শেড তালিকা</a></li>
                                         <li><a href="{{ route('shed.list') }}">শেড রিপোর্ট</a></li>
                                     </ul>
+                                </li> --}}
+                                <li>
+                                    <a href="{{ route('shed.list') }}">
+                                        <i style="margin-right:8px; font-size: 1.2rem;"
+                                            class="fa-solid fa-warehouse"></i>
+                                        শেড কালার
+                                    </a>
                                 </li>
                                 {{-- Shed List --}}
 
@@ -196,7 +203,7 @@
                                     <a href="{{ route('supplier.list') }}">
                                         <i style="margin-right:8px; font-size: 1.2rem;"
                                             class="fa-solid fa-people-group"></i>
-                                        Supplier
+                                        সাপ্লাইয়ার
                                     </a>
                                 </li>
 

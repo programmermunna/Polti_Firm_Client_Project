@@ -16,7 +16,7 @@
                     <div class="d-flex justify-content-end">
                         <a class="btn btn-sm btn-primary" href="{{ route('polti.list') }}">বাচ্চার তালিকা</a>
                         <a class="btn btn-sm btn-primary" href="{{ route('category.list') }}">ধরন</a>
-                        <a class="btn btn-sm btn-primary" href="{{ route('shed.list') }}">শেড</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('shed.list') }}">শেড কালার</a>
                         <a class="btn btn-sm btn-primary" href="{{ route('buyer.list') }}">ক্রেতা</a>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">শেড<span
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">শেড কালার<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
                                 <select name="shed_id" id="" class="form-control">

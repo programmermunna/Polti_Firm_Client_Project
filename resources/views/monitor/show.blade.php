@@ -121,11 +121,11 @@
                         <input type="hidden" name="shed_id">
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">
-                                Shed Name
+                                Shed Color
                                 <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6">
-                                <input class="form-control" name="name" placeholder="Shed Name | Number" type="text"
+                                <input class="form-control" name="name" type="text"
                                     required="required" />
                             </div>
                             @error('name')
@@ -192,11 +192,11 @@
                         @csrf
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">
-                                Shed Name
+                                Shed Color
                                 <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6">
-                                <input class="form-control" name="name" placeholder="Shed Name | Number"
+                                <input class="form-control" name="name"
                                     type="text" required="required" />
                             </div>
                             @error('name')

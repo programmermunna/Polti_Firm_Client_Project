@@ -82,7 +82,7 @@ class ShedController extends Controller
             $shed = Shed::where('branch_id', $branchId)->where('id', $shedId)->first();
 
             if(!$shed){
-                return redirect()->back()->with('message', 'Shed Not Found');
+                return redirect()->back()->with('message', 'Shed Colort Found');
             }
 
             $validData = $request->validationData();
@@ -111,7 +111,7 @@ class ShedController extends Controller
             $shed = Shed::find($id);
 
             if(!$shed){
-                return response()->json(['message' => 'Shed not Found.']);
+                return response()->json(['message' => 'Shed Colort Found.']);
             }
 
             $res = $shed->delete();

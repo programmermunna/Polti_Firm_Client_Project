@@ -17,7 +17,7 @@
                         <a class="btn btn-sm btn-primary" href="{{ route('polti.sell') }}">নতুন বিক্রয়</a>
                         <a class="btn btn-sm btn-primary" href="{{ route('polti.create') }}">বাচ্চা যুক্ত</a>
                         <a class="btn btn-sm btn-primary" href="{{ route('category.list') }}">ধরন</a>
-                        <a class="btn btn-sm btn-primary" href="{{ route('shed.list') }}">শেড</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('shed.list') }}">শেড কালার</a>
                         <a class="btn btn-sm btn-primary" href="{{ route('buyer.list') }}">ক্রেতা</a>
                     </div>
                 </div>
