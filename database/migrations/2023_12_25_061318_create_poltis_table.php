@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('age', 100)->nullable();
             $table->integer('deth')->nullable();
             $table->string('description', 100)->nullable();
+            $table->string('routine_status', 10)->default('Done')->nullable();
             $table->string('status', 10)->default('1')->nullable();
             $table->string('flag', 10)->default('0')->nullable();
             $table->softDeletes();

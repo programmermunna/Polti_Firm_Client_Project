@@ -84,8 +84,6 @@
                                                             data-id="{{ $polti->id }}">
                                                             <i class="fa-solid fa-trash"></i>
                                                         </button>
-                                                        <a class="btn btn-sm btn-info" href="{{ route('routine.create', $polti->id) }}">
-                                                            <i class="fa-solid fa-file-invoice"></i> </a>
                                                     </td>
                                                 </tr>
                                             @endforeach

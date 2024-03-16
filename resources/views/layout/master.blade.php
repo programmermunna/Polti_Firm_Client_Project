@@ -184,6 +184,20 @@
                                     <a>
                                         <i style="margin-right:8px; font-size: 1.2rem;"
                                             class="fa-brands fa-watchman-monitoring"></i>
+                                        রুটিন
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{ route('routine.list') }}">রুটিন তালিকা</a></li>
+                                    </ul>
+                                </li>
+                                {{-- Monitoring --}}
+
+                                {{-- Monitoring --}}
+                                <li>
+                                    <a>
+                                        <i style="margin-right:8px; font-size: 1.2rem;"
+                                            class="fa-brands fa-watchman-monitoring"></i>
                                         মনিটরিং
                                         <span class="fa fa-chevron-down"></span>
                                     </a>
@@ -192,6 +206,7 @@
                                         <li><a href="{{ route('routine.monitoring') }}">রুটিন মনিটরিং</a></li>
                                     </ul>
                                 </li>
+                                {{-- Monitoring --}}
                             </ul>
                         </div>
 

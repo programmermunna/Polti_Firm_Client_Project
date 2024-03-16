@@ -1,26 +1,28 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\PoltiController;
-use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CostController;
-use App\Http\Controllers\FoodController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\BuyerController;
-use App\Http\Controllers\StaffController;
+
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BranchController;
-use App\Http\Controllers\ReportController;
-use App\Http\Controllers\ExpenseController;
-use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CostController;
+use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\FoodController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MonitoringController;
+use App\Http\Controllers\PoltiController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\RoutineController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ShedController;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -176,6 +178,14 @@ Route::middleware(['auth', 'auth.branch'])->group(function(){
     Route::post('/unit/store', [FoodController::class, 'unitStore'])->name('unit.store');
     Route::post('/unit/edit', [FoodController::class, 'unitUpdate'])->name('unit.edit');
     Route::get('/unit/delete/{id}', [FoodController::class, 'unitDestroy'])->middleware('role:admin');
+
+    //For Routine
+    Route::get('/routine/create/{id}', [RoutineController::class, 'routineCreate'])->name('routine.create');
+    Route::get('/routine/list', [RoutineController::class, 'routineIndex'])->name('routine.list');
+    Route::post('/routine/store', [RoutineController::class, 'routineStore'])->name('routine.store');
+    Route::get('/routine/edit', [RoutineController::class, 'routineEdit'])->name('routine.edit');
+    Route::get('/routine/update', [RoutineController::class, 'routineUpdate'])->name('routine.update');
+    Route::get('/routine/delete/{id}', [RoutineController::class, 'routineDestroy'])->middleware('role:admin');
 
     //Monitoring Route
     Route::controller(MonitoringController::class)->group(function(){

@@ -59,15 +59,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
-
-                            <div class="form-group" style="padding: 5px;">
-                                <label for="">Note</label>
-                                <textarea name="description" class="form-control" id="" cols="30" rows="4"></textarea>
-                                @error('description')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
+                            </div>                            
 
                         </div>
 
@@ -118,6 +110,15 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+
+                                <div class="form-group" style="padding: 5px;">
+                                    <label for="">Note</label>
+                                    <textarea name="description" class="form-control" id="" cols="30" rows="4"></textarea>
+                                    @error('description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
                             </div>
                         </div>
                     </div>
