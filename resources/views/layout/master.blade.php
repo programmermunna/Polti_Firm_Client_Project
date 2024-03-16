@@ -218,7 +218,6 @@
                                         <li><a href="{{ route('food.list') }}">Food Item</a></li>
                                         <li><a href="{{ route('unit.list') }}">Food Unit</a></li>
                                         <li><a href="{{ route('vaccine.list') }}">Vaccine</a></li>
-                                        <li><a href="{{ route('designation.list') }}">Designantion</a></li>
                                     </ul>
                                 </li>
                                 {{-- Catalog Menu List --}}

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Models\Branch;
 use App\Models\Cost;
-use App\Models\Designation;
 use App\Models\Income;
 use App\Models\Polti;
 use App\Models\PoltiSell;
@@ -27,13 +26,6 @@ class AdminController extends Controller
         if(!Auth::check()){
             return redirect()->route('login.us');
         }
-    }
-
-    public function index()
-    {
-        $data['designations'] = Designation::where('status', 1)->get();
-
-        return view('designation.index')->with($data);
     }
 
     public function dashboard()
@@ -98,89 +90,6 @@ class AdminController extends Controller
         // return $branches;
 
         return view('branch.branch', compact('branches'));
-    }
-
-    public function store(Request $request)
-    {
-        try {
-            DB::beginTransaction();
-
-            $designationObj = new Designation();
-
-            $designationObj->name = $request->input('name');
-            $designationObj->slug = Str::slug($request->input('name'), '-');
-            $designationObj->description = $request->input('description');
-
-            $res = $designationObj->save();
-
-            DB::commit();
-            if($res){
-                return redirect()->back()->with('message', 'Designation created');
-            }
-        } catch (\Exception $e) {
-            DB::rollback();
-            info($e);
-        }
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request)
-    {
-        try {
-            DB::beginTransaction();
-            $designationId = $request->input('designation_id');
-
-            $designation = Designation::where('id', $designationId)->first();
-
-            if(!$designation){
-                return redirect()->back()->with('message', 'Designation Not Found');
-            }
-
-            $validData = [
-                'name'        => $request->input('name'),
-                'description' => $request->input('description'),
-                'status'      => $request->input('status'),
-            ];
-
-            $res = $designation->update($validData);
-
-            DB::commit();
-
-            if($res){
-                return redirect()->back()->with('message', 'Designation updated');
-            }
-        } catch (\Exception $e) {
-            DB::rollback();
-            info($e);
-        }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-    {
-        try {
-            DB::beginTransaction();
-
-            $designation = Designation::find($id);
-
-            if(!$designation){
-                return response()->json(['message' => 'Designation not found']);
-            }
-
-            $res = $designation->delete();
-
-            DB::commit();
-            if($res){
-                return response()->json(['message' => 'Designation deleted']);
-            }
-        } catch (\Exception $e) {
-            DB::rollback();
-            info($e);
-        }
     }
 
     public function SupplierIndex()

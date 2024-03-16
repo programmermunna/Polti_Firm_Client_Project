@@ -64,10 +64,6 @@ Route::middleware(['auth', 'auth.branch'])->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
     Route::controller(AdminController::class)->group(function(){
-        Route::get('/designation/list', 'index')->name('designation.list');
-        Route::post('/designation/store', 'store')->name('designation.store');
-        Route::post('/designation/update', 'update')->name('designation.edit');
-        Route::get('/designation/delete/{id}', 'destroy');
 
         //For Supplier Route
         Route::get('/supplier/list', 'SupplierIndex')->name('supplier.list');
