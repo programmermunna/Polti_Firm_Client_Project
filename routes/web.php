@@ -182,7 +182,7 @@ Route::middleware(['auth', 'auth.branch'])->group(function(){
     //For Routine
     Route::get('/routine/create/{id}', [RoutineController::class, 'routineCreate'])->name('routine.create');
     Route::get('/routine/list', [RoutineController::class, 'routineIndex'])->name('routine.list');
-    Route::post('/routine/store', [RoutineController::class, 'routineStore'])->name('routine.store');
+    Route::post('/routine/store/{id}', [RoutineController::class, 'routineStore'])->name('routine.store');
     Route::get('/routine/edit', [RoutineController::class, 'routineEdit'])->name('routine.edit');
     Route::get('/routine/update', [RoutineController::class, 'routineUpdate'])->name('routine.update');
     Route::get('/routine/delete/{id}', [RoutineController::class, 'routineDestroy'])->middleware('role:admin');

@@ -19,6 +19,7 @@ class Routine extends Model
         'vaccine_item',
         'vaccine_period',
         'description',
+        'date',
         'status'
     ];
 }

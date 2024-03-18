@@ -17,15 +17,16 @@ return new class extends Migration
                 ->onUpdate('cascade')->onUpdate('cascade')->nullable();
             $table->foreignId('shed_id')->constrained('sheds')
             ->onUpdate('cascade')->onDelete('cascade')->nullable();
-            $table->foreignId('polti_id')->constrained('poltis')
+            $table->foreignId('polti_id')->constrained('poltis')->unique()
                 ->onUpdate('cascade')->onDelete('cascade')->nullable();
             $table->string('title', 100)->nullable();
-            $table->integer('food_item')->nullable();
+            $table->string('food_item')->nullable();
             $table->integer('food_period')->nullable();
-            $table->integer('vaccine_item')->nullable();
+            $table->string('vaccine_item')->nullable();
             $table->integer('vaccine_period')->nullable();
             $table->string('description', 100)->nullable();
-            $table->integer('status')->default('1')->nullable();
+            $table->string('date')->nullable();
+            $table->integer('status')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

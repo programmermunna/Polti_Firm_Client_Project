@@ -12,24 +12,19 @@
 
             <div class="x_panel">
                 <div class="page_header">
-                    <h2 class="list_title">পোল্টি বিক্রয় তালিকা</h2>
                     <div class="d-flex justify-content-end">
                         <a class="btn btn-sm btn-primary" href="{{ route('polti.list') }}">বাচ্চার তালিকা</a>
-                        <a class="btn btn-sm btn-primary" href="{{ route('category.list') }}">ধরন</a>
-                        <a class="btn btn-sm btn-primary" href="{{ route('shed.list') }}">শেড কালার</a>
-                        <a class="btn btn-sm btn-primary" href="{{ route('buyer.list') }}">ক্রেতা</a>
                     </div>
                 </div>
                 <div class="x_content">
-                    <form class="" action="{{ route('routine.store') }}" method="post" novalidate>
-                        @csrf   
-                        <input name="ref" type="hidden" value="secret">
-                        <span class="section">বাচ্চার তথ্য</span>
+                    <form class="" action="{{ route('routine.store',$data['ref']) }}" method="post" novalidate>
+                        @csrf
+                        <span class="section">রুটিন তথ্য</span>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align">রুটিন টাইটেল<span class="required">*</span></label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align">রুটিন টাইটেল<span  class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
-                                <input class="form-control" name="title" type="text" placeholder="শিরোনাম"/>
+                                <input class="form-control" name="title" type="text" placeholder="শিরোনাম" required/>
                             </div>
                             @error('title')
                                 <span class="text-danger">{{ $message }}</span>
@@ -40,7 +35,7 @@
                             <label class="col-form-label col-md-3 col-sm-3  label-align">খাবারের তালিকা<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
-                                <select name="food" id="" multiple class="form-control">
+                                <select name="food[]" id="" multiple class="form-control" required>
                                     <option value="" selected disabled>select</option>
                                     @foreach ($data['foods'] as $food)
                                         <option value="{{ $food->id }}">{{ $food->name }}</option>
@@ -56,7 +51,7 @@
                             <label class="col-form-label col-md-3 col-sm-3  label-align">খাবারের পিরিওড (দিন)<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
-                                <input class="form-control" name="food_period" type="number" placeholder="প্রতি সপ্তাহে"/>
+                                <input class="form-control" name="food_period" type="number" placeholder="প্রতি সপ্তাহে" required/>
                             </div>
                             @error('food_period')
                                 <span class="text-danger">{{ $message }}</span>
@@ -67,7 +62,7 @@
                             <label class="col-form-label col-md-3 col-sm-3  label-align">ভ্যাক্সিন তালিকা<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
-                                <select name="vaccine" id="" multiple class="form-control">
+                                <select name="vaccine[]" id="" multiple class="form-control">
                                     <option value="" selected disabled>select</option>
                                     @foreach ($data['vaccines'] as $vaccine)
                                         <option value="{{ $vaccine->id }}">{{ $vaccine->name }}</option>
@@ -94,9 +89,23 @@
                             <label class="col-form-label col-md-3 col-sm-3  label-align">বিবরণ<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
-                                <textarea class="form-control" name='description' placeholder="বিস্তারিত বিবরন"></textarea>
+                                <textarea class="form-control" name='description' placeholder="বিস্তারিত বিবরন" required></textarea>
                             </div>
                             @error('description')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">স্টাটাস<span
+                                    class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6">
+                                <select name="status" id="" class="form-control">
+                                    <option value="1" >Publish</option>
+                                    <option value="0" >Private</option>
+                                </select>
+                            </div>
+                            @error('status')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -105,9 +114,9 @@
                             <label class="col-form-label col-md-3 col-sm-3  label-align">তারিখ<span
                                     class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
-                                <input class="form-control" class='date' type="date" name="date">
+                                <input class="form-control" required class='date' type="date" name="date">
                             </div>
-                            @error('buy_date')
+                            @error('date')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
